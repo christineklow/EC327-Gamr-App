@@ -7,6 +7,7 @@
     tools:context="com.awesomeness.christine.ec327project.tictactoe"
     android:background="@drawable/background">
 
+    <!--Tic Tac Toe title-->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,6 +23,7 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/space4" />
 
+    <!--Tic Tac Toe Grid-->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,7 +32,22 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/tictactoe" />
 
-    <!--Empty grid space buttons-->
+    <!--**********************************************************-->
+    <!--implement JAVA portion to these buttons below-->
+
+    <!--How the tic tac toe grid looks like
+
+        1 | 2 | 3
+       ___________
+        4 | 5 | 6
+       ___________
+        7 | 8 | 9
+
+        the numbers in the grid correspond to the button associated with it
+
+    -->
+
+    <!--Grid button 1-->
     <Button
         android:layout_width="130dp"
         android:layout_height="120dp"
@@ -42,6 +59,7 @@
         android:layout_marginTop="39dp"
         android:visibility="invisible" />
 
+    <!--Grid button 2-->
     <Button
         android:layout_width="130dp"
         android:layout_height="120dp"
@@ -52,6 +70,7 @@
         android:layout_toRightOf="@+id/tic1"
         android:layout_toEndOf="@+id/tic1" />
 
+    <!--Grid button 3-->
     <Button
         android:layout_width="130dp"
         android:layout_height="120dp"
@@ -62,6 +81,7 @@
         android:layout_toRightOf="@+id/tic2"
         android:layout_toEndOf="@+id/tic2" />
 
+    <!--Grid button 4-->
     <Button
         android:layout_width="130dp"
         android:layout_height="120dp"
@@ -72,6 +92,7 @@
         android:layout_alignLeft="@+id/tictacgrid"
         android:layout_alignStart="@+id/tictacgrid" />
 
+    <!--Grid button 5-->
     <Button
         android:layout_width="130dp"
         android:layout_height="120dp"
@@ -82,6 +103,7 @@
         android:layout_toRightOf="@+id/tic4"
         android:layout_toEndOf="@+id/tic4" />
 
+    <!--Grid button 6-->
     <Button
         android:layout_width="130dp"
         android:layout_height="120dp"
@@ -92,6 +114,7 @@
         android:layout_toRightOf="@+id/tic2"
         android:layout_toEndOf="@+id/tic2" />
 
+    <!--Grid button 7-->
     <Button
         android:layout_width="130dp"
         android:layout_height="120dp"
@@ -102,6 +125,7 @@
         android:layout_alignLeft="@+id/tictacgrid"
         android:layout_alignStart="@+id/tictacgrid" />
 
+    <!--Grid button 8-->
     <Button
         android:layout_width="130dp"
         android:layout_height="120dp"
@@ -112,6 +136,7 @@
         android:layout_toRightOf="@+id/tic7"
         android:layout_toEndOf="@+id/tic7" />
 
+    <!--Grid button 9-->
     <Button
         android:layout_width="130dp"
         android:layout_height="120dp"
@@ -122,6 +147,8 @@
         android:layout_toRightOf="@+id/tic8"
         android:layout_toEndOf="@+id/tic8" />
 
+    <!--**********************************************************-->
+    <!--Game info displayed underneath tictactoe grid. Does not need connecting to java-->
     <Space
         android:layout_width="fill_parent"
         android:layout_height="30px"
