@@ -40,30 +40,111 @@
     -->
 
     <!--Grid button 1-->
+
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/five" />
+        android:id="@+id/tic1"
+        android:layout_above="@+id/tic5"
+        android:layout_toLeftOf="@+id/tic2"
+        android:layout_toStartOf="@+id/tic2"
+        android:background="@null"
+        android:src="@drawable/corners" />
 
 
     <!--Grid button 2-->
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tic2"
+        android:layout_above="@+id/tic5"
+        android:layout_alignLeft="@+id/tic5"
+        android:layout_alignStart="@+id/tic5"
+        android:src="@drawable/twoandeight"
+        android:background="@null" />
+
     <!--Grid button 3-->
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tic3"
+        android:layout_above="@+id/tic5"
+        android:layout_toRightOf="@+id/tic2"
+        android:layout_toEndOf="@+id/tic2"
+        android:src="@drawable/corners"
+        android:background="@null" />
 
     <!--Grid button 4-->
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tic4"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/tic5"
+        android:layout_toStartOf="@+id/tic5"
+        android:background="@null"
+        android:src="@drawable/side" />
+
     <!--Grid button 5-->
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tic5"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/five"
+        android:background="@null" />
 
     <!--Grid button 6-->
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tic6"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/tic5"
+        android:layout_toEndOf="@+id/tic5"
+        android:src="@drawable/side"
+        android:background="@null" />
+
     <!--Grid button 7-->
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tic7"
+        android:layout_below="@+id/tic5"
+        android:layout_toLeftOf="@+id/tic5"
+        android:layout_toStartOf="@+id/tic5"
+        android:src="@drawable/corners"
+        android:background="@null" />
 
     <!--Grid button 8-->
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tic8"
+        android:layout_below="@+id/tic5"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/twoandeight"
+        android:background="@null" />
+
     <!--Grid button 9-->
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tic9"
+        android:layout_below="@+id/tic5"
+        android:layout_toRightOf="@+id/tic5"
+        android:layout_toEndOf="@+id/tic5"
+        android:background="@null"
+        android:src="@drawable/corners" />
 
     <!--**********************************************************-->
     <!--Game info displayed underneath tictactoe grid. Does not need connecting to java-->
@@ -86,5 +167,8 @@ Computer: O"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:gravity="center_horizontal" />
+
+
+
 
 </RelativeLayout>
