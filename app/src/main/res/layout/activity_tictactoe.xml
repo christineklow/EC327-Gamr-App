@@ -1,28 +1,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.awesomeness.christine.ec327project.tictactoe"
     android:background="@drawable/background">
-
-    <!--************************************
-
-
-      ACTIVITY SCREEN FOR TIC TAC TOE
-
-
-  -************************************-->
-
-    <!--Tic Tac Toe title-->
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tictacgrid"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/tictacgrid" />
 
     <Space
         android:layout_width="match_parent"
@@ -31,7 +16,6 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/space4" />
 
-    <!--Tic Tac Toe Grid-->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,7 +25,7 @@
         android:src="@drawable/tictactoe" />
 
     <!--**********************************************************-->
-    <!--implement JAVA portion to these buttons below-->
+    <!--Connect these buttons to JAva-->
 
     <!--How the tic tac toe grid looks like
 
@@ -56,104 +40,30 @@
     -->
 
     <!--Grid button 1-->
-    <Button
-        android:layout_width="130dp"
-        android:layout_height="120dp"
-        android:text="New Button"
-        android:id="@+id/tic1"
-        android:layout_alignTop="@+id/tictacgrid"
-        android:layout_alignLeft="@+id/tictacgrid"
-        android:layout_alignStart="@+id/tictacgrid"
-        android:layout_marginTop="39dp"
-        android:visibility="invisible" />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/five" />
+
 
     <!--Grid button 2-->
-    <Button
-        android:layout_width="130dp"
-        android:layout_height="120dp"
-        android:text="New Button"
-        android:id="@+id/tic2"
-        android:visibility="invisible"
-        android:layout_alignTop="@+id/tic1"
-        android:layout_toRightOf="@+id/tic1"
-        android:layout_toEndOf="@+id/tic1" />
 
     <!--Grid button 3-->
-    <Button
-        android:layout_width="130dp"
-        android:layout_height="120dp"
-        android:text="New Button"
-        android:id="@+id/tic3"
-        android:visibility="invisible"
-        android:layout_alignTop="@+id/tic2"
-        android:layout_toRightOf="@+id/tic2"
-        android:layout_toEndOf="@+id/tic2" />
 
     <!--Grid button 4-->
-    <Button
-        android:layout_width="130dp"
-        android:layout_height="120dp"
-        android:text="New Button"
-        android:id="@+id/tic4"
-        android:visibility="invisible"
-        android:layout_below="@+id/tic1"
-        android:layout_alignLeft="@+id/tictacgrid"
-        android:layout_alignStart="@+id/tictacgrid" />
 
     <!--Grid button 5-->
-    <Button
-        android:layout_width="130dp"
-        android:layout_height="120dp"
-        android:text="New Button"
-        android:id="@+id/tic5"
-        android:visibility="invisible"
-        android:layout_below="@+id/tic1"
-        android:layout_toRightOf="@+id/tic4"
-        android:layout_toEndOf="@+id/tic4" />
 
     <!--Grid button 6-->
-    <Button
-        android:layout_width="130dp"
-        android:layout_height="120dp"
-        android:text="New Button"
-        android:id="@+id/tic6"
-        android:visibility="invisible"
-        android:layout_below="@+id/tic2"
-        android:layout_toRightOf="@+id/tic2"
-        android:layout_toEndOf="@+id/tic2" />
 
     <!--Grid button 7-->
-    <Button
-        android:layout_width="130dp"
-        android:layout_height="120dp"
-        android:text="New Button"
-        android:id="@+id/tic7"
-        android:visibility="invisible"
-        android:layout_below="@+id/tic4"
-        android:layout_alignLeft="@+id/tictacgrid"
-        android:layout_alignStart="@+id/tictacgrid" />
 
     <!--Grid button 8-->
-    <Button
-        android:layout_width="130dp"
-        android:layout_height="120dp"
-        android:text="New Button"
-        android:id="@+id/tic8"
-        android:visibility="invisible"
-        android:layout_below="@+id/tic5"
-        android:layout_toRightOf="@+id/tic7"
-        android:layout_toEndOf="@+id/tic7" />
 
     <!--Grid button 9-->
-    <Button
-        android:layout_width="130dp"
-        android:layout_height="120dp"
-        android:text="New Button"
-        android:id="@+id/tic9"
-        android:visibility="invisible"
-        android:layout_below="@+id/tic5"
-        android:layout_toRightOf="@+id/tic8"
-        android:layout_toEndOf="@+id/tic8" />
 
     <!--**********************************************************-->
     <!--Game info displayed underneath tictactoe grid. Does not need connecting to java-->
