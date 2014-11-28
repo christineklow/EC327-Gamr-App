@@ -9,9 +9,9 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.awesomeness.christine.ec327project.mainscreen"
-            android:label="@string/app_name"
             android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,6 +25,10 @@
         <activity
             android:name="com.awesomeness.christine.ec327project.tictactoe"
             android:label="@string/title_activity_tictactoe" >
+        </activity>
+        <activity
+            android:name="com.awesomeness.christine.ec327project.numbers"
+            android:label="@string/title_activity_numbers" >
         </activity>
     </application>
 

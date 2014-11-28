@@ -147,6 +147,7 @@
         android:src="@drawable/corners" />
 
     <!--**********************************************************-->
+
     <!--Game info displayed underneath tictactoe grid. Does not need connecting to java-->
     <Space
         android:layout_width="fill_parent"

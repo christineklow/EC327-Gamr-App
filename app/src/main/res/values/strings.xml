@@ -6,5 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_gamelist">gamelist</string>
     <string name="title_activity_tictactoe">tictactoe</string>
+    <string name="title_activity_numbers">numbers</string>
 
 </resources>
