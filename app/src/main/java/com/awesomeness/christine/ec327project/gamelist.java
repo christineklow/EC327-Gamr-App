@@ -13,12 +13,14 @@ import android.widget.ImageButton;
 public class gamelist extends Activity {
 
     Button ticbutton;
+    Button numbersbutton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gamelist);
 
         configuretictactoe();
+        configurenumbers();
     }
 
     //Connecting to tictacto
@@ -32,6 +34,15 @@ public class gamelist extends Activity {
         });
     }
 
+    public void configurenumbers(){
+        numbersbutton = (Button) findViewById(R.id.numbersbutton);
+        numbersbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent("numbers"));
+            }
+        });
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
