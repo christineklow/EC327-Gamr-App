@@ -23,7 +23,8 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:src="@drawable/one_player"
-        android:background="@null" />
+        android:background="@null"
+        android:clickable="true" />
 
     <!--*****************************************-->
 
@@ -64,7 +65,8 @@
         android:layout_below="@+id/space2"
         android:layout_centerHorizontal="true"
         android:src="@drawable/twoplayer"
-        android:background="@null" />
+        android:background="@null"
+        android:clickable="true" />
 
     <!--*****************************************-->
 </RelativeLayout>
