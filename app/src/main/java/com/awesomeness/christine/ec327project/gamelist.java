@@ -21,6 +21,7 @@ public class gamelist extends Activity {
         configuretictactoe();
     }
 
+    //Connecting to tictacto
     public void configuretictactoe(){
         ticbutton = (Button) findViewById(R.id.ticbutton);
         ticbutton.setOnClickListener(new View.OnClickListener() {
