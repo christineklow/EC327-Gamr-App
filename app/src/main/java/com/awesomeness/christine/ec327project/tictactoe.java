@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 
-public class tictactoe extends Activity implements View.OnClickListener {
+public class tictactoe extends Activity {
 
     ImageButton tic_1;
     ImageButton tic_2;
@@ -25,11 +25,106 @@ public class tictactoe extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tictactoe);
-        tic_1 = (ImageButton) findViewById(R.id.tic1);
-        tic_1.setOnClickListener(this);
-
+        configurebutton1();
+        configurebutton2();
+        configurebutton3();
+        configurebutton4();
+        configurebutton5();
+        configurebutton6();
+        configurebutton7();
+        configurebutton8();
+        configurebutton9();
     }
 
+    public void configurebutton1(){
+        tic_1 = (ImageButton) findViewById(R.id.tic1);
+        tic_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_1.setImageResource(R.drawable.xcorner);
+            }
+        });
+    }
+
+    public void configurebutton2(){
+        tic_2 = (ImageButton) findViewById(R.id.tic2);
+        tic_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_2.setImageResource(R.drawable.xtwoandeigth);
+            }
+        });
+    }
+
+    public void configurebutton3(){
+        tic_3 = (ImageButton) findViewById(R.id.tic3);
+        tic_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_3.setImageResource(R.drawable.xcorner);
+            }
+        });
+    }
+
+    public void configurebutton4(){
+        tic_4 = (ImageButton) findViewById(R.id.tic4);
+        tic_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_4.setImageResource(R.drawable.xfour);
+            }
+        });
+    }
+
+    public void configurebutton5(){
+        tic_5 = (ImageButton) findViewById(R.id.tic5);
+        tic_5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_5.setImageResource(R.drawable.xfive);
+            }
+        });
+    }
+
+    public void configurebutton6(){
+        tic_6 = (ImageButton) findViewById(R.id.tic6);
+        tic_6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_6.setImageResource(R.drawable.xsix);
+            }
+        });
+    }
+
+    public void configurebutton7(){
+        tic_7 = (ImageButton) findViewById(R.id.tic7);
+        tic_7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_7.setImageResource(R.drawable.xcorner);
+            }
+        });
+    }
+
+    public void configurebutton8(){
+        tic_8 = (ImageButton) findViewById(R.id.tic8);
+        tic_8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_8.setImageResource(R.drawable.xtwoandeigth);
+            }
+        });
+    }
+
+    public void configurebutton9(){
+        tic_9 = (ImageButton) findViewById(R.id.tic9);
+        tic_9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_9.setImageResource(R.drawable.xcorner);
+            }
+        });
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -53,10 +148,9 @@ public class tictactoe extends Activity implements View.OnClickListener {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onClick(View view) {
-        //mainTextView.setText("hi");
-    }
+
+
+  
 }
 
 /*public class tictactoe {

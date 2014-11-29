@@ -49,7 +49,9 @@
         android:layout_toLeftOf="@+id/tic2"
         android:layout_toStartOf="@+id/tic2"
         android:background="@null"
-        android:src="@drawable/corners" />
+        android:src="@drawable/corners"
+        android:onClick="onClick"
+        android:nestedScrollingEnabled="false" />
 
 
     <!--Grid button 2-->
