@@ -7,4 +7,268 @@
     tools:context="com.awesomeness.christine.ec327project.matchingpairs"
     android:background="@drawable/background">
 
+
+<!--Title: Matching Pairs-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/matchingpairstitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/matchingpairs" />
+
+<!--************************************************-->
+
+                  <!--Layout Setup-->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/matchingpairstitle"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:text="New Text"
+            android:id="@+id/layoutguideone"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/layoutguideone"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/layoutpair1"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:text="New Text"
+                android:id="@+id/layoutguide2"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_above="@+id/layoutguide2"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/layoutrow1"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" "
+                    android:id="@+id/rowonespace"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+
+<!--******************************************************************-->
+
+
+                <!--Card One Button-->
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardone"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/rowonespace"
+                    android:layout_toStartOf="@+id/rowonespace"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/card"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true" />
+
+                <!--Card Two Button-->
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardtwo"
+                    android:layout_alignBottom="@+id/cardone"
+                    android:layout_toRightOf="@+id/rowonespace"
+                    android:layout_toEndOf="@+id/rowonespace"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/card"
+                    android:layout_alignParentTop="true" />
+            </RelativeLayout>
+
+<!--******************************************************************-->
+
+            <!--Layout Row 2 Setup-->
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/layoutguide2"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/layoutrow2"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" "
+                    android:id="@+id/rowtwospace"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+
+<!--******************************************************************-->
+
+                <!--Card Three Button-->
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardthree"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/rowtwospace"
+                    android:layout_toStartOf="@+id/rowtwospace"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/card"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true" />
+
+                <!--Card Four Button-->
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardfour"
+                    android:layout_alignBottom="@+id/cardthree"
+                    android:layout_toRightOf="@+id/rowtwospace"
+                    android:layout_toEndOf="@+id/rowtwospace"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/card"
+                    android:layout_alignParentTop="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+<!--******************************************************************-->
+
+                   <!--Layout Row 3 Setup-->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/layoutguideone"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/layoutpair2"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:text=" "
+                android:id="@+id/layoutguide3"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_above="@+id/layoutguide3"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/layoutrow3"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" "
+                    android:id="@+id/rowthreespace"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+
+<!--******************************************************************-->
+
+                <!--Card Five Button-->
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardfive"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/rowthreespace"
+                    android:layout_toStartOf="@+id/rowthreespace"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/card"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true" />
+
+                <!--Card Six Button-->
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardsix"
+                    android:layout_alignBottom="@+id/cardfive"
+                    android:layout_toRightOf="@+id/rowthreespace"
+                    android:layout_toEndOf="@+id/rowthreespace"
+                    android:layout_alignParentStart="false"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/card"
+                    android:layout_alignParentTop="true" />
+            </RelativeLayout>
+
+<!--******************************************************************-->
+
+            <!--Layout Row 4 Setup-->
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/layoutguide3"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/layoutrow4"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" "
+                    android:id="@+id/rowfourspace"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+
+<!--******************************************************************-->
+
+                <!--Card Seven Button-->
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardseven"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/rowfourspace"
+                    android:layout_toStartOf="@+id/rowfourspace"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/card"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true" />
+
+                <!--Card Eight Button-->
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardeight"
+                    android:layout_alignBottom="@+id/cardseven"
+                    android:layout_toRightOf="@+id/rowfourspace"
+                    android:layout_toEndOf="@+id/rowfourspace"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/card"
+                    android:layout_alignParentTop="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
 </RelativeLayout>
