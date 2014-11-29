@@ -33,6 +33,14 @@
                 <category android:name = "android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.awesomeness.christine.ec327project.numbers"
+            android:label="@string/title_activity_numbers" >
+            <intent-filter>
+                <action android:name = "numbers"/>
+                <category android:name = "android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
