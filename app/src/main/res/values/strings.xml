@@ -9,5 +9,6 @@
     <string name="title_activity_numbers">numbers</string>
     <string name="title_activity_test">test</string>
     <string name="title_activity_matchingpairs">matchingpairs</string>
+    <string name="title_activity_watergunrace">watergunrace</string>
 
 </resources>
