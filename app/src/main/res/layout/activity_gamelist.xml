@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="* Tic Tac Toe"
-                android:id="@+id/button"
+                android:id="@+id/ticbutton"
                 android:layout_gravity="center_horizontal"
                 android:background="@null"
                 android:textColor="#FFFFFF"
