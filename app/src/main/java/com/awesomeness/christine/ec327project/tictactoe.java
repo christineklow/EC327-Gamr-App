@@ -249,6 +249,7 @@ public class tictactoe extends Activity {
     }
     return false;
 }
+<<<<<<< Updated upstream
 
     public int minimax_min(){
         int[] board=new int[9];
@@ -318,3 +319,4 @@ public class tictactoe extends Activity {
         return n;
     }
 }*/
+
