@@ -8,6 +8,6 @@
     <string name="title_activity_tictactoe">tictactoe</string>
     <string name="title_activity_numbers">numbers</string>
     <string name="title_activity_test">test</string>
-
+    <string name="title_activity_matchingpairs">matchingpairs</string>
 
 </resources>
