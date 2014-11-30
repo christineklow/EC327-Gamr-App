@@ -18,76 +18,76 @@
         android:layout_marginTop="29dp"
         android:src="@drawable/numbers" />
 
-    <!--First Equation number-->
-
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="X"
-        android:id="@+id/firstnum"
-        android:layout_alignTop="@+id/operation"
-        android:layout_toLeftOf="@+id/operation"
-        android:layout_toStartOf="@+id/operation"
-        android:textSize="50sp"
-        android:textColor="#FFFFFF"
-        android:typeface="normal" />
-
-    <!--Operation-->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" + "
-        android:id="@+id/operation"
-        android:layout_alignTop="@+id/secondnum"
-        android:layout_toLeftOf="@+id/secondnum"
-        android:layout_toStartOf="@+id/secondnum"
-        android:textColor="#FFFFFF"
-        android:typeface="normal"
-        android:textSize="50sp" />
-
-    <!--Second Equation number-->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Y"
-        android:id="@+id/secondnum"
-        android:layout_alignTop="@+id/equalsign"
-        android:layout_toLeftOf="@+id/equalsign"
-        android:layout_toStartOf="@+id/equalsign"
-        android:textColor="#FFFFFF"
-        android:typeface="normal"
-        android:textSize="50sp" />
-
-
-    <!--Equal sign-->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" = "
-        android:id="@+id/equalsign"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:typeface="normal"
-        android:textSize="50sp"
-        android:textColor="#FFFFFF" />
+        android:layout_centerHorizontal="true">
 
-    <!--Answer field-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberSigned"
-        android:ems="10"
-        android:id="@+id/answerspace"
-        android:layout_toEndOf="@+id/equalsign"
-        android:textSize="50sp"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/equalsign"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+            <!--First Equation number-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X"
+                android:id="@+id/firstnum"
+                android:textSize="50sp"
+                android:textColor="#FFFFFF"
+                android:typeface="normal" />
+
+            <!--Operation-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" + "
+                android:id="@+id/operation"
+                android:textColor="#FFFFFF"
+                android:typeface="normal"
+                android:textSize="50sp" />
+
+            <!--Second Equation number-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Y"
+                android:id="@+id/secondnum"
+                android:textColor="#FFFFFF"
+                android:typeface="normal"
+                android:textSize="50sp" />
+
+            <!--Equal sign-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" = "
+                android:id="@+id/equalsign"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:typeface="normal"
+                android:textSize="50sp"
+                android:textColor="#FFFFFF" />
+
+            <!--Answer field-->
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberSigned"
+                android:ems="10"
+                android:id="@+id/answerspace"
+
+                android:textSize="50sp"/>
+        </LinearLayout>
+    </RelativeLayout>
 
 
 </RelativeLayout>

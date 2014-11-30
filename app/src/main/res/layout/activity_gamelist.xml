@@ -13,18 +13,34 @@
         ACTIVITY SCREEN FOR LIST OF GAMES
 
 
-    -************************************-->
+    ************************************-->
+
+    <!--"Pick a Game"-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gamelisttitle"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/games" />
+
+    <!--************************************-->
 
     <!--List of games to Pick from-->
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" >
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/gamelisttitle"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentBottom="true">
 
         <LinearLayout
             android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
@@ -84,21 +100,4 @@
     </ScrollView>
 
     <!--End of game list-->
-    <!--************************************-->
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="100px"
-        android:layout_above="@+id/scrollView"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/space3" />
-
-    <!--"Pick a Game"-->
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_above="@+id/space3"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/games" />
 </RelativeLayout>
