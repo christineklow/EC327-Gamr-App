@@ -14,6 +14,9 @@ public class gamelist extends Activity {
 
     Button ticbutton;
     Button numbersbutton;
+    Button matchpairsbutton;
+    Button watergunbutton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +24,8 @@ public class gamelist extends Activity {
 
         configuretictactoe();
         configurenumbers();
+        configurematchpairs();
+        configurewatergun();
     }
 
     //Connecting to tictacto
@@ -40,6 +45,26 @@ public class gamelist extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent("numbers"));
+            }
+        });
+    }
+
+    public void configurematchpairs(){
+        matchpairsbutton = (Button) findViewById(R.id.matching);
+        matchpairsbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent("matchingpairs"));
+            }
+        });
+    }
+
+    public void configurewatergun(){
+        watergunbutton = (Button) findViewById(R.id.waterrace);
+        watergunbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent("watergunrace"));
             }
         });
     }
