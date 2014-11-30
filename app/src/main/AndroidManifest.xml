@@ -7,6 +7,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <!--Main Screen-->
         <activity
             android:name="com.awesomeness.christine.ec327project.mainscreen"
             android:configChanges="orientation"
@@ -14,50 +16,60 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--Game list-->
         <activity
             android:name="com.awesomeness.christine.ec327project.gamelist"
             android:label="@string/title_activity_gamelist" >
             <intent-filter>
                 <action android:name="gamelist" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <!--Tic Tac Toe-->
         <activity
             android:name="com.awesomeness.christine.ec327project.tictactoe"
             android:label="@string/title_activity_tictactoe" >
             <intent-filter>
                 <action android:name="tictactoe" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <!--Numbers-->
         <activity
             android:name="com.awesomeness.christine.ec327project.numbers"
             android:label="@string/title_activity_numbers" >
             <intent-filter>
                 <action android:name="numbers" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <!--Matching Pairs-->
         <activity
             android:name="com.awesomeness.christine.ec327project.matchingpairs"
             android:label="@string/title_activity_matchingpairs" >
             <intent-filter>
                 <action android:name="matchingpairs" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <!--Water Gun Race-->
         <activity
             android:name="com.awesomeness.christine.ec327project.watergunrace"
             android:label="@string/title_activity_watergunrace" >
+            <intent-filter>
+                <action android:name="watergunrace" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
