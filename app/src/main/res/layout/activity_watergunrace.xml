@@ -114,7 +114,7 @@
                 android:id="@+id/playerrace"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:typeface="normal"
                 android:textColor="#FFFFFF" />
         </RelativeLayout>
@@ -197,7 +197,7 @@
                 android:id="@+id/computerace"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textColor="#FFFFFF"
                 android:typeface="normal" />
 

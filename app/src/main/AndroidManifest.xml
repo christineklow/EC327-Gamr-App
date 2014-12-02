@@ -34,7 +34,7 @@
         <activity
             android:name="com.awesomeness.christine.ec327project.tictactoe"
             android:label="@string/title_activity_tictactoe"
-            android:theme="@style/Theme.AppCompat.Light" >
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="tictactoe" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -45,7 +45,7 @@
         <activity
             android:name="com.awesomeness.christine.ec327project.numbers"
             android:label="@string/title_activity_numbers"
-            android:theme="@style/Theme.AppCompat.Light" >
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="numbers" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -56,7 +56,7 @@
         <activity
             android:name="com.awesomeness.christine.ec327project.matchingpairs"
             android:label="@string/title_activity_matchingpairs"
-            android:theme = "@style/Theme.AppCompat.Light">
+            android:theme = "@style/AppTheme">
             <intent-filter>
                 <action android:name="matchingpairs" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -67,7 +67,7 @@
         <activity
             android:name="com.awesomeness.christine.ec327project.watergunrace"
             android:label="@string/title_activity_watergunrace"
-            android:theme="@style/Theme.AppCompat.Light" >
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="watergunrace" />
                 <category android:name="android.intent.category.DEFAULT" />
