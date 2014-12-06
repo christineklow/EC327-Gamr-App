@@ -7,4 +7,144 @@
     tools:context="com.awesomeness.christine.ec327project.simonsays"
     android:background="@drawable/background">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/simontitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/simonsays" />
+
+    <!--************************************************-->
+
+    <!--Layout Setup-->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/simontitle">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/layoutpair1"
+            android:gravity="center_horizontal"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:text="New Text"
+                android:id="@+id/layoutguide2"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_above="@+id/layoutguide2"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/layoutrow1"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" "
+                    android:id="@+id/rowonespace"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+
+                <!--******************************************************************-->
+
+
+                <!--Card One Button-->
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardone"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/rowonespace"
+                    android:layout_toStartOf="@+id/rowonespace"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/simongreenoff"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true" />
+
+                <!--Card Two Button-->
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardtwo"
+                    android:layout_alignBottom="@+id/cardone"
+                    android:layout_toRightOf="@+id/rowonespace"
+                    android:layout_toEndOf="@+id/rowonespace"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/simonblue"
+                    android:layout_alignParentTop="true" />
+            </RelativeLayout>
+
+            <!--******************************************************************-->
+
+            <!--Layout Row 2 Setup-->
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/layoutguide2"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/layoutrow2"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" "
+                    android:id="@+id/rowtwospace"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+
+                <!--******************************************************************-->
+
+                <!--Card Three Button-->
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardthree"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/rowtwospace"
+                    android:layout_toStartOf="@+id/rowtwospace"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/simonyellow"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true" />
+
+                <!--Card Four Button-->
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardfour"
+                    android:layout_alignBottom="@+id/cardthree"
+                    android:layout_toRightOf="@+id/rowtwospace"
+                    android:layout_toEndOf="@+id/rowtwospace"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/simonred"
+                    android:layout_alignParentTop="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <!--******************************************************************-->
+
+        <!--Layout Row 3 Setup-->
+
+    </RelativeLayout>
+
+
 </RelativeLayout>

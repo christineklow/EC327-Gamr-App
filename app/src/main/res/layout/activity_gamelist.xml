@@ -88,8 +88,34 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="* Water Race"
+                android:text="* Water Gun Fun"
                 android:id="@+id/waterrace"
+                android:layout_gravity="center_horizontal"
+                android:background="@null"
+                android:textColor="#FFFFFF"
+                android:typeface="normal"
+                android:textSize="40sp" />
+
+            <!--Dont Push the button-->
+            <!--when clicked, it should direct to activity_dontpush screen-->
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="* Push the Button"
+                android:id="@+id/buttongame"
+                android:layout_gravity="center_horizontal"
+                android:background="@null"
+                android:textColor="#FFFFFF"
+                android:typeface="normal"
+                android:textSize="40sp" />
+
+            <!--Simon Says-->
+            <!--when clicked, it should direct to activity_simonsays screen-->
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="* Simon Says"
+                android:id="@+id/simonsays"
                 android:layout_gravity="center_horizontal"
                 android:background="@null"
                 android:textColor="#FFFFFF"
