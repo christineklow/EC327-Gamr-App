@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -19,7 +20,7 @@ public class numbers extends Activity {
     TextView op_2;
     TextView num_3;
     EditText answer;
-    Butt enter;
+    Button enter;
     int num1;
     int num2;
     int num3;
@@ -99,7 +100,14 @@ public class numbers extends Activity {
     }
 
     public boolean configurebutton(){
-        button
+        enter = (Button) findViewById(R.id.enterbutton);
+        enter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                enter.setEnabled(true);
+            }
+        });
+        return true;
     }
 
 
@@ -191,14 +199,28 @@ public class numbers extends Activity {
             }
 
             //let the user input the answer, and pass it to variable user
-            if (configureresult() == result) {
+            if(configurebutton() == true)
+            {
+                enter.setEnabled(false);
+                if(configureresult() == result)
+                {
+                    point++;
+                    n++;
+
+                }
+                else
+                {
+                    n++;
+                }
+            }
+            /*if (configureresult() == result) {
                 System.out.println("Good Job!");
                 point++;
                 n++;
             } else {
                 System.out.println("You are Dumb!");
                 n++;
-            }
+            }*/
              //current=System.currentTimeMillis();
         }
             while(n<=10);
