@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
 
-        <!--Main Screen-->
+        <!-- Main Screen -->
         <activity
             android:name="com.awesomeness.christine.ec327project.mainscreen"
             android:configChanges="orientation"
@@ -16,64 +16,105 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!--Game list-->
+        <!-- Game list -->
         <activity
             android:name="com.awesomeness.christine.ec327project.gamelist"
             android:label="@string/title_activity_gamelist" >
             <intent-filter>
                 <action android:name="gamelist" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <!--Tic Tac Toe-->
+        <!-- Tic Tac Toe -->
         <activity
             android:name="com.awesomeness.christine.ec327project.tictactoe"
             android:label="@string/title_activity_tictactoe"
             android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="tictactoe" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <!--Numbers-->
+        <!-- Numbers -->
         <activity
             android:name="com.awesomeness.christine.ec327project.numbers"
             android:label="@string/title_activity_numbers"
             android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="numbers" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <!--Matching Pairs-->
+        <!-- Matching Pairs -->
         <activity
             android:name="com.awesomeness.christine.ec327project.matchingpairs"
             android:label="@string/title_activity_matchingpairs"
-            android:theme = "@style/AppTheme">
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="matchingpairs" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <!--Water Gun Race-->
+        <!-- Water Gun Race -->
         <activity
             android:name="com.awesomeness.christine.ec327project.watergunrace"
             android:label="@string/title_activity_watergunrace"
             android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="watergunrace" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
+        <!-- Simon Says -->
+        <activity
+            android:name="com.awesomeness.christine.ec327project.simonsays"
+            android:label="@string/title_activity_simonsays"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="simonsays" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- Don't Push the Button -->
+        <activity
+            android:name="com.awesomeness.christine.ec327project.dontpush"
+            android:label="@string/title_activity_dontpush"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="dontpush" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- Wackamole -->
+        <activity
+            android:name="com.awesomeness.christine.ec327project.wackamole"
+            android:label="@string/title_activity_wackamole"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="wackamole" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
