@@ -28,7 +28,7 @@ public class gamelist extends Activity {
         configurewatergun();
     }
 
-    //Connecting to tictacto
+    //Connecting to tictactoe
     public void configuretictactoe(){
         ticbutton = (Button) findViewById(R.id.ticbutton);
         ticbutton.setOnClickListener(new View.OnClickListener() {

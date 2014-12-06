@@ -42,6 +42,7 @@ public class tictactoe extends Activity {
             @Override
             public void onClick(View v) {
                 tic_1.setImageResource(R.drawable.xcorner);
+                tic_1.setEnabled(false);
             }
         });
     }
@@ -249,7 +250,6 @@ public class tictactoe extends Activity {
     }
     return false;
 }
-<<<<<<< Updated upstream
 
     public int minimax_min(){
         int[] board=new int[9];
@@ -318,5 +318,20 @@ public class tictactoe extends Activity {
         n=gameState(board3);
         return n;
     }
-}*/
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}*/
