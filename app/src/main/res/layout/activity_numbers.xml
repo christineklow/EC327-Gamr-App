@@ -41,13 +41,13 @@
                 android:textColor="#FFFFFF"
                 android:typeface="normal" />
 
-            <!--Operation-->
+            <!--First Operation-->
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" + "
-                android:id="@+id/operation"
+                android:id="@+id/firstoperation"
                 android:textColor="#FFFFFF"
                 android:typeface="normal"
                 android:textSize="50sp" />
@@ -62,6 +62,29 @@
                 android:textColor="#FFFFFF"
                 android:typeface="normal"
                 android:textSize="50sp" />
+
+            <!--Operation 2-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" + "
+                android:id="@+id/secondoperation"
+                android:textColor="#FFFFFF"
+                android:typeface="normal"
+                android:textSize="50sp" />
+
+            <!--Third Equation number-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Z"
+                android:id="@+id/thirdnum"
+                android:textColor="#FFFFFF"
+                android:typeface="normal"
+                android:textSize="50sp" />
+
 
             <!--Equal sign-->
 
