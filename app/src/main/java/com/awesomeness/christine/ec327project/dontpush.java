@@ -4,14 +4,37 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 
 public class dontpush extends ActionBarActivity {
+
+    ImageButton button;
+    ImageView initial;
+    ImageView last;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dontpush);
+
+        configurebutton();
+    }
+
+    public void configurebutton(){
+        button = (ImageButton) findViewById(R.id.dontpressbutton);
+        initial = (ImageView) findViewById(R.id.dontpresstitle);
+        last = (ImageView) findViewById(R.id.buttonmessage1);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                button.setVisibility(View.GONE);
+                initial.setVisibility(View.GONE);
+                last.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
 

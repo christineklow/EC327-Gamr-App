@@ -27,6 +27,9 @@ public class numbers extends Activity {
     int num4;
     int num5;
     String[] args;
+    int result = 0;
+    int point = 0;
+    int n = 0;
     //int num6;
 
     @Override
@@ -41,6 +44,7 @@ public class numbers extends Activity {
         configurenum3(num5);
         configureresult();
         configurebutton();
+        check();
         main(args);
     }
 
@@ -104,11 +108,30 @@ public class numbers extends Activity {
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                enter.setEnabled(true);
+
+                check();
             }
         });
         return true;
     }
+
+    public void check() {
+        if (configurebutton())
+        {
+            enter.setEnabled(false);
+
+            if (configureresult() == result) {
+                //System.out.println("Good Job!");
+                point++;
+                //n++;
+
+            } else {
+                point = 0;
+                //n++;
+            }
+        }
+    }
+
 
 
     @Override
@@ -133,20 +156,11 @@ public class numbers extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void main(String[] args) { //this is the main function for numbers, we need to change it when we trying to package all games together
-        //display board(the board supposed to be 6 cells and the timer.for example:1+2*4=?,here 1,+,2,*,4,?,are the cells, = are not considered but it should be show and disappear which can be added)
-
-        int n = 0;
-        int point = 0;
-       // Timer_clock clock = new Timer_clock();
-       // Timer timer = new Timer(clock);
-      //  show print = new show(timer.Gettime());
-        //long start_time=System.currentTimeMillis();
-        //long current;
-       // new Thread(print).start();
-       // new Thread(timer).start();//start the timer
-        do {
+    public void main(String[] args) {
+       // do {
+        for(n = 1; n <= 10; n++) {
             Random random = new Random();
+
             int a = random.nextInt(20) + 1;//1-20 int number
             configurenum1(a);
             int b = random.nextInt(2);//0,1,0 stands for +,1 for -
@@ -168,7 +182,7 @@ public class numbers extends Activity {
             configurenum3(e);
             //we have all the variables now, show them in the board
             //int user = 0;
-            int result = 0;
+            //int result = 0;
             switch (d) {
                 case 0:
                     if (b == 0) {
@@ -197,33 +211,10 @@ public class numbers extends Activity {
                         result = a - c % e;
                     break;
             }
+            check();
 
-            //let the user input the answer, and pass it to variable user
-            if(configurebutton() == true)
-            {
-                enter.setEnabled(false);
-                if(configureresult() == result)
-                {
-                    point++;
-                    n++;
-
-                }
-                else
-                {
-                    n++;
-                }
-            }
-            /*if (configureresult() == result) {
-                System.out.println("Good Job!");
-                point++;
-                n++;
-            } else {
-                System.out.println("You are Dumb!");
-                n++;
-            }*/
-             //current=System.currentTimeMillis();
         }
-            while(n<=10);
+            //while(n<=10);
             //while ((current-start_time)<=30000)
                 //The game is just 10 problems, I think too many problems would be boring, and the we record the time each player used to finish this game
             //output the time user use,using variable timer.time, which is the total seconds cost

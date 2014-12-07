@@ -16,6 +16,7 @@ public class gamelist extends Activity {
     Button numbersbutton;
     Button matchpairsbutton;
     Button watergunbutton;
+    Button dontpush;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class gamelist extends Activity {
         configurenumbers();
         configurematchpairs();
         configurewatergun();
+        configuredontpush();
     }
 
     //Connecting to tictactoe
@@ -65,6 +67,16 @@ public class gamelist extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent("watergunrace"));
+            }
+        });
+    }
+
+    public void configuredontpush(){
+        dontpush = (Button) findViewById(R.id.buttongame);
+        dontpush.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent("dontpush"));
             }
         });
     }
