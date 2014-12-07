@@ -171,14 +171,9 @@ public class numbers extends Activity {
         configureop1(b);
         int c = random.nextInt(10) + 1;
         configurenum2(c);
-        int d;
-        if (n <= 5) {
-            d = random.nextInt(2);
-            configureop2(d);
-        } else {
-            d = random.nextInt(4);//2 stands for *,3 stands for %
-            configureop2(d);
-        }
+        int d = random.nextInt(3);//2 stands for *,3 stands for %
+        configureop2(d);
+        //}
 
         int e;
         if(d == 2){
@@ -219,16 +214,6 @@ public class numbers extends Activity {
                 else
                 {
                     result = a - (c * e);
-                }
-                break;
-            case 3:
-                if (b == 0)
-                {
-                    result = a + (c / e);
-                }
-                else
-                {
-                    result = a - (c / e);
                 }
                 break;
         }
