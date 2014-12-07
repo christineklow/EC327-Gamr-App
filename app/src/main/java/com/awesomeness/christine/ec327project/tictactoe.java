@@ -109,6 +109,8 @@ public class tictactoe extends Activity {
         turns=1;
     }
 
+
+/*
     //computer turn
     public void computerturn(){
             int[] availablespots = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -191,6 +193,8 @@ public class tictactoe extends Activity {
                 }
             }
     }
+
+*/
 
     //check if anybody won
     public boolean checkwin(int who){
@@ -605,6 +609,130 @@ public class tictactoe extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    //New code
+    static final int[][] WIN_STATUS = {
+            {1,2,3},
+            {2,3,1},
+            {1,4,7},
+            {4,7,1},
+            {3,6,9},
+            {6,9,3},
+            {7,8,9},
+            {8,9,7},
+            {1,5,9},
+            {5,9,1},
+            {3,5,7},
+            {5,7,3},
+            {2,5,8},
+            {5,8,2},
+            {4,5,6},
+            {5,6,4},
+
+
+    };
+
+    public void computerturn() {
+
+
+        int[] availablespots = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+        int count = 0;
+
+        for (int i = 1; i < 10; i++) {
+            if (gameboard[i] != 0 && gameboard[i] != 10) {
+                availablespots[count] = gameboard[i];
+                count++;
+            }
+        }
+
+        int place=0;
+
+        for(int[] status:WIN_STATUS){
+            if(gameboard[status[0]]==0&&gameboard[status[1]]==0&&gameboard[status[2]]!=10&&gameboard[status[2]]!=0)
+                place=status[2];
+
+        }
+        if(place==0){
+            for(int[] status:WIN_STATUS){
+                if(gameboard[status[0]]==10&&gameboard[status[1]]==10&&gameboard[status[2]]!=10&&gameboard[status[2]]!=0)
+                    place=status[2];
+
+            }
+        }
+        if(place==0){
+            Random random = new Random();
+            int choice = random.nextInt(count);
+            place = availablespots[choice];
+        }
+
+        switch (place) {
+            case 1: {
+                tic_1.setImageResource(R.drawable.ocorner);
+                tic_1.setEnabled(false);
+                gameboard[1] = 10;
+                checkwin(2);
+                break;
+            }
+            case 2: {
+                tic_2.setImageResource(R.drawable.otwoandeight);
+                tic_2.setEnabled(false);
+                gameboard[2] = 10;
+                checkwin(2);
+                break;
+            }
+            case 3: {
+                tic_3.setImageResource(R.drawable.ocorner);
+                tic_3.setEnabled(false);
+                gameboard[3] = 10;
+                checkwin(2);
+                break;
+            }
+            case 4: {
+                tic_4.setImageResource(R.drawable.ofour);
+                tic_4.setEnabled(false);
+                gameboard[4] = 10;
+                checkwin(2);
+                break;
+            }
+            case 5: {
+                tic_5.setImageResource(R.drawable.ofive);
+                tic_5.setEnabled(false);
+                gameboard[5] = 10;
+                checkwin(2);
+                break;
+            }
+            case 6: {
+                tic_6.setImageResource(R.drawable.osix);
+                tic_6.setEnabled(false);
+                gameboard[6] = 10;
+                checkwin(2);
+                break;
+            }
+            case 7: {
+                tic_7.setImageResource(R.drawable.ocorner);
+                tic_7.setEnabled(false);
+                gameboard[7] = 10;
+                checkwin(2);
+                break;
+            }
+            case 8: {
+                tic_8.setImageResource(R.drawable.otwoandeight);
+                tic_8.setEnabled(false);
+                gameboard[8] = 10;
+                checkwin(2);
+                break;
+            }
+            case 9: {
+                tic_9.setImageResource(R.drawable.ocorner);
+                tic_9.setEnabled(false);
+                gameboard[9] = 10;
+                checkwin(2);
+                break;
+            }
+        }
     }
 
 

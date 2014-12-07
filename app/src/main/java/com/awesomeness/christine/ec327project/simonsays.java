@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.view.View.OnTouchListener;
 import android.view.MotionEvent;
 import android.view.View;
+import android.os.CountDownTimer;
 
 import java.util.Random;
 
@@ -23,6 +24,7 @@ public class simonsays extends ActionBarActivity {
     int[] Pattern= new int[20];
     int[] userInput= new int[20];
     int count = 0;
+    int usercount;
 
 
     @Override
@@ -51,15 +53,39 @@ public class simonsays extends ActionBarActivity {
 
         count++;
 
-        //show the pattern
-        for( int i = 0 ; i < count ; i++)
-        {
-            showpattern(Pattern[i]);
-        }
+        new CountDownTimer(2000,1000) {
+
+            public void onTick(long m){
+
+            }
+
+            public void onFinish() {
+                //show the pattern
+                for (
+                        int i = 0;
+                        i < count; i++)
+
+                {
+                    final int finalI = i;
+                    new CountDownTimer(1000, 1000) {
+
+                        public void onTick(long millisUntilFinished) {
+                            showpattern(Pattern[finalI]);
+                        }
+
+                        public void onFinish() {
+                            hidepattern(Pattern[finalI]);
+                        }
+                    }.start();
+                    showpattern(Pattern[i]);
+                }
+            }
+        }.start();
 
         playerturn();
     }
 
+    //makes the buttons light up with automated pattern
     public void showpattern(int color){
         switch(color){
             case 1: green.setImageResource(R.drawable.simongreen);break;
@@ -69,28 +95,121 @@ public class simonsays extends ActionBarActivity {
         }
     }
 
+    //turns the light off for next in sequence
+    public void hidepattern(int color){
+        switch(color){
+            case 1: green.setImageResource(R.drawable.simongreenoff);break;
+            case 2: blue.setImageResource(R.drawable.simonblueoff); break;
+            case 3: yellow.setImageResource(R.drawable.simonyellowoff);break;
+            case 4: red.setImageResource(R.drawable.simonredoff);break;
+        }
+    }
+
+    //player's turn
     public boolean playerturn()
     {
+        //count marks beginning of user's sequence
+        usercount = 0;
         message.setText("Your turn.");
-        green.setEnabled(true);
-        blue.setEnabled(true);
-        yellow.setEnabled(true);
-        red.setEnabled(true);
-        return true;
 
+        //makes buttons clickable for player to replicate pattern
+        configuregreen();
+        configureblue();
+        configureyellow();
+        configurered();
+        return true;
+    }
+
+    //check if player's input matches next in generated sequence
+    public boolean checksequence(int i){
+        if(userInput[i] == Pattern[i])
+            return true;
+        else
+            return false;
     }
 
     public void configuregreen(){
+        green.setEnabled(true);
         green.setOnTouchListener(new OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                switch(event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
                         green.setImageResource(R.drawable.simongreen);
                         break;
-                    case MotionEvent.ACTION_UP:
+                    }
+                    case MotionEvent.ACTION_UP: {
                         green.setImageResource(R.drawable.simongreenoff);
+                        if (checksequence(usercount))
+                        {
+                            //continue game
+                        }
+                        usercount++;
                         break;
+                    }
+                }
+                return false;
+            }
+        });
+    }
+
+    public void configureblue(){
+        blue.setEnabled(true);
+        blue.setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        blue.setImageResource(R.drawable.simonblue);
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        blue.setImageResource(R.drawable.simonblueoff);
+                        usercount++;
+                        break;
+                    }
+                }
+                return false;
+            }
+        });
+    }
+
+    public void configureyellow(){
+        yellow.setEnabled(true);
+        yellow.setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        yellow.setImageResource(R.drawable.simonyellow);
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        yellow.setImageResource(R.drawable.simonyellowoff);
+                        usercount++;
+                        break;
+                    }
+                }
+                return false;
+            }
+        });
+    }
+
+    public void configurered(){
+        red.setEnabled(true);
+        red.setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        red.setImageResource(R.drawable.simonred);
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        red.setImageResource(R.drawable.simonredoff);
+                        usercount++;
+                        break;
+                    }
                 }
                 return false;
             }
