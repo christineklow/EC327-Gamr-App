@@ -171,4 +171,16 @@ Computer: O"
         android:layout_marginBottom="20dp"
         android:gravity="center_horizontal" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Replay?
+(It&apos;s not like you have a life or anything.)"
+        android:id="@+id/replaybutton"
+        android:layout_centerInParent="true"
+        android:typeface="normal"
+        android:visibility="invisible"
+        android:onClick="onClick" />
+
 </RelativeLayout>

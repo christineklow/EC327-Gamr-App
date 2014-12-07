@@ -94,7 +94,8 @@
                 android:background="@null"
                 android:layout_below="@+id/rightbase"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="15dp"
+                android:clickable="true" />
 
             <!--Fish moves by adjusting layoutmarginbottom-->
 
