@@ -74,32 +74,34 @@
                 <!--******************************************************************-->
 
 
-                <!--Card One Button-->
+                <!--Green Button-->
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/cardone"
+                    android:id="@+id/green"
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@+id/rowonespace"
                     android:layout_toStartOf="@+id/rowonespace"
                     android:layout_alignParentStart="true"
                     android:background="@drawable/simongreenoff"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentBottom="true" />
+                    android:layout_alignParentBottom="true"
+                    android:onClick="onClick" />
 
-                <!--Card Two Button-->
+                <!--Blue Button-->
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/cardtwo"
-                    android:layout_alignBottom="@+id/cardone"
+                    android:id="@+id/blue"
+                    android:layout_alignBottom="@+id/green"
                     android:layout_toRightOf="@+id/rowonespace"
                     android:layout_toEndOf="@+id/rowonespace"
                     android:layout_alignParentEnd="true"
                     android:background="@drawable/simonblueoff"
-                    android:layout_alignParentTop="true" />
+                    android:layout_alignParentTop="true"
+                    android:onClick="onClick" />
             </RelativeLayout>
 
             <!--******************************************************************-->
@@ -124,32 +126,34 @@
 
                 <!--******************************************************************-->
 
-                <!--Card Three Button-->
+                <!--Yellow Button-->
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/cardthree"
+                    android:id="@+id/yellow"
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@+id/rowtwospace"
                     android:layout_toStartOf="@+id/rowtwospace"
                     android:layout_alignParentStart="true"
                     android:background="@drawable/simonyellowoff"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentBottom="true" />
+                    android:layout_alignParentBottom="true"
+                    android:onClick="onClick" />
 
-                <!--Card Four Button-->
+                <!--Red Button-->
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/cardfour"
-                    android:layout_alignBottom="@+id/cardthree"
+                    android:id="@+id/red"
+                    android:layout_alignBottom="@+id/yellow"
                     android:layout_toRightOf="@+id/rowtwospace"
                     android:layout_toEndOf="@+id/rowtwospace"
                     android:layout_alignParentEnd="true"
                     android:background="@drawable/simonredoff"
-                    android:layout_alignParentTop="true" />
+                    android:layout_alignParentTop="true"
+                    android:onClick="onClick" />
             </RelativeLayout>
         </RelativeLayout>
 
