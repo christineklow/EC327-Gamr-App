@@ -32,6 +32,11 @@ public class simonsays extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simonsays);
 
+        green.setEnabled(false);
+        blue.setEnabled(false);
+        yellow.setEnabled(false);
+        red.setEnabled(false);
+
         green = (ImageButton)findViewById(R.id.green); //1
         blue = (ImageButton)findViewById(R.id.blue); //2
         yellow = (ImageButton)findViewById(R.id.yellow); //3
@@ -128,6 +133,11 @@ public class simonsays extends ActionBarActivity {
             return false;
     }
 
+    public void gameover()
+    {
+
+    }
+
     public void configuregreen(){
         green.setEnabled(true);
         green.setOnTouchListener(new OnTouchListener() {
@@ -143,8 +153,13 @@ public class simonsays extends ActionBarActivity {
                         if (checksequence(usercount))
                         {
                             //continue game
+                            usercount++;
                         }
-                        usercount++;
+
+                        else
+                        {
+                            //display end of game
+                        }
                         break;
                     }
                 }
