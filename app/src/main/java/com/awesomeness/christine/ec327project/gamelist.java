@@ -17,6 +17,8 @@ public class gamelist extends Activity {
     Button matchpairsbutton;
     Button watergunbutton;
     Button dontpush;
+    Button simonsays;
+    //Button wackamole;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,8 @@ public class gamelist extends Activity {
         configurematchpairs();
         configurewatergun();
         configuredontpush();
+        configuresimon();
+        //configurewackamole();
     }
 
     //Connecting to tictactoe
@@ -80,6 +84,18 @@ public class gamelist extends Activity {
             }
         });
     }
+
+    public void configuresimon(){
+        simonsays = (Button) findViewById(R.id.simonsays);
+        simonsays.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent("simonsays"));
+            }
+        });
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
