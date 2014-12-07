@@ -279,5 +279,25 @@
         </RelativeLayout>
     </RelativeLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/finalmessage"
+        android:layout_centerInParent="true"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:visibility="invisible" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Replay?"
+        android:id="@+id/matchreplay"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/finalmessage"
+        android:visibility="invisible" />
+
 
 </RelativeLayout>

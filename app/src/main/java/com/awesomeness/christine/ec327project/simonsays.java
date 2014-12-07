@@ -32,10 +32,10 @@ public class simonsays extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simonsays);
 
-        green.setEnabled(false);
+        /*green.setEnabled(false);
         blue.setEnabled(false);
         yellow.setEnabled(false);
-        red.setEnabled(false);
+        red.setEnabled(false);*/
 
         green = (ImageButton)findViewById(R.id.green); //1
         blue = (ImageButton)findViewById(R.id.blue); //2
@@ -150,7 +150,7 @@ public class simonsays extends ActionBarActivity {
                     }
                     case MotionEvent.ACTION_UP: {
                         green.setImageResource(R.drawable.simongreenoff);
-                        if (checksequence(usercount))
+                        /*if (checksequence(usercount))
                         {
                             //continue game
                             usercount++;
@@ -160,7 +160,7 @@ public class simonsays extends ActionBarActivity {
                         {
                             //display end of game
                         }
-                        break;
+                        break;*/
                     }
                 }
                 return false;
