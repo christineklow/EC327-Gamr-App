@@ -1,10 +1,12 @@
 package com.awesomeness.christine.ec327project;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -22,6 +24,7 @@ public class tictactoe extends Activity {
     ImageButton tic_7;
     ImageButton tic_8;
     ImageButton tic_9;
+    Button replay;
     TextView wintext;
     int[] gameboard = {0,1,2,3,4,5,6,7,8,9};
     int x,y,z;
@@ -33,6 +36,7 @@ public class tictactoe extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tictactoe);
 
+            replay = (Button) findViewById(R.id.replaybutton);
             playerturn();
 
     }
@@ -256,12 +260,26 @@ public class tictactoe extends Activity {
                     //player
                     playerwon(x, y, z);
                     wintext.setText("You Won! This is the highlight of your life");//player won
+                    replay.setVisibility(View.VISIBLE);
+                    replay.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            startActivity(new Intent("tictactoe"));
+                        }
+                    });
                     break;
                 }
                 case 2: {
                     //computer
                     computerwon(x, y, z);
                     wintext.setText("Haha, you can't beat a computer");//computer won
+                    replay.setVisibility(View.VISIBLE);
+                    replay.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            startActivity(new Intent("tictactoe"));
+                        }
+                    });
                     break;
                 }
             }
