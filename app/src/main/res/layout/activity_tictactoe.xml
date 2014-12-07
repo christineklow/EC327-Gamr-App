@@ -162,7 +162,7 @@
         android:layout_height="wrap_content"
         android:text="Player: X
 Computer: O"
-        android:id="@+id/textView"
+        android:id="@+id/tictactoestatus"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:typeface="normal"
