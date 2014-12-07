@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tictactoe"
-        android:layout_above="@+id/tictactoestatus">
+        android:layout_above="@+id/output">
 
         <!--**********************************************************-->
         <!--Connect these buttons to Java-->
@@ -163,6 +163,20 @@
         android:text="Player: X
 Computer: O"
         android:id="@+id/tictactoestatus"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:typeface="normal"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You Won! This is the highlight of your life"
+        android:visibility="invisible"
+        android:id="@+id/output"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:typeface="normal"

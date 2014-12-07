@@ -55,7 +55,8 @@
                 android:background="@null"
                 android:textColor="#FFFFFF"
                 android:typeface="normal"
-                android:textSize="40sp" />
+                android:textSize="40sp"
+                android:textAllCaps="false"/>
 
             <!--Numbers button-->
             <!--when clicked, it should direct to activity_numbers screen-->
@@ -68,7 +69,8 @@
                 android:background="@null"
                 android:textColor="#FFFFFF"
                 android:typeface="normal"
-                android:textSize="40sp" />
+                android:textSize="40sp"
+                android:textAllCaps="false"/>
 
             <!--Matching Pairs button-->
             <!--when clicked, it should direct to activity_numbers screen-->
@@ -81,7 +83,8 @@
                 android:background="@null"
                 android:textColor="#FFFFFF"
                 android:typeface="normal"
-                android:textSize="40sp" />
+                android:textSize="40sp"
+                android:textAllCaps="false"/>
 
             <!--Water Race button-->
             <!--when clicked, it should direct to activity_numbers screen-->
@@ -94,7 +97,8 @@
                 android:background="@null"
                 android:textColor="#FFFFFF"
                 android:typeface="normal"
-                android:textSize="40sp" />
+                android:textSize="40sp"
+                android:textAllCaps="false"/>
 
             <!--Dont Push the button-->
             <!--when clicked, it should direct to activity_dontpush screen-->
@@ -107,7 +111,8 @@
                 android:background="@null"
                 android:textColor="#FFFFFF"
                 android:typeface="normal"
-                android:textSize="40sp" />
+                android:textSize="40sp"
+                android:textAllCaps="false"/>
 
             <!--Simon Says-->
             <!--when clicked, it should direct to activity_simonsays screen-->
@@ -120,7 +125,8 @@
                 android:background="@null"
                 android:textColor="#FFFFFF"
                 android:typeface="normal"
-                android:textSize="40sp" />
+                android:textSize="40sp"
+                android:textAllCaps="false"/>
 
         </LinearLayout>
     </ScrollView>

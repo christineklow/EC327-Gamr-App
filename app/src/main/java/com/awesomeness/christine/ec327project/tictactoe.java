@@ -26,6 +26,7 @@ public class tictactoe extends Activity {
     ImageButton tic_9;
     Button replay;
     TextView wintext;
+    TextView status;
     int[] gameboard = {0,1,2,3,4,5,6,7,8,9};
     int x,y,z;
     int turns;
@@ -36,8 +37,13 @@ public class tictactoe extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tictactoe);
 
-            replay = (Button) findViewById(R.id.replaybutton);
-            playerturn();
+        wintext=(TextView) findViewById(R.id.output);
+        status=(TextView) findViewById(R.id.tictactoestatus);
+
+        wintext.setVisibility(View.INVISIBLE);
+
+        replay = (Button) findViewById(R.id.replaybutton);
+        playerturn();
 
     }
 
@@ -251,20 +257,31 @@ public class tictactoe extends Activity {
             check = true;
         }
 
-        wintext=(TextView) findViewById(R.id.tictactoestatus);
 
         if(check) {
+
+            tic_1.setEnabled(false);
+            tic_2.setEnabled(false);
+            tic_3.setEnabled(false);
+            tic_4.setEnabled(false);
+            tic_5.setEnabled(false);
+            tic_6.setEnabled(false);
+            tic_7.setEnabled(false);
+            tic_8.setEnabled(false);
+            tic_9.setEnabled(false);
 
             switch (who) {
                 case 1: {
                     //player
                     playerwon(x, y, z);
+                    wintext.setVisibility(View.VISIBLE);
+                    status.setVisibility(View.INVISIBLE);
                     wintext.setText("You Won! This is the highlight of your life");//player won
                     replay.setVisibility(View.VISIBLE);
                     replay.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            startActivity(new Intent("tictactoe"));
+                            restartgame();
                         }
                     });
                     break;
@@ -272,12 +289,14 @@ public class tictactoe extends Activity {
                 case 2: {
                     //computer
                     computerwon(x, y, z);
+                    wintext.setVisibility(View.VISIBLE);
+                    status.setVisibility(View.INVISIBLE);
                     wintext.setText("Haha, you can't beat a computer");//computer won
                     replay.setVisibility(View.VISIBLE);
                     replay.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            startActivity(new Intent("tictactoe"));
+                            restartgame();
                         }
                     });
                     break;
@@ -287,7 +306,16 @@ public class tictactoe extends Activity {
 
 
         if(!check && checktie()){
+            wintext.setVisibility(View.VISIBLE);
+            status.setVisibility(View.INVISIBLE);
             wintext.setText("You tied. Well this is awkward.");//tie
+            replay.setVisibility(View.VISIBLE);
+            replay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    restartgame();
+                }
+            });
         }
 
         return check;
@@ -379,6 +407,47 @@ public class tictactoe extends Activity {
         }
     }
 
+
+    public void restartgame()
+    {
+        tic_1.setImageResource(R.drawable.corners);
+        tic_1.setEnabled(true);
+
+        tic_2.setImageResource(R.drawable.twoandeight);
+        tic_2.setEnabled(true);
+
+        tic_3.setImageResource(R.drawable.corners);
+        tic_3.setEnabled(true);
+
+        tic_4.setImageResource(R.drawable.side);
+        tic_4.setEnabled(true);
+
+        tic_5.setImageResource(R.drawable.five);
+        tic_5.setEnabled(true);
+
+        tic_6.setImageResource(R.drawable.side);
+        tic_6.setEnabled(true);
+
+        tic_7.setImageResource(R.drawable.corners);
+        tic_7.setEnabled(true);
+
+        tic_8.setImageResource(R.drawable.twoandeight);
+        tic_8.setEnabled(true);
+
+        tic_9.setImageResource(R.drawable.corners);
+        tic_9.setEnabled(true);
+
+        replay.setVisibility(View.INVISIBLE);
+        wintext.setVisibility(View.INVISIBLE);
+        status.setVisibility(View.VISIBLE);
+
+        for(int i=1 ; i<10 ; i++)
+        {
+            gameboard[i]=i;
+        }
+
+        playerturn();
+    }
 
     public void configurebutton1(){
         tic_1 = (ImageButton) findViewById(R.id.tic1);
