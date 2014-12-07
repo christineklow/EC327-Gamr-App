@@ -1,7 +1,6 @@
 package com.awesomeness.christine.ec327project;
 
 import android.app.Activity;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,11 +23,9 @@ public class tictactoe extends Activity {
     ImageButton tic_8;
     ImageButton tic_9;
     TextView wintext;
-    int[] gameboard = {1,2,3,4,5,6,7,8,9};
-    int computerinput=8;
+    int[] gameboard = {0,1,2,3,4,5,6,7,8,9};
     int x,y,z;
-    int turns = 1;
-    int winstatus;
+    int turns;
 
 
     @Override
@@ -36,38 +33,7 @@ public class tictactoe extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tictactoe);
 
-        do {
             playerturn();
-            turns++;
-            computerturn(computerinput);
-            if (checkwin()) {
-                //player won
-                playerwon(x, y, z);
-                winstatus=1;
-                break;
-            }
-            computerinput = computerinput - 2;
-            turns++;
-            if (checkwin()) {
-                //computer won
-                computerwon(x, y, z);
-                winstatus=2;
-                break;
-            }
-
-            if(!checkwin() && turns==9){
-                winstatus=3; //tie
-            }
-
-        }while(!checkwin() || turns<10);
-
-
-        wintext=(TextView) findViewById(R.id.tictactoestatus);
-        switch(winstatus){
-            case 1: wintext.setText("You Won!");//player won
-            case 2: wintext.setText("Haha, you can't beat a computer");//computer won
-            case 3: wintext.setText("Well this is awkward.");//tie
-        }
 
     }
 
@@ -77,65 +43,76 @@ public class tictactoe extends Activity {
                 case 1:{
                     if (gameboard[i] == i){
                         configurebutton1();
+                        break;
                     }
                 }
                 case 2: {
                     if (gameboard[i] == i) {
                         configurebutton2();
+                        break;
                     }
                 }
                 case 3: {
                     if (gameboard[i] == i) {
                         configurebutton3();
+                        break;
                     }
                 }
                 case 4: {
                     if (gameboard[i] == i) {
                         configurebutton4();
+                        break;
                     }
                 }
                 case 5: {
                     if (gameboard[i] == i) {
                         configurebutton5();
+                        break;
                     }
                 }
                 case 6: {
                     if (gameboard[i] == i) {
                         configurebutton6();
+                        break;
                     }
                 }
                 case 7: {
                     if (gameboard[i] == i) {
                         configurebutton7();
+                        break;
                     }
                 }
                 case 8: {
                     if (gameboard[i] == i) {
                         configurebutton8();
+                        break;
                     }
                 }
                 case 9: {
                     if (gameboard[i] == i) {
                         configurebutton9();
+                        break;
                     }
                 }
             }
         }
+        turns=1;
     }
 
     //computer turn
-    public void computerturn(int turn){
-        int[] availablespots=new int[turn];
+    public void computerturn(){
+        int[] availablespots = {0,0,0,0,0,0,0,0,0,0,0};
         int count = 0;
-        for(int i = 0 ; i <9 ; i++) {
+        for(int i = 1 ; i <10 ; i++) {
             if (gameboard[i] != 0 && gameboard[i] != 10){
+                //availablespots
                 availablespots[count] = gameboard[i];
                 count++;
             }
         }
 
         Random random=new Random();
-        int choice= random.nextInt(turn)+1;
+        int choice= random.nextInt(count+1);
 
         int place = availablespots[choice];
 
@@ -144,53 +121,71 @@ public class tictactoe extends Activity {
                 tic_1.setImageResource(R.drawable.ocorner);
                 tic_1.setEnabled(false);
                 gameboard[1]=10;
+                checkwin(2);
+                break;
             }
             case 2:{
                 tic_2.setImageResource(R.drawable.otwoandeight);
                 tic_2.setEnabled(false);
                 gameboard[2]=10;
+                checkwin(2);
+                break;
             }
             case 3:{
                 tic_3.setImageResource(R.drawable.ocorner);
                 tic_3.setEnabled(false);
                 gameboard[3]=10;
+                checkwin(2);
+                break;
             }
             case 4:{
                 tic_4.setImageResource(R.drawable.ofour);
                 tic_4.setEnabled(false);
                 gameboard[4]=10;
+                checkwin(2);
+                break;
             }
             case 5:{
                 tic_5.setImageResource(R.drawable.ofive);
                 tic_5.setEnabled(false);
                 gameboard[5]=10;
+                checkwin(2);
+                break;
             }
             case 6:{
                 tic_6.setImageResource(R.drawable.osix);
                 tic_6.setEnabled(false);
                 gameboard[6]=10;
+                checkwin(2);
+                break;
             }
             case 7:{
                 tic_7.setImageResource(R.drawable.ocorner);
                 tic_7.setEnabled(false);
                 gameboard[7]=10;
+                checkwin(2);
+                break;
             }
             case 8:{
                 tic_8.setImageResource(R.drawable.otwoandeight);
                 tic_8.setEnabled(false);
                 gameboard[8]=10;
+                checkwin(2);
+                break;
             }
             case 9:{
                 tic_9.setImageResource(R.drawable.ocorner);
                 tic_9.setEnabled(false);
                 gameboard[9]=10;
+                checkwin(2);
+                break;
             }
         }
 
     }
 
     //check if anybody won
-    public boolean checkwin(){
+    public boolean checkwin(int who){
         // 1 2 3
         // 4 5 6
         // 7 8 9
@@ -254,78 +249,108 @@ public class tictactoe extends Activity {
             check = true;
         }
 
+        wintext=(TextView) findViewById(R.id.tictactoestatus);
+
+        if(check) {
+
+            switch (who) {
+                case 1: {
+                    //player
+                    playerwon(x, y, z);
+                    wintext.setText("You Won! This is the highlight of your life");//player won
+                    break;
+                }
+                case 2: {
+                    //computer
+                    computerwon(x, y, z);
+                    wintext.setText("Haha, you can't beat a computer");//computer won
+                    break;
+                }
+            }
+        }
+        else
+        {
+            wintext.setText(""+turns);
+        }
+
+        turns++;
+
+        if(turns==10){
+            wintext.setText("You tied. Well this is awkward.");//tie
+        }
+
         return check;
     }
 
     public void playerwon(int first, int second, int last){
         switch (first){
-            case 1: tic_1.setImageResource(R.drawable.xcornerwin);
-            case 2: tic_2.setImageResource(R.drawable.xtwoandeigthwin);
-            case 3: tic_3.setImageResource(R.drawable.xcornerwin);
-            case 4: tic_4.setImageResource(R.drawable.xfourwin);
-            case 5: tic_5.setImageResource(R.drawable.xfivewin);
-            case 6: tic_6.setImageResource(R.drawable.xsixwin);
-            case 7: tic_7.setImageResource(R.drawable.xcornerwin);
-            case 8: tic_8.setImageResource(R.drawable.xtwoandeigthwin);
-            case 9: tic_9.setImageResource(R.drawable.xcornerwin);
+            case 1: tic_1.setImageResource(R.drawable.xcornerwin); break;
+            case 2: tic_2.setImageResource(R.drawable.xtwoandeigthwin); break;
+            case 3: tic_3.setImageResource(R.drawable.xcornerwin); break;
+            case 4: tic_4.setImageResource(R.drawable.xfourwin); break;
+            case 5: tic_5.setImageResource(R.drawable.xfivewin); break;
+            case 6: tic_6.setImageResource(R.drawable.xsixwin); break;
+            case 7: tic_7.setImageResource(R.drawable.xcornerwin); break;
+            case 8: tic_8.setImageResource(R.drawable.xtwoandeigthwin); break;
+            case 9: tic_9.setImageResource(R.drawable.xcornerwin); break;
         }
         switch (second){
-            case 1: tic_1.setImageResource(R.drawable.xcornerwin);
-            case 2: tic_2.setImageResource(R.drawable.xtwoandeigthwin);
-            case 3: tic_3.setImageResource(R.drawable.xcornerwin);
-            case 4: tic_4.setImageResource(R.drawable.xfourwin);
-            case 5: tic_5.setImageResource(R.drawable.xfivewin);
-            case 6: tic_6.setImageResource(R.drawable.xsixwin);
-            case 7: tic_7.setImageResource(R.drawable.xcornerwin);
-            case 8: tic_8.setImageResource(R.drawable.xtwoandeigthwin);
-            case 9: tic_9.setImageResource(R.drawable.xcornerwin);
+            case 1: tic_1.setImageResource(R.drawable.xcornerwin); break;
+            case 2: tic_2.setImageResource(R.drawable.xtwoandeigthwin); break;
+            case 3: tic_3.setImageResource(R.drawable.xcornerwin); break;
+            case 4: tic_4.setImageResource(R.drawable.xfourwin); break;
+            case 5: tic_5.setImageResource(R.drawable.xfivewin); break;
+            case 6: tic_6.setImageResource(R.drawable.xsixwin); break;
+            case 7: tic_7.setImageResource(R.drawable.xcornerwin); break;
+            case 8: tic_8.setImageResource(R.drawable.xtwoandeigthwin); break;
+            case 9: tic_9.setImageResource(R.drawable.xcornerwin); break;
         }
         switch (last){
-            case 1: tic_1.setImageResource(R.drawable.xcornerwin);
-            case 2: tic_2.setImageResource(R.drawable.xtwoandeigthwin);
-            case 3: tic_3.setImageResource(R.drawable.xcornerwin);
-            case 4: tic_4.setImageResource(R.drawable.xfourwin);
-            case 5: tic_5.setImageResource(R.drawable.xfivewin);
-            case 6: tic_6.setImageResource(R.drawable.xsixwin);
-            case 7: tic_7.setImageResource(R.drawable.xcornerwin);
-            case 8: tic_8.setImageResource(R.drawable.xtwoandeigthwin);
-            case 9: tic_9.setImageResource(R.drawable.xcornerwin);
+            case 1: tic_1.setImageResource(R.drawable.xcornerwin); break;
+            case 2: tic_2.setImageResource(R.drawable.xtwoandeigthwin); break;
+            case 3: tic_3.setImageResource(R.drawable.xcornerwin); break;
+            case 4: tic_4.setImageResource(R.drawable.xfourwin); break;
+            case 5: tic_5.setImageResource(R.drawable.xfivewin); break;
+            case 6: tic_6.setImageResource(R.drawable.xsixwin); break;
+            case 7: tic_7.setImageResource(R.drawable.xcornerwin); break;
+            case 8: tic_8.setImageResource(R.drawable.xtwoandeigthwin); break;
+            case 9: tic_9.setImageResource(R.drawable.xcornerwin); break;
         }
     }
 
     public void computerwon(int first, int second, int last){
         switch (first){
-            case 1: tic_1.setImageResource(R.drawable.ocornerwin);
-            case 2: tic_2.setImageResource(R.drawable.otwoandeightwin);
-            case 3: tic_3.setImageResource(R.drawable.ocornerwin);
-            case 4: tic_4.setImageResource(R.drawable.ofourwin);
-            case 5: tic_5.setImageResource(R.drawable.ofivewin);
-            case 6: tic_6.setImageResource(R.drawable.osixwin);
-            case 7: tic_7.setImageResource(R.drawable.ocornerwin);
-            case 8: tic_8.setImageResource(R.drawable.otwoandeightwin);
-            case 9: tic_9.setImageResource(R.drawable.ocornerwin);
+            case 1: tic_1.setImageResource(R.drawable.ocornerwin); break;
+            case 2: tic_2.setImageResource(R.drawable.otwoandeightwin); break;
+            case 3: tic_3.setImageResource(R.drawable.ocornerwin); break;
+            case 4: tic_4.setImageResource(R.drawable.ofourwin); break;
+            case 5: tic_5.setImageResource(R.drawable.ofivewin); break;
+            case 6: tic_6.setImageResource(R.drawable.osixwin); break;
+            case 7: tic_7.setImageResource(R.drawable.ocornerwin); break;
+            case 8: tic_8.setImageResource(R.drawable.otwoandeightwin); break;
+            case 9: tic_9.setImageResource(R.drawable.ocornerwin); break;
         }
         switch (second){
-            case 1: tic_1.setImageResource(R.drawable.ocornerwin);
-            case 2: tic_2.setImageResource(R.drawable.otwoandeightwin);
-            case 3: tic_3.setImageResource(R.drawable.ocornerwin);
-            case 4: tic_4.setImageResource(R.drawable.ofourwin);
-            case 5: tic_5.setImageResource(R.drawable.ofivewin);
-            case 6: tic_6.setImageResource(R.drawable.osixwin);
-            case 7: tic_7.setImageResource(R.drawable.ocornerwin);
-            case 8: tic_8.setImageResource(R.drawable.otwoandeightwin);
-            case 9: tic_9.setImageResource(R.drawable.ocornerwin);
+            case 1: tic_1.setImageResource(R.drawable.ocornerwin); break;
+            case 2: tic_2.setImageResource(R.drawable.otwoandeightwin); break;
+            case 3: tic_3.setImageResource(R.drawable.ocornerwin); break;
+            case 4: tic_4.setImageResource(R.drawable.ofourwin); break;
+            case 5: tic_5.setImageResource(R.drawable.ofivewin); break;
+            case 6: tic_6.setImageResource(R.drawable.osixwin); break;
+            case 7: tic_7.setImageResource(R.drawable.ocornerwin); break;
+            case 8: tic_8.setImageResource(R.drawable.otwoandeightwin); break;
+            case 9: tic_9.setImageResource(R.drawable.ocornerwin); break;
         }
         switch (last){
-            case 1: tic_1.setImageResource(R.drawable.ocornerwin);
-            case 2: tic_2.setImageResource(R.drawable.otwoandeightwin);
-            case 3: tic_3.setImageResource(R.drawable.ocornerwin);
-            case 4: tic_4.setImageResource(R.drawable.ofourwin);
-            case 5: tic_5.setImageResource(R.drawable.ofivewin);
-            case 6: tic_6.setImageResource(R.drawable.osixwin);
-            case 7: tic_7.setImageResource(R.drawable.ocornerwin);
-            case 8: tic_8.setImageResource(R.drawable.otwoandeightwin);
-            case 9: tic_9.setImageResource(R.drawable.ocornerwin);
+            case 1: tic_1.setImageResource(R.drawable.ocornerwin); break;
+            case 2: tic_2.setImageResource(R.drawable.otwoandeightwin); break;
+            case 3: tic_3.setImageResource(R.drawable.ocornerwin); break;
+            case 4: tic_4.setImageResource(R.drawable.ofourwin); break;
+            case 5: tic_5.setImageResource(R.drawable.ofivewin); break;
+            case 6: tic_6.setImageResource(R.drawable.osixwin); break;
+            case 7: tic_7.setImageResource(R.drawable.ocornerwin); break;
+            case 8: tic_8.setImageResource(R.drawable.otwoandeightwin); break;
+            case 9: tic_9.setImageResource(R.drawable.ocornerwin); break;
         }
     }
 
@@ -338,6 +363,9 @@ public class tictactoe extends Activity {
                 tic_1.setImageResource(R.drawable.xcorner);
                 tic_1.setEnabled(false);
                 gameboard[1]=0;
+                if (!checkwin(1)) {
+                    computerturn();
+                }
             }
         });
     }
@@ -350,6 +378,9 @@ public class tictactoe extends Activity {
                 tic_2.setImageResource(R.drawable.xtwoandeigth);
                 tic_2.setEnabled(false);
                 gameboard[2]=0;
+                if (!checkwin(1)) {
+                    computerturn();
+                }
             }
         });
     }
@@ -362,6 +393,9 @@ public class tictactoe extends Activity {
                 tic_3.setImageResource(R.drawable.xcorner);
                 tic_3.setEnabled(false);
                 gameboard[3]=0;
+                if (!checkwin(1)) {
+                    computerturn();
+                }
             }
         });
     }
@@ -374,6 +408,9 @@ public class tictactoe extends Activity {
                 tic_4.setImageResource(R.drawable.xfour);
                 tic_4.setEnabled(false);
                 gameboard[4]=0;
+                if (!checkwin(1)) {
+                    computerturn();
+                }
             }
         });
     }
@@ -387,6 +424,9 @@ public class tictactoe extends Activity {
                 tic_5.setImageResource(R.drawable.xfive);
                 tic_5.setEnabled(false);
                 gameboard[5]=0;
+                if (!checkwin(1)) {
+                    computerturn();
+                }
             }
         });
     }
@@ -399,6 +439,9 @@ public class tictactoe extends Activity {
                 tic_6.setImageResource(R.drawable.xsix);
                 tic_6.setEnabled(false);
                 gameboard[6]=0;
+                if (!checkwin(1)) {
+                    computerturn();
+                }
             }
         });
     }
@@ -411,6 +454,9 @@ public class tictactoe extends Activity {
                 tic_7.setImageResource(R.drawable.xcorner);
                 tic_7.setEnabled(false);
                 gameboard[7]=0;
+                if (!checkwin(1)) {
+                    computerturn();
+                }
             }
         });
     }
@@ -423,6 +469,9 @@ public class tictactoe extends Activity {
                 tic_8.setImageResource(R.drawable.xtwoandeigth);
                 tic_8.setEnabled(false);
                 gameboard[8]=0;
+                if (!checkwin(1)) {
+                    computerturn();
+                }
             }
         });
     }
@@ -435,6 +484,9 @@ public class tictactoe extends Activity {
                 tic_9.setImageResource(R.drawable.xcorner);
                 tic_9.setEnabled(false);
                 gameboard[9]=0;
+                if (!checkwin(1)) {
+                    computerturn();
+                }
             }
         });
     }
@@ -462,188 +514,4 @@ public class tictactoe extends Activity {
     }
 
 
-
-
 }
-
-/*public class tictactoe {
-
-    public static void main(String[] args) {
-        //display the board
-        //let the player choose the mode(player vs.player, player vs computer(player go first),player vs computer(computer go first))
-        if(//pvp(player vs.player))
-        do{
-            //user input,get the board[]
-
-        }while(check()==false);
-        //}end the game
-
-        if (//player vs.computer, player go first(i.e player is the x)){
-        int step=0;
-        do{
-            //user input,get the board[]
-            if(check()==true)
-                break;
-            step=minimax_min();
-            //put the step on the board and get the board[]
-        }while(check()==false);
-        //}end the game
-
-        if (//player vs.computer, computer go first(i.e player is the p)){
-        int step=0;
-        //randomly pick place to place a x
-        do{
-            //user input,get the board[]
-            if(check()==true)
-                break;
-            step=minimax_max();
-            //put the step on the board and get the board[]
-        }while(check()==false);
-        //}end the game
-
-
-    }
-
-
-//Assume this game is start by player, X goes first(player), O is computer goes behind.
-    //using Minimax Search Algorithm
-
-
-
-    static final int[][] WIN_STATUS = {
-            {0, 1, 2},
-            {3, 4, 5},
-            {6, 7, 8},
-            {0, 3, 6},
-            {1, 4, 7},
-            {2, 5, 8},
-            {0, 4, 8},
-            {2, 4, 6}
-    };
-    //0,1,2
-    //3,4,5
-    //6,7,8  is the Number for the game button
-
-
-    public static int gameState(int board[]){
-        //function to check if one lose/win
-        int result=0;
-        for(int[] status:WIN_STATUS){
-
-            int i=0 ;
-            int j=0;
-            for(i=0; i<status.length; i++){
-                j=j+board[status[i]];
-                //here, button[i] is the int number for each cell(0 for empty, 1 for x, -1 for o)
-
-            }
-            if(j=3)
-                result++;
-            if(j=-3)
-                result--;
-
-        }
-        return result;//here, result=0 indicats tie, result>0 indicates x win, else o win;
-    }
-
-
-    public boolean check(board[]){
-        if(gameState()>0)
-            //output the X win
-            return true;
-        if(gameState()<0)
-            //output for o win
-            return true;
-        if(//the board is full){
-        if(gameState()=0){
-            //output for tie
-            return true;
-        }
-    }
-    return false;
-}
-
-    public int minimax_min(){
-        int[] board=new int[9];
-        //board==input;
-        //get the board work here, for example board=(0,0,0,0,0,0,0,0,0)
-        //which means the board is clear, and 1 for X, -1 for o that already exist
-        int[] board1=new int[9];
-        int i=0;
-        int judge=-10000;
-        int postion;
-        for(i:board){//find a non-empty place to put o, and do the check ,find the minmum value place
-            if(board[i]!=0)
-                continue;
-            board1=board;
-            board1[i]=-1;
-            int judge1=max(board1)+min(board1);
-            if(judge1<judge){
-                judge=judge1;
-                postion =i
-            }
-        }
-        return postion;
-    }
-    public int minimax_max(){
-        int[] board=new int[9];
-        //board==input;
-        //get the board work here, for example board=(0,0,0,0,0,0,0,0,0)
-        //which means the board is clear, and 1 for X, -1 for o that already exist
-        int[] board1=new int[9];
-        int i=0;
-        int judge=-10000;
-        int postion;
-        for(i:board){//find a non-empty place to put x, and do the check ,find the maxmium value place
-            if(board[i]!=0)
-                continue;
-            board1=board;
-            board1[i]=1;
-            int judge1=max(board1)+min(board1);
-            if(judge1>judge){
-                judge=judge1;
-                postion =i
-            }
-        }
-        return postion;
-    }
-
-
-    public int max(board2[]){
-        int i=0
-        for(i:board2){
-            if( board2[i]==0)
-                board2[i]==1;
-        }//get all the empty cells of board1 full of X
-        int m
-        m=gameState(board2);
-        return m;
-    }
-
-
-    public int min(board3[]){
-        int i=0;
-        for(i:board3){
-            if(board3[i]==0)
-                board3[i]=-1
-        }//get all the empty cells of board1 full of o
-        n=gameState(board3);
-        return n;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}*/
