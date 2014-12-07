@@ -101,87 +101,85 @@ public class tictactoe extends Activity {
 
     //computer turn
     public void computerturn(){
-        int[] availablespots = {0,0,0,0,0,0,0,0,0,0,0};
-        int count = 0;
-        for(int i = 1 ; i <10 ; i++) {
-            if (gameboard[i] != 0 && gameboard[i] != 10){
-                //availablespots
-                availablespots[count] = gameboard[i];
-                count++;
+            int[] availablespots = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+            int count = 0;
+            for (int i = 1; i < 10; i++) {
+                if (gameboard[i] != 0 && gameboard[i] != 10) {
+                    availablespots[count] = gameboard[i];
+                    count++;
+                }
             }
-        }
 
-        Random random=new Random();
-        int choice= random.nextInt(count+1);
+            Random random = new Random();
+            int choice = random.nextInt(count);
 
-        int place = availablespots[choice];
+            int place = availablespots[choice];
 
-        switch(place){
-            case 1:{
-                tic_1.setImageResource(R.drawable.ocorner);
-                tic_1.setEnabled(false);
-                gameboard[1]=10;
-                checkwin(2);
-                break;
+            switch (place) {
+                case 1: {
+                    tic_1.setImageResource(R.drawable.ocorner);
+                    tic_1.setEnabled(false);
+                    gameboard[1] = 10;
+                    checkwin(2);
+                    break;
+                }
+                case 2: {
+                    tic_2.setImageResource(R.drawable.otwoandeight);
+                    tic_2.setEnabled(false);
+                    gameboard[2] = 10;
+                    checkwin(2);
+                    break;
+                }
+                case 3: {
+                    tic_3.setImageResource(R.drawable.ocorner);
+                    tic_3.setEnabled(false);
+                    gameboard[3] = 10;
+                    checkwin(2);
+                    break;
+                }
+                case 4: {
+                    tic_4.setImageResource(R.drawable.ofour);
+                    tic_4.setEnabled(false);
+                    gameboard[4] = 10;
+                    checkwin(2);
+                    break;
+                }
+                case 5: {
+                    tic_5.setImageResource(R.drawable.ofive);
+                    tic_5.setEnabled(false);
+                    gameboard[5] = 10;
+                    checkwin(2);
+                    break;
+                }
+                case 6: {
+                    tic_6.setImageResource(R.drawable.osix);
+                    tic_6.setEnabled(false);
+                    gameboard[6] = 10;
+                    checkwin(2);
+                    break;
+                }
+                case 7: {
+                    tic_7.setImageResource(R.drawable.ocorner);
+                    tic_7.setEnabled(false);
+                    gameboard[7] = 10;
+                    checkwin(2);
+                    break;
+                }
+                case 8: {
+                    tic_8.setImageResource(R.drawable.otwoandeight);
+                    tic_8.setEnabled(false);
+                    gameboard[8] = 10;
+                    checkwin(2);
+                    break;
+                }
+                case 9: {
+                    tic_9.setImageResource(R.drawable.ocorner);
+                    tic_9.setEnabled(false);
+                    gameboard[9] = 10;
+                    checkwin(2);
+                    break;
+                }
             }
-            case 2:{
-                tic_2.setImageResource(R.drawable.otwoandeight);
-                tic_2.setEnabled(false);
-                gameboard[2]=10;
-                checkwin(2);
-                break;
-            }
-            case 3:{
-                tic_3.setImageResource(R.drawable.ocorner);
-                tic_3.setEnabled(false);
-                gameboard[3]=10;
-                checkwin(2);
-                break;
-            }
-            case 4:{
-                tic_4.setImageResource(R.drawable.ofour);
-                tic_4.setEnabled(false);
-                gameboard[4]=10;
-                checkwin(2);
-                break;
-            }
-            case 5:{
-                tic_5.setImageResource(R.drawable.ofive);
-                tic_5.setEnabled(false);
-                gameboard[5]=10;
-                checkwin(2);
-                break;
-            }
-            case 6:{
-                tic_6.setImageResource(R.drawable.osix);
-                tic_6.setEnabled(false);
-                gameboard[6]=10;
-                checkwin(2);
-                break;
-            }
-            case 7:{
-                tic_7.setImageResource(R.drawable.ocorner);
-                tic_7.setEnabled(false);
-                gameboard[7]=10;
-                checkwin(2);
-                break;
-            }
-            case 8:{
-                tic_8.setImageResource(R.drawable.otwoandeight);
-                tic_8.setEnabled(false);
-                gameboard[8]=10;
-                checkwin(2);
-                break;
-            }
-            case 9:{
-                tic_9.setImageResource(R.drawable.ocorner);
-                tic_9.setEnabled(false);
-                gameboard[9]=10;
-                checkwin(2);
-                break;
-            }
-        }
-
     }
 
     //check if anybody won
@@ -268,15 +266,24 @@ public class tictactoe extends Activity {
                 }
             }
         }
-        else
-        {
-            wintext.setText(""+turns);
+
+
+        if(!check && checktie()){
+            wintext.setText("You tied. Well this is awkward.");//tie
         }
 
-        turns++;
+        return check;
+    }
 
-        if(turns==10){
-            wintext.setText("You tied. Well this is awkward.");//tie
+    public boolean checktie(){
+
+        boolean check = true;
+        for(int i = 1 ; i<10 ; i++)
+        {
+            if (gameboard[i] != 0 && gameboard[i] != 10)
+            {
+                check = false;
+            }
         }
 
         return check;
@@ -363,7 +370,7 @@ public class tictactoe extends Activity {
                 tic_1.setImageResource(R.drawable.xcorner);
                 tic_1.setEnabled(false);
                 gameboard[1]=0;
-                if (!checkwin(1)) {
+                if (!checkwin(1) && !checktie()) {
                     computerturn();
                 }
             }
@@ -378,7 +385,7 @@ public class tictactoe extends Activity {
                 tic_2.setImageResource(R.drawable.xtwoandeigth);
                 tic_2.setEnabled(false);
                 gameboard[2]=0;
-                if (!checkwin(1)) {
+                if (!checkwin(1) && !checktie()) {
                     computerturn();
                 }
             }
@@ -393,7 +400,7 @@ public class tictactoe extends Activity {
                 tic_3.setImageResource(R.drawable.xcorner);
                 tic_3.setEnabled(false);
                 gameboard[3]=0;
-                if (!checkwin(1)) {
+                if (!checkwin(1) && !checktie()) {
                     computerturn();
                 }
             }
@@ -408,7 +415,7 @@ public class tictactoe extends Activity {
                 tic_4.setImageResource(R.drawable.xfour);
                 tic_4.setEnabled(false);
                 gameboard[4]=0;
-                if (!checkwin(1)) {
+                if (!checkwin(1) && !checktie()) {
                     computerturn();
                 }
             }
@@ -424,7 +431,7 @@ public class tictactoe extends Activity {
                 tic_5.setImageResource(R.drawable.xfive);
                 tic_5.setEnabled(false);
                 gameboard[5]=0;
-                if (!checkwin(1)) {
+                if (!checkwin(1) && !checktie()) {
                     computerturn();
                 }
             }
@@ -439,7 +446,7 @@ public class tictactoe extends Activity {
                 tic_6.setImageResource(R.drawable.xsix);
                 tic_6.setEnabled(false);
                 gameboard[6]=0;
-                if (!checkwin(1)) {
+                if (!checkwin(1) && !checktie()) {
                     computerturn();
                 }
             }
@@ -454,7 +461,7 @@ public class tictactoe extends Activity {
                 tic_7.setImageResource(R.drawable.xcorner);
                 tic_7.setEnabled(false);
                 gameboard[7]=0;
-                if (!checkwin(1)) {
+                if (!checkwin(1) && !checktie()) {
                     computerturn();
                 }
             }
@@ -469,7 +476,7 @@ public class tictactoe extends Activity {
                 tic_8.setImageResource(R.drawable.xtwoandeigth);
                 tic_8.setEnabled(false);
                 gameboard[8]=0;
-                if (!checkwin(1)) {
+                if (!checkwin(1) && !checktie()) {
                     computerturn();
                 }
             }
@@ -484,7 +491,7 @@ public class tictactoe extends Activity {
                 tic_9.setImageResource(R.drawable.xcorner);
                 tic_9.setEnabled(false);
                 gameboard[9]=0;
-                if (!checkwin(1)) {
+                if (!checkwin(1) && !checktie()) {
                     computerturn();
                 }
             }
