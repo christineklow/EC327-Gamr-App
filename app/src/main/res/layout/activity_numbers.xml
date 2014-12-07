@@ -117,7 +117,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_toLeftOf="@+id/enterbutton"
-        android:layout_toStartOf="@+id/enterbutton" />
+        android:layout_toStartOf="@+id/enterbutton"
+        android:clickable="true"
+        android:text = ""
+        android:textColor="#FFFFFF" />
 
     <Button
         android:layout_width="wrap_content"
@@ -128,6 +131,37 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:onClick="onClick" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/answerspace">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Figure it out yourself. If you use a calculator, a kitten will die."
+            android:id="@+id/status"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#FFFFFF"
+            android:gravity="center_horizontal" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Good Job. You just finished a fourth grader&apos;s homework."
+        android:id="@+id/gameover"
+        android:layout_centerInParent="true"
+        android:typeface="normal"
+        android:visibility="invisible"
+        android:textColor="#FFFFFF"
+        android:gravity="center_horizontal" />
 
 
 </RelativeLayout>

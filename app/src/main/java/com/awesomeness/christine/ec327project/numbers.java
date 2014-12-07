@@ -9,6 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+/*import java.lang.Object;
+import java.util.Date;
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
+import  java.util.Timer;*/
+
 import java.util.Random;
 
 
@@ -19,34 +26,47 @@ public class numbers extends Activity {
     TextView num_2;
     TextView op_2;
     TextView num_3;
+    TextView status;
+    TextView equalsign;
     EditText answer;
     Button enter;
+    TextView gameover;
     int num1;
     int num2;
     int num3;
     int num4;
     int num5;
-    String[] args;
-    int result = 0;
+    int result;
     int point = 0;
-    int n = 0;
-    //int num6;
+    int n;
+    int count=1;
+    int ans;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
 
-        configurenum1(num1);
-        configureop1(num2);
-        configurenum2(num3);
-        configureop2(num4);
-        configurenum3(num5);
-        configureresult();
-        configurebutton();
-        check();
-        main(args);
+            status = (TextView) findViewById(R.id.status);
+            equalsign = (TextView) findViewById(R.id.equalsign);
+            gameover = (TextView) findViewById(R.id.gameover);
+            main();
+
+        /*TimeUnit.SECONDS.sleep(30);
+        Thread.sleep(30000, 0);
+        clearscreen();*/
+
+
     }
+
+   /* public  long timer() {
+
+        long lDateTime = new Date().getTime();
+
+        Calendar lCDateTime = Calendar.getInstance();
+        return lCDateTime.getTimeInMillis();
+
+    }*/
 
     public void configurenum1(int num1) {
         num_1 = (TextView) findViewById(R.id.firstnum);
@@ -90,48 +110,130 @@ public class numbers extends Activity {
         num_3.setText("" + num5);
     }
 
-     int ans;
-    public int configureresult() {
+    public boolean configureresult() {
         answer = (EditText) findViewById(R.id.answerspace);
-        answer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ans = Integer.parseInt(answer.getText().toString());
-            }
-        });
-        answer.setText("" + ans);
-        return ans;
+        if (answer.getText().length() > 0 ){
+            ans = Integer.parseInt(answer.getText().toString());
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
-    public boolean configurebutton(){
+    public void configurebutton() {
         enter = (Button) findViewById(R.id.enterbutton);
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                check();
+                if (configureresult()) {
+                    if (ans == result) {
+                        point++;
+                        status.setText("Good Job! Your Score is: " + point + ". I bet you feel smart.");
+                    } else {
+                        status.setText("Wrong. Your Score is: " + point + ", aka your IQ.");
+                    }
+                    count++;
+                    if (count < 11) {
+                        main();
+                        answer.getText().clear();
+                        //status.setText("Don't Cheat!");
+                    }
+                    if (count >= 11) {
+                        clearscreen();
+                    }
+                }
             }
         });
-        return true;
     }
 
-    public void check() {
-        if (configurebutton())
-        {
-            enter.setEnabled(false);
+    public void clearscreen(){
+        num_1.setVisibility(View.GONE);
+        op_1.setVisibility(View.GONE);
+        num_2.setVisibility(View.GONE);
+        op_2.setVisibility(View.GONE);
+        num_3.setVisibility(View.GONE);
+        status.setVisibility(View.GONE);
+        answer.setVisibility(View.GONE);
+        enter.setVisibility(View.GONE);
+        equalsign.setVisibility(View.GONE);
+        gameover.setVisibility(View.VISIBLE);
+    }
 
-            if (configureresult() == result) {
-                //System.out.println("Good Job!");
-                point++;
-                //n++;
+    public void main()
+    {
+        Random random = new Random();
 
-            } else {
-                point = 0;
-                //n++;
-            }
+        int a = random.nextInt(10) + 1;//1-20 int number
+        configurenum1(a);
+        int b = random.nextInt(2);//0,1,0 stands for +,1 for -
+        configureop1(b);
+        int c = random.nextInt(10) + 1;
+        configurenum2(c);
+        int d;
+        if (n <= 5) {
+            d = random.nextInt(2);
+            configureop2(d);
+        } else {
+            d = random.nextInt(4);//2 stands for *,3 stands for %
+            configureop2(d);
         }
-    }
 
+        int e;
+        if(d == 2){
+            e = random.nextInt(10) + 1;
+        }
+        else {
+            e = random.nextInt(2) + 1;
+        }
+        configurenum3(e);
+        //we have all the variables now, show them in the board
+        //int user = 0;
+        //int result = 0;
+        //configurebutton();
+        switch (d) {
+            case 0:
+                if (b == 0)
+                {
+                    result = a + c + e;
+                } else
+                {
+                    result = a - c + e;
+                }
+                break;
+            case 1:
+                if (b == 0)
+                {
+                    result = a + c - e;
+                } else
+                {
+                    result = a - c - e;
+                }
+                break;
+            case 2:
+                if (b == 0)
+                {
+                    result = a + (c * e);
+                }
+                else
+                {
+                    result = a - (c * e);
+                }
+                break;
+            case 3:
+                if (b == 0)
+                {
+                    result = a + (c / e);
+                }
+                else
+                {
+                    result = a - (c / e);
+                }
+                break;
+        }
+        configurebutton();
+    }
 
 
     @Override
@@ -155,72 +257,8 @@ public class numbers extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+}
 
-    public void main(String[] args) {
-       // do {
-        for(n = 1; n <= 10; n++) {
-            Random random = new Random();
-
-            int a = random.nextInt(20) + 1;//1-20 int number
-            configurenum1(a);
-            int b = random.nextInt(2);//0,1,0 stands for +,1 for -
-            configureop1(b);
-            int c = random.nextInt(20) + 1;
-            configurenum2(c);
-            int d;
-            if (n <= 5) {
-                d = random.nextInt(2);
-                configureop2(d);
-            } else {
-                d = random.nextInt(4);//2 stands for *,3 stands for %
-                configureop2(d);
-            }
-            //here is something that I want to create in the game, the first 5 problems created will be simple(only + and -), and the rest would be more difficult
-            //the numbers are 1-20, and if we have two multiply is somehow too difficult(like 19*18*17), so i think just one multiply is enough
-            //the reason we have % instead of / is easy to figure out
-            int e = random.nextInt(20) + 1;
-            configurenum3(e);
-            //we have all the variables now, show them in the board
-            //int user = 0;
-            //int result = 0;
-            switch (d) {
-                case 0:
-                    if (b == 0) {
-                        result = a + c + e;
-                    } else {
-                        result = a - c + e;
-                    }
-                    break;
-                case 1:
-                    if (b == 0) {
-                        result = a + c - e;
-                    } else {
-                        result = a - c - e;
-                    }
-                    break;
-                case 2:
-                    if (b == 0)
-                        result = a + c * e;
-                    else
-                        result = a - c * e;
-                    break;
-                case 3:
-                    if (b == 0)
-                        result = a + c % e;
-                    else
-                        result = a - c % e;
-                    break;
-            }
-            check();
-
-        }
-            //while(n<=10);
-            //while ((current-start_time)<=30000)
-                //The game is just 10 problems, I think too many problems would be boring, and the we record the time each player used to finish this game
-            //output the time user use,using variable timer.time, which is the total seconds cost
-            //end the game!
-        }
-    }
 
 
 
