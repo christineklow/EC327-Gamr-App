@@ -159,5 +159,27 @@
 
     </RelativeLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" "
+        android:id="@+id/simonready"
+        android:layout_centerInParent="true"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        android:visibility="invisible"
+        android:gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Replay?"
+        android:id="@+id/simonreplay"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/simonready"
+        android:visibility="invisible"/>
+
 
 </RelativeLayout>

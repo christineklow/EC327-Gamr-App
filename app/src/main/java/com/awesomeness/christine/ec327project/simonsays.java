@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View.OnTouchListener;
@@ -20,11 +21,14 @@ public class simonsays extends ActionBarActivity {
     ImageButton blue;
     ImageButton yellow;
     ImageButton red;
+    Button replay;
     TextView message;
-    int[] Pattern= new int[20];
-    int[] userInput= new int[20];
+    TextView ready;
+    int[] Pattern;//= new int[200];
+    int[] userInput;//= new int[200];
+    int patterncount = 0;
     int count = 0;
-    int usercount;
+    int usercount = 0;
 
 
     @Override
@@ -32,72 +36,105 @@ public class simonsays extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simonsays);
 
-        /*green.setEnabled(false);
-        blue.setEnabled(false);
-        yellow.setEnabled(false);
-        red.setEnabled(false);*/
-
         green = (ImageButton)findViewById(R.id.green); //1
         blue = (ImageButton)findViewById(R.id.blue); //2
         yellow = (ImageButton)findViewById(R.id.yellow); //3
         red = (ImageButton)findViewById(R.id.red); //4
         message = (TextView)findViewById(R.id.simoninstructions);
+        ready = (TextView)findViewById(R.id.simonready);
+        replay = (Button)findViewById(R.id.simonreplay);
 
-        addpattern();
+        Pattern= new int[200];
+        userInput= new int[200];
+
+        new CountDownTimer(5000,1000) {
+
+            public void onTick(long millisUntilFinished) {
+                if (millisUntilFinished/1000 == 3)
+                {
+                    ready.setVisibility(View.VISIBLE);
+                    ready.setText("Ready");
+                }
+                else if (millisUntilFinished/1000 == 2)
+                {
+                    ready.setText("Set");
+                }
+                else if (millisUntilFinished/1000 == 1)
+                {
+                    ready.setText("Go! ");
+                }
+            }
+
+            public void onFinish() {
+                ready.setVisibility(View.INVISIBLE);
+                addpattern();
+            }
+        }.start();
     }
 
     public void addpattern(){
 
-        //create next pattern step
-        Random random = new Random();
-        Pattern[count] = random.nextInt(3)+1;
         green.setEnabled(false);
         blue.setEnabled(false);
         yellow.setEnabled(false);
         red.setEnabled(false);
 
-        count++;
+        message.setText("Repeat the sequence");
 
-        new CountDownTimer(2000,1000) {
+        //create next pattern step
+        Random random = new Random();
+        Pattern[count] = random.nextInt(4)+1;
 
-            public void onTick(long m){
+        final int time = (count+1)*1000;
+
+        new CountDownTimer(1500,1000) {
+
+            public void onTick(long millisUntilFinished) {
+                if (count > 0)
+                {
+                    ready.setVisibility(View.VISIBLE);
+                    ready.setText("Good Job");
+                }
 
             }
 
             public void onFinish() {
-                //show the pattern
-                for (
-                        int i = 0;
-                        i < count; i++)
-
-                {
-                    final int finalI = i;
-                    new CountDownTimer(1000, 1000) {
-
-                        public void onTick(long millisUntilFinished) {
-                            showpattern(Pattern[finalI]);
-                        }
-
-                        public void onFinish() {
-                            hidepattern(Pattern[finalI]);
-                        }
-                    }.start();
-                    showpattern(Pattern[i]);
-                }
+                count++;
+                ready.setVisibility(View.INVISIBLE);
+                showpattern(Pattern[patterncount]);
             }
         }.start();
-
-        playerturn();
     }
 
     //makes the buttons light up with automated pattern
-    public void showpattern(int color){
-        switch(color){
-            case 1: green.setImageResource(R.drawable.simongreen);break;
-            case 2: blue.setImageResource(R.drawable.simonblue); break;
-            case 3: yellow.setImageResource(R.drawable.simonyellow);break;
-            case 4: red.setImageResource(R.drawable.simonred);break;
-        }
+    public void showpattern(final int color){
+
+        new CountDownTimer(1000, 500) {
+
+            public void onTick(long millisUntilFinished) {
+                switch(color){
+                    case 1: green.setImageResource(R.drawable.simongreen);break;
+                    case 2: blue.setImageResource(R.drawable.simonblue); break;
+                    case 3: yellow.setImageResource(R.drawable.simonyellow);break;
+                    case 4: red.setImageResource(R.drawable.simonred);break;
+                }
+            }
+
+            public void onFinish() {
+                hidepattern(color);
+                if(patterncount < count)
+                {
+                    patterncount++;
+                    showpattern(Pattern[patterncount]);
+                }
+                else
+                {
+                    patterncount = 0;
+                    usercount = 0;
+                    playerturn();
+                }
+            }
+        }.start();
     }
 
     //turns the light off for next in sequence
@@ -111,18 +148,23 @@ public class simonsays extends ActionBarActivity {
     }
 
     //player's turn
-    public boolean playerturn()
+    public void playerturn()
     {
-        //count marks beginning of user's sequence
-        usercount = 0;
+        //beginning of user's sequence
         message.setText("Your turn.");
+
+        boolean check = false;
 
         //makes buttons clickable for player to replicate pattern
         configuregreen();
         configureblue();
         configureyellow();
         configurered();
-        return true;
+
+        if (usercount == count)
+        {
+            addpattern();
+        }
     }
 
     //check if player's input matches next in generated sequence
@@ -135,7 +177,63 @@ public class simonsays extends ActionBarActivity {
 
     public void gameover()
     {
+        green.setVisibility(View.GONE);
+        blue.setVisibility(View.GONE);
+        yellow.setVisibility(View.GONE);
+        red.setVisibility(View.GONE);
+        message.setVisibility(View.GONE);
+        ready.setVisibility(View.VISIBLE);
+        ready.setText("You lost. Can't you remember " + count + " numbers?");
+        replay.setVisibility(View.VISIBLE);
+        replay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replay.setVisibility(View.INVISIBLE);
+                reset();
+            }
+        });
+    }
 
+    public void reset()
+    {
+        count = 0;
+        usercount = 0;
+        patterncount = 0;
+        green.setVisibility(View.VISIBLE);
+        blue.setVisibility(View.VISIBLE);
+        yellow.setVisibility(View.VISIBLE);
+        red.setVisibility(View.VISIBLE);
+        message.setVisibility(View.VISIBLE);
+        ready.setVisibility(View.INVISIBLE);
+
+        Pattern= new int[200];
+        userInput= new int[200];
+
+        message.setText("Repeat the sequence");
+
+        new CountDownTimer(5000,1000) {
+
+            public void onTick(long millisUntilFinished) {
+                if (millisUntilFinished/1000 == 3)
+                {
+                    ready.setVisibility(View.VISIBLE);
+                    ready.setText("Ready");
+                }
+                else if (millisUntilFinished/1000 == 2)
+                {
+                    ready.setText("Set");
+                }
+                else if (millisUntilFinished/1000 == 1)
+                {
+                    ready.setText("Go! ");
+                }
+            }
+
+            public void onFinish() {
+                ready.setVisibility(View.INVISIBLE);
+                addpattern();
+            }
+        }.start();
     }
 
     public void configuregreen(){
@@ -145,22 +243,25 @@ public class simonsays extends ActionBarActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
+                        userInput[usercount] = 1;
                         green.setImageResource(R.drawable.simongreen);
                         break;
                     }
                     case MotionEvent.ACTION_UP: {
                         green.setImageResource(R.drawable.simongreenoff);
-                        /*if (checksequence(usercount))
+                        if (checksequence(usercount))
                         {
                             //continue game
                             usercount++;
+                            playerturn();
                         }
 
                         else
                         {
                             //display end of game
+                            gameover();
                         }
-                        break;*/
+                        break;
                     }
                 }
                 return false;
@@ -175,12 +276,24 @@ public class simonsays extends ActionBarActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
+                        userInput[usercount] = 2;
                         blue.setImageResource(R.drawable.simonblue);
                         break;
                     }
                     case MotionEvent.ACTION_UP: {
                         blue.setImageResource(R.drawable.simonblueoff);
-                        usercount++;
+                        if (checksequence(usercount))
+                        {
+                            //continue game
+                            usercount++;
+                            playerturn();
+                        }
+
+                        else
+                        {
+                            //display end of game
+                            gameover();
+                        }
                         break;
                     }
                 }
@@ -196,12 +309,24 @@ public class simonsays extends ActionBarActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
+                        userInput[usercount] = 3;
                         yellow.setImageResource(R.drawable.simonyellow);
                         break;
                     }
                     case MotionEvent.ACTION_UP: {
                         yellow.setImageResource(R.drawable.simonyellowoff);
-                        usercount++;
+                        if (checksequence(usercount))
+                        {
+                            //continue game
+                            usercount++;
+                            playerturn();
+                        }
+
+                        else
+                        {
+                            //display end of game
+                            gameover();
+                        }
                         break;
                     }
                 }
@@ -217,12 +342,24 @@ public class simonsays extends ActionBarActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
+                        userInput[usercount] = 4;
                         red.setImageResource(R.drawable.simonred);
                         break;
                     }
                     case MotionEvent.ACTION_UP: {
                         red.setImageResource(R.drawable.simonredoff);
-                        usercount++;
+                        if (checksequence(usercount))
+                        {
+                            //continue game
+                            usercount++;
+                            playerturn();
+                        }
+
+                        else
+                        {
+                            //display end of game
+                            gameover();
+                        }
                         break;
                     }
                 }
