@@ -5,11 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 
 
-public class mainscreen extends Activity implements View.OnClickListener {
+public class mainscreen extends Activity /*implements View.OnClickListener*/ {
 
     ImageButton one_player;
     ImageButton two_player;
@@ -19,29 +20,59 @@ public class mainscreen extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainscreen);
         one_player = (ImageButton) findViewById(R.id.oneplayer);
-        one_player.setOnClickListener(this);
         two_player = (ImageButton) findViewById(R.id.twoplayers);
-        two_player.setOnClickListener(this);
+        configureoneplayer();
+        configuretwoplayer();
     }
 
-    private void configurePlayer1() {
+    private void Player1() {
                 startActivity(new Intent("gamelist"));
             }
 
-    private void configurePlayer2(){
+    private void Player2(){
         startActivity(new Intent("gamelisttwoplayer"));
     }
 
-    @Override
-    public void onClick(View v) {
-        switch(v.getId()){
-            case R.id.oneplayer:
-                configurePlayer1();
-                break;
-            case R.id.twoplayers:
-                configurePlayer2();
-                break;
-        }
+    // 1 player button
+    public void configureoneplayer(){
+        one_player.setEnabled(true);
+        one_player.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        one_player.setImageResource(R.drawable.oneplayerglow);
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        one_player.setImageResource(R.drawable.one_player);
+                        Player1();
+                    }
+                }
+                return false;
+            }
+        });
+    }
+
+    // 2 players button
+    public void configuretwoplayer(){
+        two_player.setEnabled(true);
+        two_player.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        two_player.setImageResource(R.drawable.twoplayerglow);
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        two_player.setImageResource(R.drawable.twoplayer);
+                        Player2();
+                    }
+                }
+                return false;
+            }
+        });
     }
 
             @Override
