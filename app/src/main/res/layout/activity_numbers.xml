@@ -163,5 +163,16 @@
         android:textColor="#FFFFFF"
         android:gravity="center_horizontal" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Replay?"
+        android:id="@+id/replaynumbers"
+        android:layout_below="@+id/gameover"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:typeface="normal"
+        android:visibility="invisible" />
+
 
 </RelativeLayout>

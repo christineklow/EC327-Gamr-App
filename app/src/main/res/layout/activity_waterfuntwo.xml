@@ -82,7 +82,7 @@
                 android:layout_height="30dp"
                 android:id="@+id/gunbaseleft"
                 android:background="@drawable/watergunstand"
-                android:layout_alignBottom="@+id/watergunbutton"
+                android:layout_alignBottom="@+id/watergunbuttonbottom"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginBottom="-15dp"/>
@@ -93,7 +93,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/watergunbutton"
+                android:id="@+id/watergunbuttonbottom"
                 android:src="@drawable/watergun"
                 android:background="@null"
                 android:layout_below="@+id/rightbase"
@@ -165,7 +165,7 @@
                 android:layout_height="30dp"
                 android:id="@+id/gunbaseright"
                 android:background="@drawable/watergunstand"
-                android:layout_alignBottom="@+id/waterguncomputer"
+                android:layout_alignBottom="@+id/watergunbuttontop"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginBottom="-15dp"/>
@@ -173,7 +173,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/waterguncomputer"
+                android:id="@+id/watergunbuttontop"
                 android:src="@drawable/watergun"
                 android:background="@null"
                 android:layout_below="@+id/leftbase"
@@ -201,17 +201,11 @@
         android:text=" "
         android:id="@+id/readysetgo"
         android:layout_centerInParent="true"
+        android:layout_below="@+id/replay"
         android:textSize="50sp"
-        android:visibility="visible" />
-
-    <ViewFlipper
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/viewFlipper"
-        android:layout_below="@+id/readysetgo"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="327dp" />
+        android:visibility="visible"
+        android:textColor="#FFFFFF"
+        android:gravity="center" />
 
     <Button
         android:layout_width="wrap_content"
@@ -219,8 +213,21 @@
         android:text="Replay?"
         android:id="@+id/replay"
         android:layout_centerInParent="true"
-        android:layout_below="@+id/readysetgo"
         android:visibility="invisible"
         android:onClick="onClick" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" "
+        android:id="@+id/readysetgo"
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/replay"
+        android:textSize="50sp"
+        android:visibility="visible"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:rotation="180"/>
+
 
 </RelativeLayout>

@@ -223,7 +223,8 @@
         android:id="@+id/readysetgo"
         android:layout_centerInParent="true"
         android:textSize="50sp"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:textColor="#FFFFFF" />
 
     <ViewFlipper
         android:layout_width="wrap_content"

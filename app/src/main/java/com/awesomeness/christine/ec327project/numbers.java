@@ -25,6 +25,7 @@ public class numbers extends Activity {
     TextView equalsign;
     EditText answer;
     Button enter;
+    Button replay;
     TextView gameover;
     int num1;
     int num2;
@@ -45,6 +46,7 @@ public class numbers extends Activity {
         status = (TextView) findViewById(R.id.status);
         equalsign = (TextView) findViewById(R.id.equalsign);
         gameover = (TextView) findViewById(R.id.gameover);
+        replay = (Button)findViewById((R.id.replaynumbers));
         main();
 
     }
@@ -130,16 +132,42 @@ public class numbers extends Activity {
     }
 
     public void clearscreen(){
-        num_1.setVisibility(View.GONE);
-        op_1.setVisibility(View.GONE);
-        num_2.setVisibility(View.GONE);
-        op_2.setVisibility(View.GONE);
-        num_3.setVisibility(View.GONE);
-        status.setVisibility(View.GONE);
+        num_1.setVisibility(View.INVISIBLE);
+        op_1.setVisibility(View.INVISIBLE);
+        num_2.setVisibility(View.INVISIBLE);
+        op_2.setVisibility(View.INVISIBLE);
+        num_3.setVisibility(View.INVISIBLE);
+        status.setVisibility(View.INVISIBLE);
         answer.setVisibility(View.GONE);
-        enter.setVisibility(View.GONE);
-        equalsign.setVisibility(View.GONE);
+        enter.setVisibility(View.INVISIBLE);
+        equalsign.setVisibility(View.INVISIBLE);
         gameover.setVisibility(View.VISIBLE);
+        replay.setVisibility(View.VISIBLE);
+        replay.setEnabled(true);
+        replay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaynumbers();
+            }
+        });
+    }
+
+    public void replaynumbers(){
+        answer.setText("");
+        num_1.setVisibility(View.VISIBLE);
+        op_1.setVisibility(View.VISIBLE);
+        num_2.setVisibility(View.VISIBLE);
+        op_2.setVisibility(View.VISIBLE);
+        num_3.setVisibility(View.VISIBLE);
+        status.setVisibility(View.VISIBLE);
+        answer.setVisibility(View.VISIBLE);
+        equalsign.setVisibility(View.VISIBLE);
+        enter.setVisibility(View.VISIBLE);
+        gameover.setVisibility(View.INVISIBLE);
+        replay.setVisibility(View.INVISIBLE);
+        main();
+        count = 0;
+        point = 0;
     }
 
     public void main()

@@ -450,7 +450,7 @@ public class matchingpairs extends ActionBarActivity {
                     {
                         finalmessage.setText("Perfect! You won with " + tries/2 + " tries! If only you could major in this.");
                     }
-                    else if(tries/2 > 4 && tries/2 < 8)
+                    else if(tries/2 > 4 && tries/2 < 10)
                     {
                         finalmessage.setText("You won with " + tries/2 + " tries! Not Bad.");
                     }
@@ -463,6 +463,7 @@ public class matchingpairs extends ActionBarActivity {
                         public void onClick(View v) {
                             click1 = 0;
                             click2 = 0;
+                            tries = 0;
                             //updatecards();
                             button1.setVisibility(View.VISIBLE);
                             button1.setImageResource(R.drawable.card);
