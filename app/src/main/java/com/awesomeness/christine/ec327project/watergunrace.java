@@ -40,20 +40,17 @@ public class watergunrace extends ActionBarActivity
 
 
         mTextField.setVisibility(View.VISIBLE);
-        new CountDownTimer(5000, 1000) {
+        new CountDownTimer(4000, 1000) {
             public void onTick(long millisUntilFinished) {
 
-                if (millisUntilFinished / 1000 == 4) {
+                if (millisUntilFinished / 1000 == 3) {
                     mTextField.setText("Ready");
 
-                } else if (millisUntilFinished / 1000 == 3) {
+                } else if (millisUntilFinished / 1000 == 2) {
                     mTextField.setText("Set");
 
-                } else if (millisUntilFinished / 1000 == 2) {
-                    mTextField.setText("Go! ;)");
-
                 } else if (millisUntilFinished / 1000 == 1) {
-                    mTextField.setText(" ");
+                    mTextField.setText("Go! ;)");
 
                 }
 
@@ -136,7 +133,7 @@ public class watergunrace extends ActionBarActivity
                 {
                 }
                 else if (distanceToGo2 > 0) {
-                    new CountDownTimer(150, 100) {
+                    new CountDownTimer(110, 100) {
                         public void onTick(long millisUntilFinished) {
                         }
 
