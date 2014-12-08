@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.Random;
 
@@ -17,6 +19,9 @@ public class dontpush extends ActionBarActivity {
     ImageButton button;
     ImageView command;
     ImageView pushmessage;
+    TextView wait;
+    Button replay;
+    boolean check = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,31 +30,73 @@ public class dontpush extends ActionBarActivity {
 
         button = (ImageButton) findViewById(R.id.dontpressbutton);
         command = (ImageView) findViewById(R.id.dontpresstitle);
+        replay = (Button) findViewById(R.id.pushreplay);
+        wait = (TextView) findViewById(R.id.wait);
 
         //configuredontpush();
-        pushtimer();
+        dontpushtimer();
     }
 
-    public void pushtimer()
+    public void dontpushtimer()
     {
         Random random = new Random();
-        int time = (random.nextInt(30)+1) * 1000;
+        int time = (random.nextInt(10)+1) * 1000;
 
         configuredontpush();
+        wait.setVisibility(View.VISIBLE);
 
-        new CountDownTimer(5000,1000) {
+        new CountDownTimer(time,1000) {
+
+            int i = 0;
 
             public void onTick(long millisUntilFinished) {
+                switch (i) {
+                    case 0:
+                        wait.setText("Wait");
+                        i++;
+                        break;
+                    case 1:
+                        wait.setText("Wait.");
+                        i++;
+                        break;
+                    case 2:
+                        wait.setText("Wait..");
+                        i++;
+                        break;
+                    case 3:
+                        wait.setText("Wait...");
+                        i=0;
+                        break;
+                }
             }
 
             public void onFinish() {
-                configurepush();
+                pushtimer();
             }
         }.start();
     }
 
+    public void pushtimer()
+    {
+        configurepush();
+        wait.setText("NOW.");
+
+            new CountDownTimer(500, 500) {
+
+                public void onTick(long millisUntilFinished) {
+                }
+
+                public void onFinish() {
+                    if (!check) {
+                        dontpushtimer();
+                    }
+                }
+            }.start();
+
+    }
+
     public void configuredontpush(){
-        command.setBackgroundResource(R.drawable.dontpresstitle);
+        command.setImageResource(R.drawable.dontpresstitle);
         pushmessage = (ImageView) findViewById(R.id.buttonmessage1);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,13 +104,25 @@ public class dontpush extends ActionBarActivity {
                 button.setVisibility(View.GONE);
                 command.setVisibility(View.GONE);
                 pushmessage.setVisibility(View.VISIBLE);
-                pushmessage.setBackgroundResource(R.drawable.buttonmessage);
+                pushmessage.setImageResource(R.drawable.buttonmessage);
+                replay.setVisibility(View.VISIBLE);
+                wait.setVisibility(View.INVISIBLE);
+                configurereplay();
+            }
+        });
+    }
+
+    public void configurereplay(){
+        replay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setreplay();
             }
         });
     }
 
     public void configurepush(){
-        command.setBackgroundResource(R.drawable.pushbutton);
+        command.setImageResource(R.drawable.pushbutton);
         pushmessage = (ImageView) findViewById(R.id.buttonmessage1);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,9 +130,23 @@ public class dontpush extends ActionBarActivity {
                 button.setVisibility(View.GONE);
                 command.setVisibility(View.GONE);
                 pushmessage.setVisibility(View.VISIBLE);
-                pushmessage.setBackgroundResource(R.drawable.buttonmessagepush);
+                pushmessage.setImageResource(R.drawable.buttonmessagepush);
+                replay.setVisibility(View.VISIBLE);
+                wait.setVisibility(View.INVISIBLE);
+                configurereplay();
+                check = true;
             }
         });
+    }
+
+    public void setreplay()
+    {
+        check = false;
+        button.setVisibility(View.VISIBLE);
+        command.setVisibility(View.VISIBLE);
+        replay.setVisibility(View.INVISIBLE);
+        pushmessage.setVisibility(View.INVISIBLE);
+        dontpushtimer();
     }
 
 
