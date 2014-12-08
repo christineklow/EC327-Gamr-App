@@ -116,7 +116,7 @@ public class watergunrace extends ActionBarActivity
     public void computermove()
     {
         Random rand = new Random();
-        speed2 = rand.nextDouble()*(2);
+        speed2 = rand.nextDouble()*(4)+1;
         distanceToGo2 = distanceToGo2-speed2;
         long computershootingtime = (long) (speed2 * 100);
 
