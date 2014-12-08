@@ -49,6 +49,15 @@ public class matchingpairs extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matchingpairs);
 
+        button1 = (ImageButton) findViewById(R.id.cardone);
+        button2 = (ImageButton) findViewById(R.id.cardtwo);
+        button3 = (ImageButton) findViewById(R.id.cardthree);
+        button4 = (ImageButton) findViewById(R.id.cardfour);
+        button5 = (ImageButton) findViewById(R.id.cardfive);
+        button6 = (ImageButton) findViewById(R.id.cardsix);
+        button7 = (ImageButton) findViewById(R.id.cardseven);
+        button8 = (ImageButton) findViewById(R.id.cardeight);
+
         finalmessage = (TextView) findViewById(R.id.finalmessage);
         replay = (Button) findViewById(R.id.matchreplay);
         main();
@@ -263,6 +272,7 @@ public class matchingpairs extends ActionBarActivity {
                     click2 = 0;
                     break;
             }
+            updatecards();
             end();
             return true;
         }
@@ -280,7 +290,6 @@ public class matchingpairs extends ActionBarActivity {
                     button1.setImageResource(R.drawable.card);
                     button1.setEnabled(true);
                     tries++;
-                    updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
@@ -289,7 +298,6 @@ public class matchingpairs extends ActionBarActivity {
                     button2.setImageResource(R.drawable.card);
                     button2.setEnabled(true);
                     tries++;
-                    updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
@@ -298,7 +306,6 @@ public class matchingpairs extends ActionBarActivity {
                     button3.setImageResource(R.drawable.card);
                     button3.setEnabled(true);
                     tries++;
-                    updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
@@ -307,7 +314,6 @@ public class matchingpairs extends ActionBarActivity {
                     button4.setImageResource(R.drawable.card);
                     button4.setEnabled(true);
                     tries++;
-                    updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
@@ -316,7 +322,6 @@ public class matchingpairs extends ActionBarActivity {
                     button5.setImageResource(R.drawable.card);
                     button5.setEnabled(true);
                     tries++;
-                    updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
@@ -325,7 +330,6 @@ public class matchingpairs extends ActionBarActivity {
                     button6.setImageResource(R.drawable.card);
                     button6.setEnabled(true);
                     tries++;
-                    updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
@@ -334,7 +338,6 @@ public class matchingpairs extends ActionBarActivity {
                     button7.setImageResource(R.drawable.card);
                     button7.setEnabled(true);
                     tries++;
-                    updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
@@ -343,7 +346,6 @@ public class matchingpairs extends ActionBarActivity {
                     button8.setImageResource(R.drawable.card);
                     button8.setEnabled(true);
                     tries++;
-                    updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
@@ -354,7 +356,6 @@ public class matchingpairs extends ActionBarActivity {
                     button1.setImageResource(R.drawable.card);
                     button1.setEnabled(true);
                     tries++;
-                    updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
@@ -363,7 +364,6 @@ public class matchingpairs extends ActionBarActivity {
                     button2.setImageResource(R.drawable.card);
                     button2.setEnabled(true);
                     tries++;
-                    updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
@@ -372,7 +372,6 @@ public class matchingpairs extends ActionBarActivity {
                     button3.setImageResource(R.drawable.card);
                     button3.setEnabled(true);
                     tries++;
-                    updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
@@ -381,7 +380,6 @@ public class matchingpairs extends ActionBarActivity {
                     button4.setImageResource(R.drawable.card);
                     button4.setEnabled(true);
                     tries++;
-                    updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
@@ -390,7 +388,6 @@ public class matchingpairs extends ActionBarActivity {
                     button5.setImageResource(R.drawable.card);
                     button5.setEnabled(true);
                     tries++;
-                    updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
@@ -399,7 +396,6 @@ public class matchingpairs extends ActionBarActivity {
                     button6.setImageResource(R.drawable.card);
                     button6.setEnabled(true);
                     tries++;
-                    updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
@@ -408,7 +404,6 @@ public class matchingpairs extends ActionBarActivity {
                     button7.setImageResource(R.drawable.card);
                     button7.setEnabled(true);
                     tries++;
-                    updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
@@ -417,11 +412,13 @@ public class matchingpairs extends ActionBarActivity {
                     button8.setImageResource(R.drawable.card);
                     button8.setEnabled(true);
                     tries++;
-                    updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
             }
+
+                    updatecards();
+
                 }
             }.start();
             return false;
@@ -443,7 +440,6 @@ public class matchingpairs extends ActionBarActivity {
                     button6.setVisibility(View.INVISIBLE);
                     button7.setVisibility(View.INVISIBLE);
                     button8.setVisibility(View.INVISIBLE);
-                    //finalmessage = (TextView) findViewById(R.id.finalmessage);
                     finalmessage.setVisibility(View.VISIBLE);
                     replay.setVisibility(View.VISIBLE);
                     if(tries/2 == 4)
@@ -507,9 +503,20 @@ public class matchingpairs extends ActionBarActivity {
         }
     }
 
+    public void pausecards(int first, int second){
+        button1.setEnabled(false);
+        button2.setEnabled(false);
+        button3.setEnabled(false);
+        button4.setEnabled(false);
+        button5.setEnabled(false);
+        button6.setEnabled(false);
+        button7.setEnabled(false);
+        button8.setEnabled(false);
+    }
+
     public void configurecard1(){
         final int cardID = imagesArray[0];
-        button1 = (ImageButton) findViewById(R.id.cardone);
+        button1.setEnabled(true);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -530,6 +537,7 @@ public class matchingpairs extends ActionBarActivity {
                 {
                     click2 = 1; //this card number
                     card2 = cardID;
+                    pausecards(click1,click2);
                     checkmatch(click1, click2);
                 }
             }
@@ -538,7 +546,7 @@ public class matchingpairs extends ActionBarActivity {
 
     public void configurecard2(){
         final int cardID = imagesArray[1];
-        button2 = (ImageButton) findViewById(R.id.cardtwo);
+        button2.setEnabled(true);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -558,6 +566,7 @@ public class matchingpairs extends ActionBarActivity {
                 {
                     click2 = 2; //this card number
                     card2 = cardID;
+                    pausecards(click1,click2);
                     checkmatch(click1, click2);
                 }
             }
@@ -566,7 +575,7 @@ public class matchingpairs extends ActionBarActivity {
 
     public void configurecard3(){
         final int cardID = imagesArray[2];
-        button3 = (ImageButton) findViewById(R.id.cardthree);
+        button3.setEnabled(true);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -586,6 +595,7 @@ public class matchingpairs extends ActionBarActivity {
                 {
                     click2 = 3; //this card number
                     card2 = cardID;
+                    pausecards(click1,click2);
                     checkmatch(click1, click2);
                 }
             }
@@ -594,7 +604,7 @@ public class matchingpairs extends ActionBarActivity {
 
     public void configurecard4(){
         final int cardID = imagesArray[3];
-        button4 = (ImageButton) findViewById(R.id.cardfour);
+        button4.setEnabled(true);
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -614,6 +624,7 @@ public class matchingpairs extends ActionBarActivity {
                 {
                     click2 = 4; //this card number
                     card2 = cardID;
+                    pausecards(click1,click2);
                     checkmatch(click1, click2);
                 }
             }
@@ -622,7 +633,7 @@ public class matchingpairs extends ActionBarActivity {
 
     public void configurecard5(){
         final int cardID = imagesArray[4];
-        button5 = (ImageButton) findViewById(R.id.cardfive);
+        button5.setEnabled(true);
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -642,6 +653,7 @@ public class matchingpairs extends ActionBarActivity {
                 {
                     click2 = 5; //this card number
                     card2 = cardID;
+                    pausecards(click1,click2);
                     checkmatch(click1, click2);
                 }
             }
@@ -650,7 +662,7 @@ public class matchingpairs extends ActionBarActivity {
 
     public void configurecard6(){
         final int cardID = imagesArray[5];
-        button6 = (ImageButton) findViewById(R.id.cardsix);
+        button6.setEnabled(true);
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -670,6 +682,7 @@ public class matchingpairs extends ActionBarActivity {
                 {
                     click2 = 6; //this card number
                     card2 = cardID;
+                    pausecards(click1,click2);
                     checkmatch(click1, click2);
                 }
             }
@@ -678,7 +691,7 @@ public class matchingpairs extends ActionBarActivity {
 
     public void configurecard7(){
         final int cardID = imagesArray[6];
-        button7 = (ImageButton) findViewById(R.id.cardseven);
+        button7.setEnabled(true);
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -698,6 +711,7 @@ public class matchingpairs extends ActionBarActivity {
                 {
                     click2 = 7; //this card number
                     card2 = cardID;
+                    pausecards(click1,click2);
                     checkmatch(click1, click2);
                 }
             }
@@ -706,7 +720,7 @@ public class matchingpairs extends ActionBarActivity {
 
     public void configurecard8(){
         final int cardID = imagesArray[7];
-        button8 = (ImageButton) findViewById(R.id.cardeight);
+        button8.setEnabled(true);
         button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -726,6 +740,7 @@ public class matchingpairs extends ActionBarActivity {
                 {
                     click2 = 8; //this card number
                     card2 = cardID;
+                    pausecards(click1,click2);
                     checkmatch(click1, click2);
                 }
             }
