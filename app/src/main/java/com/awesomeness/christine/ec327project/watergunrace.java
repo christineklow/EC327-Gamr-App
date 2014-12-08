@@ -44,7 +44,6 @@ public class watergunrace extends ActionBarActivity
         ib1 = (ImageButton) findViewById(R.id.watergunbutton);
         ibc = (ImageButton) findViewById(R.id.waterguncomputer);
 
-        ib1.setEnabled(true);
 
         mTextField.setVisibility(View.VISIBLE);
         new CountDownTimer(4000, 1000) {
@@ -65,6 +64,7 @@ public class watergunrace extends ActionBarActivity
                 mTextField.setVisibility(View.INVISIBLE);
                 distanceToGo1 = distance;
                 distanceToGo2 = distance;
+                ib1.setEnabled(true);
                 playermove();
                 computermove();
 
@@ -184,6 +184,7 @@ public class watergunrace extends ActionBarActivity
             @Override
             public void onClick(View v) {
                 replay.setVisibility(View.INVISIBLE);
+                ib1.setEnabled(false);
                 startrace();
 
             }
