@@ -43,7 +43,8 @@ public class watergunrace extends ActionBarActivity
         fishone = (ImageView) findViewById(R.id.p1fish);
         ib1 = (ImageButton) findViewById(R.id.watergunbutton);
         ibc = (ImageButton) findViewById(R.id.waterguncomputer);
-
+        distanceToGo1 = distance;
+        distanceToGo2 = distance;
 
         mTextField.setVisibility(View.VISIBLE);
         new CountDownTimer(4000, 1000) {
@@ -56,14 +57,12 @@ public class watergunrace extends ActionBarActivity
                     mTextField.setText("Set");
 
                 } else if (millisUntilFinished / 1000 == 1) {
-                    mTextField.setText("Go! ;)");
+                    mTextField.setText("Go!");
                 }
             }
 
             public void onFinish() {
                 mTextField.setVisibility(View.INVISIBLE);
-                distanceToGo1 = distance;
-                distanceToGo2 = distance;
                 ib1.setEnabled(true);
                 playermove();
                 computermove();
