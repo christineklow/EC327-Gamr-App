@@ -24,6 +24,7 @@ public class tictactoetwoplayer extends ActionBarActivity {
     Button replay;
     TextView wintext;
     TextView status;
+    TextView player2status;
     int[] gameboard = {0,1,2,3,4,5,6,7,8,9};
     int x,y,z;
     int turns;
@@ -35,6 +36,7 @@ public class tictactoetwoplayer extends ActionBarActivity {
 
         wintext=(TextView) findViewById(R.id.output);
         status=(TextView) findViewById(R.id.tictactoestatus);
+        player2status=(TextView) findViewById(R.id.player2status);
 
         wintext.setVisibility(View.INVISIBLE);
 
@@ -111,55 +113,55 @@ public class tictactoetwoplayer extends ActionBarActivity {
             switch (i){
                 case 1:{
                     if (gameboard[i] == i){
-                        configurebutton1();
+                        p2configurebutton1();
                         break;
                     }
                 }
                 case 2: {
                     if (gameboard[i] == i) {
-                        configurebutton2();
+                        p2configurebutton2();
                         break;
                     }
                 }
                 case 3: {
                     if (gameboard[i] == i) {
-                        configurebutton3();
+                        p2configurebutton3();
                         break;
                     }
                 }
                 case 4: {
                     if (gameboard[i] == i) {
-                        configurebutton4();
+                        p2configurebutton4();
                         break;
                     }
                 }
                 case 5: {
                     if (gameboard[i] == i) {
-                        configurebutton5();
+                        p2configurebutton5();
                         break;
                     }
                 }
                 case 6: {
                     if (gameboard[i] == i) {
-                        configurebutton6();
+                        p2configurebutton6();
                         break;
                     }
                 }
                 case 7: {
                     if (gameboard[i] == i) {
-                        configurebutton7();
+                        p2configurebutton7();
                         break;
                     }
                 }
                 case 8: {
                     if (gameboard[i] == i) {
-                        configurebutton8();
+                        p2configurebutton8();
                         break;
                     }
                 }
                 case 9: {
                     if (gameboard[i] == i) {
-                        configurebutton9();
+                        p2configurebutton9();
                         break;
                     }
                 }
@@ -250,6 +252,7 @@ public class tictactoetwoplayer extends ActionBarActivity {
                     player1won(x, y, z);
                     wintext.setVisibility(View.VISIBLE);
                     status.setVisibility(View.INVISIBLE);
+                    player2status.setVisibility(View.INVISIBLE);
                     wintext.setText("Player 1 triumphs!");//player won
                     replay.setVisibility(View.VISIBLE);
                     replay.setOnClickListener(new View.OnClickListener() {
@@ -261,10 +264,10 @@ public class tictactoetwoplayer extends ActionBarActivity {
                     break;
                 }
                 case 2: {
-                    //computer
                     player2won(x, y, z);
                     wintext.setVisibility(View.VISIBLE);
                     status.setVisibility(View.INVISIBLE);
+                    player2status.setVisibility(View.INVISIBLE);
                     wintext.setText("Player 2 triumphs!");//computer won
                     replay.setVisibility(View.VISIBLE);
                     replay.setOnClickListener(new View.OnClickListener() {
@@ -282,6 +285,7 @@ public class tictactoetwoplayer extends ActionBarActivity {
         if(!check && checktie()){
             wintext.setVisibility(View.VISIBLE);
             status.setVisibility(View.INVISIBLE);
+            player2status.setVisibility(View.INVISIBLE);
             wintext.setText("You tied. Well this is awkward.");//tie
             replay.setVisibility(View.VISIBLE);
             replay.setOnClickListener(new View.OnClickListener() {
@@ -414,6 +418,7 @@ public class tictactoetwoplayer extends ActionBarActivity {
         replay.setVisibility(View.INVISIBLE);
         wintext.setVisibility(View.INVISIBLE);
         status.setVisibility(View.VISIBLE);
+        player2status.setVisibility(View.VISIBLE);
 
         for(int i=1 ; i<10 ; i++)
         {
@@ -554,6 +559,143 @@ public class tictactoetwoplayer extends ActionBarActivity {
                 gameboard[9]=0;
                 if (!checkwin(1) && !checktie()) {
                     player2turn();
+                }
+            }
+        });
+    }
+
+    //player 2
+    public void p2configurebutton1(){
+        tic_1 = (ImageButton) findViewById(R.id.tic1);
+        tic_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_1.setImageResource(R.drawable.ocorner);
+                tic_1.setEnabled(false);
+                gameboard[1]=10;
+                if (!checkwin(2) && !checktie()) {
+                    player1turn();
+                }
+            }
+        });
+    }
+
+    public void p2configurebutton2(){
+        tic_2 = (ImageButton) findViewById(R.id.tic2);
+        tic_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_2.setImageResource(R.drawable.otwoandeight);
+                tic_2.setEnabled(false);
+                gameboard[2]=10;
+                if (!checkwin(2) && !checktie()) {
+                    player1turn();
+                }
+            }
+        });
+    }
+
+    public void p2configurebutton3(){
+        tic_3 = (ImageButton) findViewById(R.id.tic3);
+        tic_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_3.setImageResource(R.drawable.ocorner);
+                tic_3.setEnabled(false);
+                gameboard[3]=10;
+                if (!checkwin(2) && !checktie()) {
+                    player1turn();
+                }
+            }
+        });
+    }
+
+    public void p2configurebutton4(){
+        tic_4 = (ImageButton) findViewById(R.id.tic4);
+        tic_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_4.setImageResource(R.drawable.ofour);
+                tic_4.setEnabled(false);
+                gameboard[4]=10;
+                if (!checkwin(2) && !checktie()) {
+                    player1turn();
+                }
+            }
+        });
+    }
+
+    //player buttons
+    public void p2configurebutton5(){
+        tic_5 = (ImageButton) findViewById(R.id.tic5);
+        tic_5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_5.setImageResource(R.drawable.ofive);
+                tic_5.setEnabled(false);
+                gameboard[5]=10;
+                if (!checkwin(2) && !checktie()) {
+                    player1turn();
+                }
+            }
+        });
+    }
+
+    public void p2configurebutton6(){
+        tic_6 = (ImageButton) findViewById(R.id.tic6);
+        tic_6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_6.setImageResource(R.drawable.osix);
+                tic_6.setEnabled(false);
+                gameboard[6]=10;
+                if (!checkwin(2) && !checktie()) {
+                    player1turn();
+                }
+            }
+        });
+    }
+
+    public void p2configurebutton7(){
+        tic_7 = (ImageButton) findViewById(R.id.tic7);
+        tic_7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_7.setImageResource(R.drawable.ocorner);
+                tic_7.setEnabled(false);
+                gameboard[7]=10;
+                if (!checkwin(2) && !checktie()) {
+                    player1turn();
+                }
+            }
+        });
+    }
+
+    public void p2configurebutton8(){
+        tic_8 = (ImageButton) findViewById(R.id.tic8);
+        tic_8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_8.setImageResource(R.drawable.otwoandeight);
+                tic_8.setEnabled(false);
+                gameboard[8]=10;
+                if (!checkwin(2) && !checktie()) {
+                    player1turn();
+                }
+            }
+        });
+    }
+
+    public void p2configurebutton9(){
+        tic_9 = (ImageButton) findViewById(R.id.tic9);
+        tic_9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tic_9.setImageResource(R.drawable.ocorner);
+                tic_9.setEnabled(false);
+                gameboard[9]=10;
+                if (!checkwin(2) && !checktie()) {
+                    player1turn();
                 }
             }
         });

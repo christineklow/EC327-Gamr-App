@@ -128,7 +128,9 @@
         <activity
             android:name="com.awesomeness.christine.ec327project.tictactoetwoplayer"
             android:label="@string/title_activity_tictactoetwoplayer"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
+
             <intent-filter>
                 <action android:name="tictactoetwoplayer" />
 
@@ -140,6 +142,7 @@
         <activity
             android:name="com.awesomeness.christine.ec327project.gamelisttwoplayer"
             android:label="@string/title_activity_gamelisttwoplayer"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="gamelisttwoplayer" />

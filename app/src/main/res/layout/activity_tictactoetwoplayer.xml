@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tictactoe"
-        android:layout_above="@+id/output">
+        android:layout_above="@+id/tictactoestatus">
 
         <!--**********************************************************-->
         <!--Connect these buttons to Java-->
@@ -156,9 +156,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Player 1: X
-Player 2: O"
+        android:text="Player 1: X"
         android:id="@+id/tictactoestatus"
+        android:layout_centerHorizontal="true"
+        android:typeface="normal"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:layout_above="@+id/player2status"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 2: O"
+        android:id="@+id/player2status"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:typeface="normal"
