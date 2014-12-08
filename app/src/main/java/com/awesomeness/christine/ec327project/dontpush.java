@@ -1,5 +1,6 @@
 package com.awesomeness.christine.ec327project;
 
+import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,11 +9,13 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import java.util.Random;
+
 
 public class dontpush extends ActionBarActivity {
 
     ImageButton button;
-    ImageView initial;
+    ImageView command;
     ImageView pushmessage;
 
     @Override
@@ -21,18 +24,38 @@ public class dontpush extends ActionBarActivity {
         setContentView(R.layout.activity_dontpush);
 
         button = (ImageButton) findViewById(R.id.dontpressbutton);
-        initial = (ImageView) findViewById(R.id.dontpresstitle);
+        command = (ImageView) findViewById(R.id.dontpresstitle);
+
+        //configuredontpush();
+        pushtimer();
+    }
+
+    public void pushtimer()
+    {
+        Random random = new Random();
+        int time = (random.nextInt(30)+1) * 1000;
 
         configuredontpush();
+
+        new CountDownTimer(5000,1000) {
+
+            public void onTick(long millisUntilFinished) {
+            }
+
+            public void onFinish() {
+                configurepush();
+            }
+        }.start();
     }
 
     public void configuredontpush(){
+        command.setBackgroundResource(R.drawable.dontpresstitle);
         pushmessage = (ImageView) findViewById(R.id.buttonmessage1);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 button.setVisibility(View.GONE);
-                initial.setVisibility(View.GONE);
+                command.setVisibility(View.GONE);
                 pushmessage.setVisibility(View.VISIBLE);
                 pushmessage.setBackgroundResource(R.drawable.buttonmessage);
             }
@@ -40,12 +63,13 @@ public class dontpush extends ActionBarActivity {
     }
 
     public void configurepush(){
+        command.setBackgroundResource(R.drawable.pushbutton);
         pushmessage = (ImageView) findViewById(R.id.buttonmessage1);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 button.setVisibility(View.GONE);
-                initial.setVisibility(View.GONE);
+                command.setVisibility(View.GONE);
                 pushmessage.setVisibility(View.VISIBLE);
                 pushmessage.setBackgroundResource(R.drawable.buttonmessagepush);
             }
