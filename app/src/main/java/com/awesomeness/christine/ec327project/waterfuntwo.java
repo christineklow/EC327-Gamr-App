@@ -26,7 +26,7 @@ public class waterfuntwo extends ActionBarActivity {
     double distanceToGo1;
     double distanceToGo2;
     TextView mTextField;
-
+    TextView mTextField2;
     public void startrace() {
 
         fish2 = (ImageView) findViewById(R.id.p2fish);
@@ -37,22 +37,27 @@ public class waterfuntwo extends ActionBarActivity {
         distanceToGo2 = distance;
 
         mTextField.setVisibility(View.VISIBLE);
+        mTextField2.setVisibility(View.VISIBLE);
         new CountDownTimer(4000, 1000) {
             public void onTick(long millisUntilFinished) {
 
                 if (millisUntilFinished / 1000 == 3) {
                     mTextField.setText("Ready");
+                    mTextField2.setText("Ready");
 
                 } else if (millisUntilFinished / 1000 == 2) {
                     mTextField.setText("Set");
+                    mTextField2.setText("Set");
 
                 } else if (millisUntilFinished / 1000 == 1) {
                     mTextField.setText("Go!");
+                    mTextField2.setText("Go!");
                 }
             }
 
             public void onFinish() {
                 mTextField.setVisibility(View.INVISIBLE);
+                mTextField2.setVisibility(View.INVISIBLE);
                 ib1.setEnabled(true);
                 ib2.setEnabled(true);
                 player1move();
@@ -81,9 +86,11 @@ public class waterfuntwo extends ActionBarActivity {
                             ib1.setEnabled(false);
                             ib2.setEnabled(false);
                             mTextField.setVisibility(View.VISIBLE);
+                            mTextField2.setVisibility(View.VISIBLE);
                             new CountDownTimer(2000, 1000) {
                                 public void onTick(long millisUntilFinished) {
                                     mTextField.setText("You tie!");
+                                    mTextField2.setText("You tie!");
                                 }
 
                                 public void onFinish() {
@@ -94,9 +101,11 @@ public class waterfuntwo extends ActionBarActivity {
                             ib1.setEnabled(false);
                             ib2.setEnabled(false);
                             mTextField.setVisibility(View.VISIBLE);
+                            mTextField2.setVisibility(View.VISIBLE);
                             new CountDownTimer(2000, 1000) {
                                 public void onTick(long millisUntilFinished) {
-                                    mTextField.setText("Player 1 Wins!");
+                                    mTextField2.setText("You Win!");
+                                    mTextField.setText("You Lose!");
                                 }
 
                                 public void onFinish() {
@@ -131,9 +140,11 @@ public class waterfuntwo extends ActionBarActivity {
                             ib1.setEnabled(false);
                             ib2.setEnabled(false);
                             mTextField.setVisibility(View.VISIBLE);
+                            mTextField2.setVisibility(View.VISIBLE);
                             new CountDownTimer(2000, 1000) {
                                 public void onTick(long millisUntilFinished) {
                                     mTextField.setText("You tie!");
+                                    mTextField2.setText("You tie!");
                                 }
 
                                 public void onFinish() {
@@ -144,9 +155,12 @@ public class waterfuntwo extends ActionBarActivity {
                             ib1.setEnabled(false);
                             ib2.setEnabled(false);
                             mTextField.setVisibility(View.VISIBLE);
+                            mTextField2.setVisibility(View.VISIBLE);
                             new CountDownTimer(2000, 1000) {
                                 public void onTick(long millisUntilFinished) {
-                                    mTextField.setText("Player 2 Wins!");
+                                    mTextField.setText("You Win!");
+                                    mTextField2.setText("You Lose!");
+
                                 }
 
                                 public void onFinish() {
@@ -411,7 +425,7 @@ public class waterfuntwo extends ActionBarActivity {
         //goto main???
 
         mTextField = (TextView) findViewById(R.id.readysetgo);
-
+        mTextField2 = (TextView) findViewById(R.id.readysetgotop);
         startrace();
     }
 
