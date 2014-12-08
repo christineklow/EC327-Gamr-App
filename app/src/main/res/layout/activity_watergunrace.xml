@@ -56,13 +56,13 @@
                 android:layout_centerHorizontal="true" />
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="45dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/rightrod"
+                android:id="@+id/p1fish"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/waterracerod"
                 android:layout_above="@+id/rightbase"
-                android:layout_below="@+id/boatone" />
+                android:layout_below="@+id/boatone"
+                android:background="@drawable/fone" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -97,17 +97,6 @@
                 android:layout_marginTop="15dp"
                 android:clickable="true" />
 
-            <!--Fish moves by adjusting layoutmarginbottom-->
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:id="@+id/fishone"
-                android:src="@drawable/fish"
-                android:layout_above="@+id/rightbase"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="0dp"/>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -118,6 +107,20 @@
                 android:textSize="20sp"
                 android:typeface="normal"
                 android:textColor="#FFFFFF" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_above="@+id/rightbase"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/boatone"
+                android:id="@+id/grid1">
+
+                <!--Fish 1-->
+
+                <!--Fish 1-->
+
+            </RelativeLayout>
         </RelativeLayout>
 
         <RelativeLayout
@@ -148,11 +151,11 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/leftrod"
+                android:id="@+id/p2fish"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/waterracerod"
                 android:layout_above="@+id/leftbase"
-                android:layout_below="@+id/boattwo" />
+                android:layout_below="@+id/boattwo"
+                android:background="@fone" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -182,14 +185,10 @@
                 android:layout_below="@+id/leftbase"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:id="@+id/fishtwo"
-                android:src="@drawable/fish"
-                android:layout_above="@+id/leftbase"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="10dp"/>
+
+            <!-- Fish 2-->
+
+            <!--Fish 2 -->
 
             <TextView
                 android:layout_width="wrap_content"
