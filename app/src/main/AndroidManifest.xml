@@ -25,7 +25,7 @@
         <activity
             android:name="com.awesomeness.christine.ec327project.gamelist"
             android:label="@string/title_activity_gamelist"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="gamelist" />
 
@@ -37,8 +37,8 @@
         <activity
             android:name="com.awesomeness.christine.ec327project.tictactoe"
             android:label="@string/title_activity_tictactoe"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="tictactoe" />
 
@@ -50,8 +50,8 @@
         <activity
             android:name="com.awesomeness.christine.ec327project.numbers"
             android:label="@string/title_activity_numbers"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="numbers" />
 
@@ -63,8 +63,8 @@
         <activity
             android:name="com.awesomeness.christine.ec327project.matchingpairs"
             android:label="@string/title_activity_matchingpairs"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="matchingpairs" />
 
@@ -76,8 +76,8 @@
         <activity
             android:name="com.awesomeness.christine.ec327project.watergunrace"
             android:label="@string/title_activity_watergunrace"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="watergunrace" />
 
@@ -89,8 +89,8 @@
         <activity
             android:name="com.awesomeness.christine.ec327project.simonsays"
             android:label="@string/title_activity_simonsays"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="simonsays" />
 
@@ -102,8 +102,8 @@
         <activity
             android:name="com.awesomeness.christine.ec327project.dontpush"
             android:label="@string/title_activity_dontpush"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="dontpush" />
 
@@ -115,13 +115,21 @@
         <activity
             android:name="com.awesomeness.christine.ec327project.wackamole"
             android:label="@string/title_activity_wackamole"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="wackamole" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.awesomeness.christine.ec327project.tictactoetwoplayer"
+            android:label="@string/title_activity_tictactoetwoplayer" >
+        </activity>
+        <activity
+            android:name="com.awesomeness.christine.ec327project.gamelisttwoplayer"
+            android:label="@string/title_activity_gamelisttwoplayer" >
         </activity>
     </application>
 

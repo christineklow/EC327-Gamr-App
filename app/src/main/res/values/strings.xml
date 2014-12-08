@@ -13,5 +13,7 @@
     <string name="title_activity_simonsays">simonsays</string>
     <string name="title_activity_dontpush">dontpush</string>
     <string name="title_activity_wackamole">wackamole</string>
+    <string name="title_activity_tictactoetwoplayer">tictactoetwoplayer</string>
+    <string name="title_activity_gamelisttwoplayer">gamelisttwoplayer</string>
 
 </resources>

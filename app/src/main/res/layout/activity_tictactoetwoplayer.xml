@@ -1,0 +1,196 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.awesomeness.christine.ec327project.tictactoetwoplayer"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tictactoe"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/tictactoe" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tictactoe"
+        android:layout_above="@+id/output">
+
+        <!--**********************************************************-->
+        <!--Connect these buttons to Java-->
+
+        <!--How the tic tac toe grid looks like
+
+            1 | 2 | 3
+           ___________
+            4 | 5 | 6
+           ___________
+            7 | 8 | 9
+
+            the numbers in the grid correspond to the button associated with it
+
+        -->
+
+        <!--Grid button 1-->
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tic1"
+            android:layout_above="@+id/tic5"
+            android:layout_toLeftOf="@+id/tic2"
+            android:layout_toStartOf="@+id/tic2"
+            android:background="@null"
+            android:src="@drawable/corners"
+            android:onClick="onClick"
+            android:nestedScrollingEnabled="false" />
+
+
+        <!--Grid button 2-->
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tic2"
+            android:layout_above="@+id/tic5"
+            android:layout_alignLeft="@+id/tic5"
+            android:layout_alignStart="@+id/tic5"
+            android:src="@drawable/twoandeight"
+            android:background="@null" />
+
+        <!--Grid button 3-->
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tic3"
+            android:layout_above="@+id/tic5"
+            android:layout_toRightOf="@+id/tic2"
+            android:layout_toEndOf="@+id/tic2"
+            android:src="@drawable/corners"
+            android:background="@null" />
+
+        <!--Grid button 4-->
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tic4"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/tic5"
+            android:layout_toStartOf="@+id/tic5"
+            android:background="@null"
+            android:src="@drawable/side" />
+
+        <!--Grid button 5-->
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tic5"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/five"
+            android:background="@null" />
+
+        <!--Grid button 6-->
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tic6"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tic5"
+            android:layout_toEndOf="@+id/tic5"
+            android:src="@drawable/side"
+            android:background="@null" />
+
+        <!--Grid button 7-->
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tic7"
+            android:layout_below="@+id/tic5"
+            android:layout_toLeftOf="@+id/tic5"
+            android:layout_toStartOf="@+id/tic5"
+            android:src="@drawable/corners"
+            android:background="@null" />
+
+        <!--Grid button 8-->
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tic8"
+            android:layout_below="@+id/tic5"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/twoandeight"
+            android:background="@null" />
+
+        <!--Grid button 9-->
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tic9"
+            android:layout_below="@+id/tic5"
+            android:layout_toRightOf="@+id/tic5"
+            android:layout_toEndOf="@+id/tic5"
+            android:background="@null"
+            android:src="@drawable/corners" />
+
+
+        <!--**********************************************************-->
+
+    </RelativeLayout>
+
+    <!--Game info displayed underneath tictactoe grid. Does not need connecting to java-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 1: X
+Player 2: O"
+        android:id="@+id/tictactoestatus"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:typeface="normal"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You Won! This is the highlight of your life"
+        android:visibility="invisible"
+        android:id="@+id/output"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:typeface="normal"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Replay?
+(It&apos;s not like you have a life or anything.)"
+        android:id="@+id/replaybutton"
+        android:layout_centerInParent="true"
+        android:typeface="normal"
+        android:visibility="invisible"
+        android:onClick="onClick" />
+
+</RelativeLayout>
