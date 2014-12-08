@@ -27,7 +27,6 @@ public class waterfuntwo extends ActionBarActivity {
     double distanceToGo2;
     TextView mTextField;
 
-
     public void startrace() {
 
         fish2 = (ImageView) findViewById(R.id.p2fish);
