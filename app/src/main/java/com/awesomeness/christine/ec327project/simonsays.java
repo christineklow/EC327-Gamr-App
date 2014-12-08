@@ -183,7 +183,14 @@ public class simonsays extends ActionBarActivity {
         red.setVisibility(View.GONE);
         message.setVisibility(View.GONE);
         ready.setVisibility(View.VISIBLE);
-        ready.setText("You lost. Can't you remember " + count + " numbers?");
+        if(count == 1)
+        {
+            ready.setText("You lost. Can't you remember " + count + " turn?");
+        }
+        else
+        {
+            ready.setText("You lost. Can't you remember " + count + " turns?");
+        }
         replay.setVisibility(View.VISIBLE);
         replay.setOnClickListener(new View.OnClickListener() {
             @Override
