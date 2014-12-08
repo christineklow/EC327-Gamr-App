@@ -25,7 +25,7 @@ public class watergunrace extends ActionBarActivity
     ImageButton ib1;
     ImageButton ib2;
     ImageButton ibc;
-    int distance = 50;
+    int distance = 100;
     int step = 1;
     double distanceToGo1;
     double distanceToGo2;
@@ -33,43 +33,33 @@ public class watergunrace extends ActionBarActivity
     TextView mTextField;
 
 
-    public void startrace()
-    {
+    public void startrace() {
 
-        ib1 = (ImageButton)findViewById(R.id.watergunbutton);
-        ibc = (ImageButton)findViewById(R.id.waterguncomputer);
+        ib1 = (ImageButton) findViewById(R.id.watergunbutton);
+        ibc = (ImageButton) findViewById(R.id.waterguncomputer);
 
 
         mTextField.setVisibility(View.VISIBLE);
-        new CountDownTimer(5000, 1000) {
+        new CountDownTimer(4000, 1000) {
             public void onTick(long millisUntilFinished) {
 
-                if (millisUntilFinished/1000 == 4)
-                {
+                if (millisUntilFinished / 1000 == 4) {
                     mTextField.setText("Ready");
 
-                }
-
-                else if (millisUntilFinished/1000 == 3)
-                {
+                } else if (millisUntilFinished / 1000 == 3) {
                     mTextField.setText("Set");
 
-                }
-
-                else if (millisUntilFinished/1000 == 2)
-                {
+                } else if (millisUntilFinished / 1000 == 2) {
                     mTextField.setText("Go! ;)");
 
-                }
-
-                else if (millisUntilFinished/1000 == 1)
-                {
+                } else if (millisUntilFinished / 1000 == 1) {
                     mTextField.setText(" ");
 
                 }
 
 
             }
+
             public void onFinish() {
 
                 mTextField.setVisibility(View.INVISIBLE);
@@ -79,103 +69,17 @@ public class watergunrace extends ActionBarActivity
                 //testing
                 distanceToGo1 = distance;
                 distanceToGo2 = distance;
-
                 player1configurebutton();
+
+
                 computermove();
-/*
-                new CountDownTimer(4000, 100) {
-                    public void onTick(long millisUntilFinished) {
-                    }
 
-                    public void onFinish() {
-                        computermove();
-                    }
-                }.start();
-
-                for (int i = 0; i < distance; i++) {
-
-                    player1configurebutton();
-                    //timer to call the computer, delay it
-                    new CountDownTimer(500, 100) {
-                        public void onTick(long millisUntilFinished) {
-                        }
-
-                        public void onFinish() {
-                            computermove();
-                        }
-                    }.start();
-
-                    if (distanceToGo1 <= 0 && distanceToGo2 <= 0) {
-                        mTextField.setVisibility(View.VISIBLE);
-                        mTextField.setText("It's a tie");
-                        break;
-
-                    } else if (distanceToGo1 <= 0) {
-                        mTextField.setVisibility(View.VISIBLE);
-                        mTextField.setText("You won!");
-                        break;
-
-                    } else if (distanceToGo2 <= 0) {
-                        mTextField.setVisibility(View.VISIBLE);
-                        mTextField.setText("You lost! *Wah wah waaaaaaaaaaah*");
-                        break;
-
-                    }
-
-
-                }*/
             }
 
         }.start();
-/*
-       distanceToGo1 = distance;
-       distanceToGo2 = distance;
-
-        player1configurebutton();
-
-        new CountDownTimer(4000, 100) {
-            public void onTick(long millisUntilFinished) {
-            }
-
-            public void onFinish() {
-                computermove();
-            }
-        }.start();
-
-           for(int i = 0; i<distance; i++) {
-
-               player1configurebutton();
-               //timer to call the computer, delay it
-               new CountDownTimer(500, 100) {
-                   public void onTick(long millisUntilFinished) {
-                   }
-
-                   public void onFinish() {
-                       computermove();
-                   }
-               }.start();
-
-               if (distanceToGo1 <= 0 && distanceToGo2 <= 0) {
-                   mTextField.setVisibility(View.VISIBLE);
-                   mTextField.setText("It's a tie");
-                   break;
-
-               } else if (distanceToGo1 <= 0) {
-                   mTextField.setVisibility(View.VISIBLE);
-                   mTextField.setText("You won!");
-                   break;
-
-               } else if (distanceToGo2 <= 0) {
-                   mTextField.setVisibility(View.VISIBLE);
-                   mTextField.setText("You lost! *Wah wah waaaaaaaaaaah*");
-                   break;
-
-               }
-
-           }*/
-
-
     }
+
+
 
     public void player1configurebutton()
     {
@@ -185,17 +89,31 @@ public class watergunrace extends ActionBarActivity
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         ib1.setImageResource(R.drawable.watergunshooting);
-                        player1move();
+                        distanceToGo1 = distanceToGo1-1;
                         break;
                     }
                     case MotionEvent.ACTION_UP: {
                         ib1.setImageResource(R.drawable.watergun);
+                        if(distanceToGo1<=0 && distanceToGo2<=0)
+                        {
+                            ib1.setEnabled(false);
+                            mTextField.setVisibility(View.VISIBLE);
+                            mTextField.setText("You tie!");
+                        }
+                        else if(distanceToGo1<=0)
+                        {
+                            ib1.setEnabled(false);
+                            mTextField.setVisibility(View.VISIBLE);
+                            mTextField.setText("You win!");
+
+                        }
                         break;
                     }
                 }
                 return false;
             }
         });
+
     }
 
     public void computermove()
@@ -212,12 +130,26 @@ public class watergunrace extends ActionBarActivity
             }
             public void onFinish() {
                 ibc.setImageResource(R.drawable.watergun);
-                /*Random rand = new Random();
-                speed2 = rand.nextDouble()*(2);
-                distanceToGo2 = distanceToGo2-speed2;*/
-                if (distanceToGo2 != 0)
+                if(distanceToGo1<=0 && distanceToGo2<=0) {
+                }
+                else if (distanceToGo1<=0)
                 {
-                    computermove();
+                }
+                else if (distanceToGo2 > 0) {
+                    new CountDownTimer(200, 100) {
+                        public void onTick(long millisUntilFinished) {
+                        }
+
+                        public void onFinish() {
+                            computermove();
+                        }
+                    }.start();
+                }
+                else
+                {
+                    mTextField.setVisibility(View.VISIBLE);
+                    mTextField.setText("You lose!");
+                    ib1.setEnabled(false);
                 }
             }
         }.start();
