@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 public class mainscreen extends Activity implements View.OnClickListener {
 
     ImageButton one_player;
+    ImageButton two_player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,17 +20,26 @@ public class mainscreen extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_mainscreen);
         one_player = (ImageButton) findViewById(R.id.oneplayer);
         one_player.setOnClickListener(this);
+        two_player = (ImageButton) findViewById(R.id.twoplayers);
+        two_player.setOnClickListener(this);
     }
 
     private void configurePlayer1() {
                 startActivity(new Intent("gamelist"));
             }
 
+    private void configurePlayer2(){
+        startActivity(new Intent("gamelisttwoplayer"));
+    }
+
     @Override
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.oneplayer:
                 configurePlayer1();
+                break;
+            case R.id.twoplayers:
+                configurePlayer2();
                 break;
         }
     }

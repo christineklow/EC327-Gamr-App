@@ -1,5 +1,6 @@
 package com.awesomeness.christine.ec327project;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,11 +13,24 @@ import android.widget.TextView;
 
 public class gamelisttwoplayer extends ActionBarActivity {
 
+    Button ticbutton;
+
+    public void configuretictactoe(){
+        ticbutton = (Button) findViewById(R.id.ticbutton2);
+        ticbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent("tictactoetwoplayer"));
+            }
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gamelisttwoplayer);
 
+        configuretictactoe();
     }
 
 

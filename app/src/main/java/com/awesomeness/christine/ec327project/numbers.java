@@ -8,13 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.os.CountDownTimer;
 
-/*import java.lang.Object;
-import java.util.Date;
-import java.sql.Timestamp;
-import java.util.Calendar;
-import java.util.Date;
-import  java.util.Timer;*/
 
 import java.util.Random;
 
@@ -47,26 +42,13 @@ public class numbers extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
 
-            status = (TextView) findViewById(R.id.status);
-            equalsign = (TextView) findViewById(R.id.equalsign);
-            gameover = (TextView) findViewById(R.id.gameover);
-            main();
-
-        /*TimeUnit.SECONDS.sleep(30);
-        Thread.sleep(30000, 0);
-        clearscreen();*/
-
+        status = (TextView) findViewById(R.id.status);
+        equalsign = (TextView) findViewById(R.id.equalsign);
+        gameover = (TextView) findViewById(R.id.gameover);
+        main();
 
     }
 
-   /* public  long timer() {
-
-        long lDateTime = new Date().getTime();
-
-        Calendar lCDateTime = Calendar.getInstance();
-        return lCDateTime.getTimeInMillis();
-
-    }*/
 
     public void configurenum1(int num1) {
         num_1 = (TextView) findViewById(R.id.firstnum);
@@ -138,7 +120,6 @@ public class numbers extends Activity {
                     if (count < 11) {
                         main();
                         answer.getText().clear();
-                        //status.setText("Don't Cheat!");
                     }
                     if (count >= 11) {
                         clearscreen();
@@ -163,61 +144,49 @@ public class numbers extends Activity {
 
     public void main()
     {
-        Random random = new Random();
+                Random random = new Random();
 
-        int a = random.nextInt(10) + 1;//1-20 int number
-        configurenum1(a);
-        int b = random.nextInt(2);//0,1,0 stands for +,1 for -
-        configureop1(b);
-        int c = random.nextInt(10) + 1;
-        configurenum2(c);
-        int d = random.nextInt(3);//2 stands for *,3 stands for %
-        configureop2(d);
-        //}
+                int a = random.nextInt(10) + 1;//1-20 int number
+                configurenum1(a);
+                int b = random.nextInt(2);//0,1,0 stands for +,1 for -
+                configureop1(b);
+                int c = random.nextInt(10) + 1;
+                configurenum2(c);
+                int d = random.nextInt(3);//2 stands for *
+                configureop2(d);
 
-        int e;
-        if(d == 2){
-            e = random.nextInt(10) + 1;
-        }
-        else {
-            e = random.nextInt(2) + 1;
-        }
-        configurenum3(e);
-        //we have all the variables now, show them in the board
-        //int user = 0;
-        //int result = 0;
-        //configurebutton();
-        switch (d) {
-            case 0:
-                if (b == 0)
-                {
-                    result = a + c + e;
-                } else
-                {
-                    result = a - c + e;
+                int e;
+                if (d == 2) {
+                    e = random.nextInt(10) + 1;
+                } else {
+                    e = random.nextInt(2) + 1;
                 }
-                break;
-            case 1:
-                if (b == 0)
-                {
-                    result = a + c - e;
-                } else
-                {
-                    result = a - c - e;
+                configurenum3(e);
+
+                switch (d) {
+                    case 0:
+                        if (b == 0) {
+                            result = a + c + e;
+                        } else {
+                            result = a - c + e;
+                        }
+                        break;
+                    case 1:
+                        if (b == 0) {
+                            result = a + c - e;
+                        } else {
+                            result = a - c - e;
+                        }
+                        break;
+                    case 2:
+                        if (b == 0) {
+                            result = a + (c * e);
+                        } else {
+                            result = a - (c * e);
+                        }
+                        break;
                 }
-                break;
-            case 2:
-                if (b == 0)
-                {
-                    result = a + (c * e);
-                }
-                else
-                {
-                    result = a - (c * e);
-                }
-                break;
-        }
-        configurebutton();
+                configurebutton();
     }
 
 
