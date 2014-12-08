@@ -25,12 +25,23 @@ public class gamelisttwoplayer extends ActionBarActivity {
         });
     }
 
+    public void configurewaterrace(){
+        ticbutton = (Button) findViewById(R.id.waterrace2);
+        ticbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent("waterrace2"));
+            }
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gamelisttwoplayer);
 
         configuretictactoe();
+        configurewaterrace();
     }
 
 

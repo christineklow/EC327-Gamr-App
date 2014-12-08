@@ -1,0 +1,226 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.awesomeness.christine.ec327project.waterfuntwo"
+    android:background="@drawable/background">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tap gun to move fish"
+        android:id="@+id/raceinstructions2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"
+        android:rotation="180"
+        android:textSize="20sp" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/raceinstructions2"
+        android:layout_above="@+id/raceinstructions">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/waterlayout1"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/waterlayout1"
+            android:layout_toStartOf="@+id/waterlayout1"
+            android:layout_alignParentTop="true"
+            android:id="@+id/leftwater"
+            android:layout_alignParentBottom="true"
+            android:rotation="180">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/boatone"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/waterraceboat" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rightbase"
+                android:src="@drawable/waterracebase"
+                android:layout_above="@+id/baseone"
+                android:layout_centerHorizontal="true" />
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/p1fish"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@+id/rightbase"
+                android:layout_below="@+id/boatone"
+                android:background="@drawable/fone" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/baseone"
+                android:background="@drawable/racebooth"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/gunbaseleft"
+                android:background="@drawable/watergunstand"
+                android:layout_alignBottom="@+id/watergunbutton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="-15dp"/>
+
+            <!--Water gun button. When pressed moves the fish.
+            Also switches to "watergunshooting" drawable -->
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/watergunbutton"
+                android:src="@drawable/watergun"
+                android:background="@null"
+                android:layout_below="@+id/rightbase"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:clickable="true" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_above="@+id/rightbase"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/boatone"
+                android:id="@+id/grid1">
+
+                <!--Fish 1-->
+
+                <!--Fish 1-->
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/waterlayout1"
+            android:layout_toEndOf="@+id/waterlayout1"
+            android:id="@+id/rightwater"
+            android:layout_alignParentBottom="true">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/boattwo"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/waterraceboattwo" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/leftbase"
+                android:src="@drawable/waterracebase"
+                android:layout_above="@+id/basetwo"
+                android:layout_centerHorizontal="true" />
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/p2fish"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@+id/leftbase"
+                android:layout_below="@+id/boattwo"
+                android:background="@drawable/fone" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/basetwo"
+                android:background="@drawable/racebooth"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:rotation="180"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/gunbaseright"
+                android:background="@drawable/watergunstand"
+                android:layout_alignBottom="@+id/waterguncomputer"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="-15dp"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/waterguncomputer"
+                android:src="@drawable/watergun"
+                android:background="@null"
+                android:layout_below="@+id/leftbase"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tap gun to move fish"
+        android:id="@+id/raceinstructions"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" "
+        android:id="@+id/readysetgo"
+        android:layout_centerInParent="true"
+        android:textSize="50sp"
+        android:visibility="visible" />
+
+    <ViewFlipper
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewFlipper"
+        android:layout_below="@+id/readysetgo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="327dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Replay?"
+        android:id="@+id/replay"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/readysetgo"
+        android:visibility="invisible"
+        android:onClick="onClick" />
+
+</RelativeLayout>

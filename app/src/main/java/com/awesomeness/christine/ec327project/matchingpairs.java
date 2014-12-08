@@ -446,7 +446,18 @@ public class matchingpairs extends ActionBarActivity {
                     //finalmessage = (TextView) findViewById(R.id.finalmessage);
                     finalmessage.setVisibility(View.VISIBLE);
                     replay.setVisibility(View.VISIBLE);
-                    finalmessage.setText("You won with " + tries/2 + " tries! Congrats dumbo");
+                    if(tries/2 == 4)
+                    {
+                        finalmessage.setText("Perfect! You won with " + tries/2 + " tries! If only you could major in this.");
+                    }
+                    else if(tries/2 > 4 && tries/2 < 8)
+                    {
+                        finalmessage.setText("You won with " + tries/2 + " tries! Not Bad.");
+                    }
+                    else
+                    {
+                        finalmessage.setText("Seriously? " + tries/2 + " tries? You suck.");
+                    }
                     replay.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

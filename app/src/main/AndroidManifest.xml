@@ -124,13 +124,12 @@
             </intent-filter>
         </activity>
 
-        <!--tic tac toe two player-->
+        <!-- tic tac toe two player -->
         <activity
             android:name="com.awesomeness.christine.ec327project.tictactoetwoplayer"
             android:label="@string/title_activity_tictactoetwoplayer"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
-
             <intent-filter>
                 <action android:name="tictactoetwoplayer" />
 
@@ -146,6 +145,19 @@
             android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="gamelisttwoplayer" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- Water Fun Two Player -->
+        <activity
+            android:name="com.awesomeness.christine.ec327project.waterfuntwo"
+            android:label="@string/title_activity_waterfuntwo"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="waterrace2" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
