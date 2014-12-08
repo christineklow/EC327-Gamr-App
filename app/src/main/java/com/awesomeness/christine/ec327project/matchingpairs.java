@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.os.CountDownTimer;
+import android.widget.TextView;
 
 import java.util.Random;
 import java.util.Arrays;
@@ -25,6 +27,8 @@ public class matchingpairs extends ActionBarActivity {
     ImageButton button6;
     ImageButton button7;
     ImageButton button8;
+    TextView finalmessage;
+    Button replay;
     boolean c1 = false;
     boolean c2 = false;
     boolean c3 = false;
@@ -37,14 +41,16 @@ public class matchingpairs extends ActionBarActivity {
     int card2 = 0;
     int click1 = 0;
     int click2 = 0;
-    int point = 0;
-
+    int tries = 0;
+    //int open = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matchingpairs);
 
+        finalmessage = (TextView) findViewById(R.id.finalmessage);
+        replay = (Button) findViewById(R.id.matchreplay);
         main();
 
     }
@@ -145,56 +151,56 @@ public class matchingpairs extends ActionBarActivity {
                 case 1:
                     c1 = true;
                     button1.setEnabled(false);
-                    point++;
+                    tries++;
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 2:
                     c2 = true;
                     button2.setEnabled(false);
-                    point++;
+                    tries++;
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 3:
                     c3 = true;
                     button3.setEnabled(false);
-                    point++;
+                    tries++;
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 4:
                     c4 = true;
                     button4.setEnabled(false);
-                    point++;
+                    tries++;
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 5:
                     c5 = true;
                     button5.setEnabled(false);
-                    point++;
+                    tries++;
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 6:
                     c6 = true;
                     button6.setEnabled(false);
-                    point++;
+                    tries++;
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 7:
                     c7 = true;
                     button7.setEnabled(false);
-                    point++;
+                    tries++;
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 8:
                     c8 = true;
                     button8.setEnabled(false);
-                    point++;
+                    tries++;
                     click1 = 0;
                     click2 = 0;
                     break;
@@ -203,60 +209,61 @@ public class matchingpairs extends ActionBarActivity {
                 case 1:
                     c1 = true;
                     button1.setEnabled(false);
-                    point++;
+                    tries++;
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 2:
                     c2 = true;
                     button2.setEnabled(false);
-                    point++;
+                    tries++;
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 3:
                     c3 = true;
                     button3.setEnabled(false);
-                    point++;
+                    tries++;
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 4:
                     c4 = true;
                     button4.setEnabled(false);
-                    point++;
+                    tries++;
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 5:
                     c5 = true;
                     button5.setEnabled(false);
-                    point++;
+                    tries++;
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 6:
                     c6 = true;
                     button6.setEnabled(false);
-                    point++;
+                    tries++;
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 7:
                     c7 = true;
                     button7.setEnabled(false);
-                    point++;
+                    tries++;
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 8:
                     c8 = true;
                     button1.setEnabled(false);
-                    point++;
+                    tries++;
                     click1 = 0;
                     click2 = 0;
                     break;
             }
+            end();
             return true;
         }
         else
@@ -269,57 +276,73 @@ public class matchingpairs extends ActionBarActivity {
 
             switch(first){
                 case 1:
+                    c1 = false;
                     button1.setImageResource(R.drawable.card);
                     button1.setEnabled(true);
+                    tries++;
                     updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 2:
+                    c2 = false;
                     button2.setImageResource(R.drawable.card);
                     button2.setEnabled(true);
+                    tries++;
                     updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 3:
+                    c3 = false;
                     button3.setImageResource(R.drawable.card);
                     button3.setEnabled(true);
+                    tries++;
                     updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 4:
+                    c4 = false;
                     button4.setImageResource(R.drawable.card);
                     button4.setEnabled(true);
+                    tries++;
                     updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 5:
+                    c5 = false;
                     button5.setImageResource(R.drawable.card);
                     button5.setEnabled(true);
+                    tries++;
                     updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 6:
+                    c6 = false;
                     button6.setImageResource(R.drawable.card);
                     button6.setEnabled(true);
+                    tries++;
                     updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 7:
+                    c7 = false;
                     button7.setImageResource(R.drawable.card);
                     button7.setEnabled(true);
+                    tries++;
                     updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 8:
-                    button2.setImageResource(R.drawable.card);
-                    button2.setEnabled(true);
+                    c8 = false;
+                    button8.setImageResource(R.drawable.card);
+                    button8.setEnabled(true);
+                    tries++;
                     updatecards();
                     click1 = 0;
                     click2 = 0;
@@ -327,57 +350,73 @@ public class matchingpairs extends ActionBarActivity {
             }
             switch (second){
                 case 1:
+                    c1 = false;
                     button1.setImageResource(R.drawable.card);
                     button1.setEnabled(true);
+                    tries++;
                     updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 2:
+                    c2 = false;
                     button2.setImageResource(R.drawable.card);
                     button2.setEnabled(true);
+                    tries++;
                     updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 3:
+                    c3 = false;
                     button3.setImageResource(R.drawable.card);
                     button3.setEnabled(true);
+                    tries++;
                     updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 4:
+                    c4 = false;
                     button4.setImageResource(R.drawable.card);
                     button4.setEnabled(true);
+                    tries++;
                     updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 5:
+                    c5 = false;
                     button5.setImageResource(R.drawable.card);
                     button5.setEnabled(true);
+                    tries++;
                     updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 6:
+                    c6 = false;
                     button6.setImageResource(R.drawable.card);
                     button6.setEnabled(true);
+                    tries++;
                     updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 7:
+                    c7 = false;
                     button7.setImageResource(R.drawable.card);
                     button7.setEnabled(true);
+                    tries++;
                     updatecards();
                     click1 = 0;
                     click2 = 0;
                     break;
                 case 8:
-                    button2.setImageResource(R.drawable.card);
-                    button2.setEnabled(true);
+                    c8 = false;
+                    button8.setImageResource(R.drawable.card);
+                    button8.setEnabled(true);
+                    tries++;
                     updatecards();
                     click1 = 0;
                     click2 = 0;
@@ -389,6 +428,72 @@ public class matchingpairs extends ActionBarActivity {
         }
     }
 
+    public void end(){
+        if(c1 && c2 && c3 && c4 && c5 && c6 && c7 && c8){
+            new CountDownTimer(1000, 100) {
+                public void onTick(long millisUntilFinished) {
+
+                }
+                public void onFinish() {
+                    button1.setVisibility(View.INVISIBLE);
+                    button2.setVisibility(View.INVISIBLE);
+                    button3.setVisibility(View.INVISIBLE);
+                    button4.setVisibility(View.INVISIBLE);
+                    button5.setVisibility(View.INVISIBLE);
+                    button6.setVisibility(View.INVISIBLE);
+                    button7.setVisibility(View.INVISIBLE);
+                    button8.setVisibility(View.INVISIBLE);
+                    //finalmessage = (TextView) findViewById(R.id.finalmessage);
+                    finalmessage.setVisibility(View.VISIBLE);
+                    replay.setVisibility(View.VISIBLE);
+                    finalmessage.setText("You won with " + tries/2 + " tries! Congrats dumbo");
+                    replay.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            click1 = 0;
+                            click2 = 0;
+                            //updatecards();
+                            button1.setVisibility(View.VISIBLE);
+                            button1.setImageResource(R.drawable.card);
+                            button1.setEnabled(true);
+                            c1 = false;
+                            button2.setVisibility(View.VISIBLE);
+                            button2.setImageResource(R.drawable.card);
+                            button2.setEnabled(true);
+                            c2 = false;
+                            button3.setVisibility(View.VISIBLE);
+                            button3.setImageResource(R.drawable.card);
+                            button3.setEnabled(true);
+                            c3 = false;
+                            button4.setVisibility(View.VISIBLE);
+                            button4.setImageResource(R.drawable.card);
+                            button4.setEnabled(true);
+                            c4 = false;
+                            button5.setVisibility(View.VISIBLE);
+                            button5.setImageResource(R.drawable.card);
+                            button5.setEnabled(true);
+                            c5 = false;
+                            button6.setVisibility(View.VISIBLE);
+                            button6.setImageResource(R.drawable.card);
+                            button6.setEnabled(true);
+                            c6 = false;
+                            button7.setVisibility(View.VISIBLE);
+                            button7.setImageResource(R.drawable.card);
+                            button7.setEnabled(true);
+                            c7 = false;
+                            button8.setVisibility(View.VISIBLE);
+                            button8.setImageResource(R.drawable.card);
+                            button8.setEnabled(true);
+                            c8 = false;
+                            replay.setVisibility(View.INVISIBLE);
+                            finalmessage.setVisibility(View.INVISIBLE);
+                            main();
+                        }
+                    });
+                }
+            }.start();
+        }
+    }
 
     public void configurecard1(){
         final int cardID = imagesArray[0];
@@ -415,8 +520,6 @@ public class matchingpairs extends ActionBarActivity {
                     card2 = cardID;
                     checkmatch(click1, click2);
                 }
-
-
             }
         });
     }
@@ -444,22 +547,7 @@ public class matchingpairs extends ActionBarActivity {
                     click2 = 2; //this card number
                     card2 = cardID;
                     checkmatch(click1, click2);
-
-                   /* if (checkmatch(click1, click2)) {
-                        button2.setEnabled(false);
-                        point++;
-                        click1 = 0;
-                        click2 = 0;
-                    } else {
-                        button2.setImageResource(R.drawable.card);
-                        button2.setEnabled(true);
-                        updatecards();
-                        click1 = 0;
-                        click2 = 0;
-                    }*/
                 }
-               // checkmatch(click1, click2);
-
             }
         });
     }
@@ -487,21 +575,7 @@ public class matchingpairs extends ActionBarActivity {
                     click2 = 3; //this card number
                     card2 = cardID;
                     checkmatch(click1, click2);
-
-                    /*if (checkmatch(click1, click2)) {
-                        button3.setEnabled(false);
-                        point++;
-                        click1 = 0;
-                        click2 = 0;
-                    } else {
-                        button3.setImageResource(R.drawable.card);
-                        button3.setEnabled(true);
-                        updatecards();
-                        click1 = 0;
-                        click2 = 0;
-                    }*/
                 }
-                //checkmatch(click1, click2);
             }
         });
     }
@@ -529,21 +603,7 @@ public class matchingpairs extends ActionBarActivity {
                     click2 = 4; //this card number
                     card2 = cardID;
                     checkmatch(click1, click2);
-
-                   /* if (checkmatch(click1, click2)) {
-                        button4.setEnabled(false);
-                        point++;
-                        click1 = 0;
-                        click2 = 0;
-                    } else {
-                        button4.setImageResource(R.drawable.card);
-                        button4.setEnabled(true);
-                        updatecards();
-                        click1 = 0;
-                        click2 = 0;
-                    }*/
                 }
-                //checkmatch(click1, click2);
             }
         });
     }
@@ -571,21 +631,7 @@ public class matchingpairs extends ActionBarActivity {
                     click2 = 5; //this card number
                     card2 = cardID;
                     checkmatch(click1, click2);
-
-                    /*if (checkmatch(click1, click2)) {
-                        button5.setEnabled(false);
-                        point++;
-                        click1 = 0;
-                        click2 = 0;
-                    } else {
-                        button5.setImageResource(R.drawable.card);
-                        button5.setEnabled(true);
-                        updatecards();
-                        click1 = 0;
-                        click2 = 0;
-                    }*/
                 }
-                //checkmatch(click1, click2);
             }
         });
     }
@@ -613,21 +659,7 @@ public class matchingpairs extends ActionBarActivity {
                     click2 = 6; //this card number
                     card2 = cardID;
                     checkmatch(click1, click2);
-
-                    /*if (checkmatch(click1, click2)) {
-                        button6.setEnabled(false);
-                        point++;
-                        click1 = 0;
-                        click2 = 0;
-                    } else {
-                        button6.setImageResource(R.drawable.card);
-                        button6.setEnabled(true);
-                        updatecards();
-                        click1 = 0;
-                        click2 = 0;
-                    }*/
                 }
-                //checkmatch(click1, click2);
             }
         });
     }
@@ -655,21 +687,7 @@ public class matchingpairs extends ActionBarActivity {
                     click2 = 7; //this card number
                     card2 = cardID;
                     checkmatch(click1, click2);
-
-                    /*if (checkmatch(click1, click2)) {
-                        button7.setEnabled(false);
-                        point++;
-                        click1 = 0;
-                        click2 = 0;
-                    } else {
-                        button7.setImageResource(R.drawable.card);
-                        button7.setEnabled(true);
-                        updatecards();
-                        click1 = 0;
-                        click2 = 0;
-                    }*/
                 }
-                //checkmatch(click1, click2);
             }
         });
     }
@@ -697,21 +715,7 @@ public class matchingpairs extends ActionBarActivity {
                     click2 = 8; //this card number
                     card2 = cardID;
                     checkmatch(click1, click2);
-
-                    /*if (checkmatch(click1, click2)) {
-                        button8.setEnabled(false);
-                        point++;
-                        click1 = 0;
-                        click2 = 0;
-                    } else {
-                        button8.setImageResource(R.drawable.card);
-                        button8.setEnabled(true);
-                        updatecards();
-                        click1 = 0;
-                        click2 = 0;
-                    }*/
                 }
-                //checkmatch(click1, click2);
             }
         });
     }
