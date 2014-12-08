@@ -123,13 +123,29 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <!--tic tac toe two player-->
         <activity
             android:name="com.awesomeness.christine.ec327project.tictactoetwoplayer"
-            android:label="@string/title_activity_tictactoetwoplayer" >
+            android:label="@string/title_activity_tictactoetwoplayer"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="tictactoetwoplayer" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
+
+        <!-- Game List Two Player -->
         <activity
             android:name="com.awesomeness.christine.ec327project.gamelisttwoplayer"
-            android:label="@string/title_activity_gamelisttwoplayer" >
+            android:label="@string/title_activity_gamelisttwoplayer"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="gamelisttwoplayer" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 

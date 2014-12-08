@@ -39,7 +39,7 @@ public class tictactoetwoplayer extends ActionBarActivity {
         wintext.setVisibility(View.INVISIBLE);
 
         replay = (Button) findViewById(R.id.replaybutton);
-        
+
         turns = 1;
         player1turn();
     }
