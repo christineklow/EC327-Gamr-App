@@ -13,26 +13,41 @@ public class dontpush extends ActionBarActivity {
 
     ImageButton button;
     ImageView initial;
-    ImageView last;
+    ImageView pushmessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dontpush);
 
-        configurebutton();
-    }
-
-    public void configurebutton(){
         button = (ImageButton) findViewById(R.id.dontpressbutton);
         initial = (ImageView) findViewById(R.id.dontpresstitle);
-        last = (ImageView) findViewById(R.id.buttonmessage1);
+
+        configuredontpush();
+    }
+
+    public void configuredontpush(){
+        pushmessage = (ImageView) findViewById(R.id.buttonmessage1);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 button.setVisibility(View.GONE);
                 initial.setVisibility(View.GONE);
-                last.setVisibility(View.VISIBLE);
+                pushmessage.setVisibility(View.VISIBLE);
+                pushmessage.setBackgroundResource(R.drawable.buttonmessage);
+            }
+        });
+    }
+
+    public void configurepush(){
+        pushmessage = (ImageView) findViewById(R.id.buttonmessage1);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                button.setVisibility(View.GONE);
+                initial.setVisibility(View.GONE);
+                pushmessage.setVisibility(View.VISIBLE);
+                pushmessage.setBackgroundResource(R.drawable.buttonmessagepush);
             }
         });
     }
