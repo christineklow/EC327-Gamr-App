@@ -40,7 +40,7 @@ public class watergunrace extends ActionBarActivity
 
 
         mTextField.setVisibility(View.VISIBLE);
-        new CountDownTimer(4000, 1000) {
+        new CountDownTimer(5000, 1000) {
             public void onTick(long millisUntilFinished) {
 
                 if (millisUntilFinished / 1000 == 4) {
@@ -136,7 +136,7 @@ public class watergunrace extends ActionBarActivity
                 {
                 }
                 else if (distanceToGo2 > 0) {
-                    new CountDownTimer(200, 100) {
+                    new CountDownTimer(150, 100) {
                         public void onTick(long millisUntilFinished) {
                         }
 
