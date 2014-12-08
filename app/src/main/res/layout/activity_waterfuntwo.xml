@@ -220,7 +220,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text=" "
-        android:id="@+id/readysetgo"
+        android:id="@+id/readysetgotop"
         android:layout_centerInParent="true"
         android:layout_above="@+id/replay"
         android:textSize="50sp"
