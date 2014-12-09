@@ -51,7 +51,7 @@ public class dontpush extends ActionBarActivity {
             int i = 0;
 
             public void onTick(long millisUntilFinished) {
-                if(!check) {
+                if(!dontcheck) {
                     switch (i) {
                         case 0:
                             wait.setText("Wait");
@@ -74,7 +74,9 @@ public class dontpush extends ActionBarActivity {
             }
 
             public void onFinish() {
-                pushtimer();
+                if(!dontcheck) {
+                    pushtimer();
+                }
             }
         }.start();
     }
@@ -84,7 +86,7 @@ public class dontpush extends ActionBarActivity {
         configurepush();
         wait.setText("NOW.");
 
-            new CountDownTimer(500, 500) {
+            new CountDownTimer(400, 400) {
 
                 public void onTick(long millisUntilFinished) {
                 }
@@ -146,6 +148,7 @@ public class dontpush extends ActionBarActivity {
     public void setreplay()
     {
         check = false;
+        dontcheck = false;
         button.setVisibility(View.VISIBLE);
         command.setVisibility(View.VISIBLE);
         replay.setVisibility(View.INVISIBLE);
