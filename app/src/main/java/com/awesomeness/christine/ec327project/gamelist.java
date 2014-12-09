@@ -12,12 +12,12 @@ import android.widget.ImageButton;
 
 public class gamelist extends Activity {
 
-    Button ticbutton;
-    Button numbersbutton;
-    Button matchpairsbutton;
-    Button watergunbutton;
-    Button dontpush;
-    Button simonsays;
+    ImageButton ticbutton;
+    ImageButton numbersbutton;
+    ImageButton matchpairsbutton;
+    ImageButton watergunbutton;
+    ImageButton dontpush;
+    ImageButton simonsays;
     //Button wackamole;
 
     @Override
@@ -36,7 +36,7 @@ public class gamelist extends Activity {
 
     //Connecting to tictactoe
     public void configuretictactoe(){
-        ticbutton = (Button) findViewById(R.id.ticbutton);
+        ticbutton = (ImageButton) findViewById(R.id.ticbutton);
         ticbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +46,7 @@ public class gamelist extends Activity {
     }
 
     public void configurenumbers(){
-        numbersbutton = (Button) findViewById(R.id.numbersbutton);
+        numbersbutton = (ImageButton) findViewById(R.id.numbersbutton);
         numbersbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +56,7 @@ public class gamelist extends Activity {
     }
 
     public void configurematchpairs(){
-        matchpairsbutton = (Button) findViewById(R.id.matching);
+        matchpairsbutton = (ImageButton) findViewById(R.id.matching);
         matchpairsbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +66,7 @@ public class gamelist extends Activity {
     }
 
     public void configurewatergun(){
-        watergunbutton = (Button) findViewById(R.id.waterrace);
+        watergunbutton = (ImageButton) findViewById(R.id.waterrace);
         watergunbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +76,7 @@ public class gamelist extends Activity {
     }
 
     public void configuredontpush(){
-        dontpush = (Button) findViewById(R.id.buttongame);
+        dontpush = (ImageButton) findViewById(R.id.buttongame);
         dontpush.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +86,7 @@ public class gamelist extends Activity {
     }
 
     public void configuresimon(){
-        simonsays = (Button) findViewById(R.id.simonsays);
+        simonsays = (ImageButton) findViewById(R.id.simonsays);
         simonsays.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
