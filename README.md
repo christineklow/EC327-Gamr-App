@@ -1,5 +1,7 @@
 Gamr
+========================
 A mini arcade experience.
+========================
 EC327 Introduction to Software Engineering | Final Project | Professor Douglas Densmore
 Fall 2014
 Group name: int elligence
