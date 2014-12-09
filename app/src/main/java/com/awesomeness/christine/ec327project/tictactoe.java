@@ -280,7 +280,7 @@ public class tictactoe extends Activity {
                     playerwon(x, y, z);
                     wintext.setVisibility(View.VISIBLE);
                     status.setVisibility(View.INVISIBLE);
-                    wintext.setText("You Won! This is the highlight of your life");//player won
+                    wintext.setText("You Won! This is the highlight of your life.");//player won
                     replay.setVisibility(View.VISIBLE);
                     replay.setOnClickListener(new View.OnClickListener() {
                         @Override

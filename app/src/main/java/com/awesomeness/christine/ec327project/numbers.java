@@ -114,9 +114,9 @@ public class numbers extends Activity {
                 if (configureresult()) {
                     if (ans == result) {
                         point++;
-                        status.setText("Good Job! Your Score is: " + point + ". I bet you feel smart.");
+                        status.setText("Good Job! Your Score is: " + point + "/10. I bet you feel smart.");
                     } else {
-                        status.setText("Wrong. Your Score is: " + point + ", aka your IQ.");
+                        status.setText("Wrong. Your Score is: " + point + "/10, aka your IQ.");
                     }
                     count++;
                     if (count < 11) {
@@ -142,6 +142,29 @@ public class numbers extends Activity {
         enter.setVisibility(View.INVISIBLE);
         equalsign.setVisibility(View.INVISIBLE);
         gameover.setVisibility(View.VISIBLE);
+        if (point == 10) {
+            gameover.setText("Good Job. You just finished a fourth grader's homework.");
+        }
+        else if (point == 0)
+        {
+            gameover.setText("You got nothing correct. You failed. Go back to first grade.");
+        }
+        else if (point >=1 && point < 5)
+        {
+            gameover.setText("You got " +point+ "/10. Are you even trying?");
+        }
+        else if (point == 5)
+        {
+            gameover.setText("50%. That's pretty high considering you're playing this.");
+        }
+        else if (point > 5 && point < 8)
+        {
+            gameover.setText("" + point +"/10. You passed. Go hang your score up on a fridge.");
+        }
+        else if (point >= 8 && point < 10)
+        {
+            gameover.setText("" + point +"/10. You must be proud of yourself.");
+        }
         replay.setVisibility(View.VISIBLE);
         replay.setEnabled(true);
         replay.setOnClickListener(new View.OnClickListener() {
@@ -165,6 +188,7 @@ public class numbers extends Activity {
         enter.setVisibility(View.VISIBLE);
         gameover.setVisibility(View.INVISIBLE);
         replay.setVisibility(View.INVISIBLE);
+        status.setText("Really? You actually want to do more math?");
         main();
         count = 0;
         point = 0;

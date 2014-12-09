@@ -111,19 +111,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Wackamole -->
-        <activity
-            android:name="com.awesomeness.christine.ec327project.wackamole"
-            android:label="@string/title_activity_wackamole"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" >
-            <intent-filter>
-                <action android:name="wackamole" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
         <!-- tic tac toe two player -->
         <activity
             android:name="com.awesomeness.christine.ec327project.tictactoetwoplayer"
