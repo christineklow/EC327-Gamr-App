@@ -21,6 +21,7 @@ public class dontpush extends ActionBarActivity {
     ImageView pushmessage;
     TextView wait;
     Button replay;
+    boolean dontcheck = false;
     boolean check = false;
 
     @Override
@@ -50,23 +51,25 @@ public class dontpush extends ActionBarActivity {
             int i = 0;
 
             public void onTick(long millisUntilFinished) {
-                switch (i) {
-                    case 0:
-                        wait.setText("Wait");
-                        i++;
-                        break;
-                    case 1:
-                        wait.setText("Wait.");
-                        i++;
-                        break;
-                    case 2:
-                        wait.setText("Wait..");
-                        i++;
-                        break;
-                    case 3:
-                        wait.setText("Wait...");
-                        i=0;
-                        break;
+                if(!check) {
+                    switch (i) {
+                        case 0:
+                            wait.setText("Wait");
+                            i++;
+                            break;
+                        case 1:
+                            wait.setText("Wait.");
+                            i++;
+                            break;
+                        case 2:
+                            wait.setText("Wait..");
+                            i++;
+                            break;
+                        case 3:
+                            wait.setText("Wait...");
+                            i = 0;
+                            break;
+                    }
                 }
             }
 
@@ -107,6 +110,7 @@ public class dontpush extends ActionBarActivity {
                 pushmessage.setImageResource(R.drawable.buttonmessage);
                 replay.setVisibility(View.VISIBLE);
                 wait.setVisibility(View.INVISIBLE);
+                dontcheck = true;
                 configurereplay();
             }
         });
