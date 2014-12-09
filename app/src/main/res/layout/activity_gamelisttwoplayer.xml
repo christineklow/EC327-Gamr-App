@@ -24,6 +24,8 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/games" />
 
+
+
     <!--************************************-->
 
     <!--List of games to Pick from-->
@@ -40,43 +42,25 @@
 
         <!--Tic Tac Toe button-->
         <!--when clicked, it should direct to activity_tictactoe screen-->
-        <Button
+
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="* Tic Tac Toe"
             android:id="@+id/ticbutton2"
+            android:src="@drawable/buttontictactoe"
             android:layout_gravity="center_horizontal"
-            android:background="@null"
-            android:textColor="#FFFFFF"
-            android:typeface="normal"
-            android:textSize="40sp"
-            android:textAllCaps="false"/>
-
-        <!--Numbers button-->
-        <!--when clicked, it should direct to activity_numbers screen-->
-
-        <!--Matching Pairs button-->
-        <!--when clicked, it should direct to activity_numbers screen-->
+            android:background="@null" />
 
         <!--Water Race button-->
         <!--when clicked, it should direct to activity_numbers screen-->
-        <Button
+
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="* Water Gun Fun"
             android:id="@+id/waterrace2"
+            android:src="@drawable/buttonwaterfun"
             android:layout_gravity="center_horizontal"
-            android:background="@null"
-            android:textColor="#FFFFFF"
-            android:typeface="normal"
-            android:textSize="40sp"
-            android:textAllCaps="false"/>
-
-        <!--Dont Push the button-->
-        <!--when clicked, it should direct to activity_dontpush screen-->
-
-        <!--Simon Says-->
-        <!--when clicked, it should direct to activity_simonsays screen-->
+            android:background="@null"/>
 
     </LinearLayout>
 
