@@ -8,7 +8,6 @@ Graphical User Interface Designer: Christine Low
 Interface Designer: Urvashi Mohnani
 Processing Designer: Dongtai Du
 Documentation Manager: Andrew Colletta
-============
 
 Github link: https://github.com/christineklow/EC327project
 1. Open github link and click "Clone in Desktop" (on the right side of page)
