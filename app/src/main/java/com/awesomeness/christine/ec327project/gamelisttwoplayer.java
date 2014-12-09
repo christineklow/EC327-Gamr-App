@@ -24,11 +24,11 @@ public class gamelisttwoplayer extends ActionBarActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
-                        waterrace.setImageResource(R.drawable.buttontictactoeglow);
+                        ticbutton.setImageResource(R.drawable.buttontictactoeglow);
                         break;
                     }
                     case MotionEvent.ACTION_UP: {
-                        waterrace.setImageResource(R.drawable.buttontictactoe);
+                        ticbutton.setImageResource(R.drawable.buttontictactoe);
                         startActivity(new Intent("tictactoetwoplayer"));
                     }
                 }
