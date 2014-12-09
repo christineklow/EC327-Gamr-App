@@ -13,10 +13,10 @@ import android.widget.TextView;
 
 public class gamelisttwoplayer extends ActionBarActivity {
 
-    Button ticbutton;
+    ImageButton ticbutton;
 
     public void configuretictactoe(){
-        ticbutton = (Button) findViewById(R.id.ticbutton2);
+        ticbutton = (ImageButton) findViewById(R.id.ticbutton2);
         ticbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,7 +26,7 @@ public class gamelisttwoplayer extends ActionBarActivity {
     }
 
     public void configurewaterrace(){
-        ticbutton = (Button) findViewById(R.id.waterrace2);
+        ticbutton = (ImageButton) findViewById(R.id.waterrace2);
         ticbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
