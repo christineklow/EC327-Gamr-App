@@ -74,36 +74,41 @@ public class simonsays extends ActionBarActivity {
 
     public void addpattern(){
 
-        green.setEnabled(false);
-        blue.setEnabled(false);
-        yellow.setEnabled(false);
-        red.setEnabled(false);
+        if (count < 200) {
+            green.setEnabled(false);
+            blue.setEnabled(false);
+            yellow.setEnabled(false);
+            red.setEnabled(false);
 
-        message.setText("Repeat the sequence");
+            message.setText("Repeat the sequence");
 
-        //create next pattern step
-        Random random = new Random();
-        Pattern[count] = random.nextInt(4)+1;
+            //create next pattern step
+            Random random = new Random();
+            Pattern[count] = random.nextInt(4) + 1;
 
-        final int time = (count+1)*1000;
+            final int time = (count + 1) * 1000;
 
-        new CountDownTimer(1500,1000) {
+            new CountDownTimer(1500, 1000) {
 
-            public void onTick(long millisUntilFinished) {
-                if (count > 0)
-                {
-                    ready.setVisibility(View.VISIBLE);
-                    ready.setText("Good Job");
+                public void onTick(long millisUntilFinished) {
+                    if (count > 0) {
+                        ready.setVisibility(View.VISIBLE);
+                        ready.setText("Good Job");
+                    }
+
                 }
 
-            }
-
-            public void onFinish() {
-                count++;
-                ready.setVisibility(View.INVISIBLE);
-                showpattern(Pattern[patterncount]);
-            }
-        }.start();
+                public void onFinish() {
+                    count++;
+                    ready.setVisibility(View.INVISIBLE);
+                    showpattern(Pattern[patterncount]);
+                }
+            }.start();
+        }
+        else
+        {
+            gameover();
+        }
     }
 
     //makes the buttons light up with automated pattern
@@ -113,10 +118,10 @@ public class simonsays extends ActionBarActivity {
 
             public void onTick(long millisUntilFinished) {
                 switch(color){
-                    case 1: green.setImageResource(R.drawable.simongreen);break;
-                    case 2: blue.setImageResource(R.drawable.simonblue); break;
-                    case 3: yellow.setImageResource(R.drawable.simonyellow);break;
-                    case 4: red.setImageResource(R.drawable.simonred);break;
+                    case 1: green.setBackgroundResource(R.drawable.simongreen);break;
+                    case 2: blue.setBackgroundResource(R.drawable.simonblue); break;
+                    case 3: yellow.setBackgroundResource(R.drawable.simonyellow);break;
+                    case 4: red.setBackgroundResource(R.drawable.simonred);break;
                 }
             }
 
@@ -140,10 +145,10 @@ public class simonsays extends ActionBarActivity {
     //turns the light off for next in sequence
     public void hidepattern(int color){
         switch(color){
-            case 1: green.setImageResource(R.drawable.simongreenoff);break;
-            case 2: blue.setImageResource(R.drawable.simonblueoff); break;
-            case 3: yellow.setImageResource(R.drawable.simonyellowoff);break;
-            case 4: red.setImageResource(R.drawable.simonredoff);break;
+            case 1: green.setBackgroundResource(R.drawable.simongreenoff);break;
+            case 2: blue.setBackgroundResource(R.drawable.simonblueoff); break;
+            case 3: yellow.setBackgroundResource(R.drawable.simonyellowoff);break;
+            case 4: red.setBackgroundResource(R.drawable.simonredoff);break;
         }
     }
 
@@ -153,7 +158,7 @@ public class simonsays extends ActionBarActivity {
         //beginning of user's sequence
         message.setText("Your turn.");
 
-        boolean check = false;
+        //boolean check = false;
 
         //makes buttons clickable for player to replicate pattern
         configuregreen();
@@ -187,6 +192,10 @@ public class simonsays extends ActionBarActivity {
         {
             ready.setText("You lost. Can't you remember " + count + " turn?");
         }
+        else if(count == 200)
+        {
+            ready.setText("Congratulations! You memorized 200 turns. You finished the game!");
+        }
         else
         {
             ready.setText("You lost. Can't you remember " + count + " turns?");
@@ -212,6 +221,11 @@ public class simonsays extends ActionBarActivity {
         red.setVisibility(View.VISIBLE);
         message.setVisibility(View.VISIBLE);
         ready.setVisibility(View.INVISIBLE);
+
+        green.setEnabled(false);
+        blue.setEnabled(false);
+        yellow.setEnabled(false);
+        red.setEnabled(false);
 
         Pattern= new int[200];
         userInput= new int[200];
@@ -251,11 +265,11 @@ public class simonsays extends ActionBarActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         userInput[usercount] = 1;
-                        green.setImageResource(R.drawable.simongreen);
+                        green.setBackgroundResource(R.drawable.simongreen);
                         break;
                     }
                     case MotionEvent.ACTION_UP: {
-                        green.setImageResource(R.drawable.simongreenoff);
+                        green.setBackgroundResource(R.drawable.simongreenoff);
                         if (checksequence(usercount))
                         {
                             //continue game
@@ -284,11 +298,11 @@ public class simonsays extends ActionBarActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         userInput[usercount] = 2;
-                        blue.setImageResource(R.drawable.simonblue);
+                        blue.setBackgroundResource(R.drawable.simonblue);
                         break;
                     }
                     case MotionEvent.ACTION_UP: {
-                        blue.setImageResource(R.drawable.simonblueoff);
+                        blue.setBackgroundResource(R.drawable.simonblueoff);
                         if (checksequence(usercount))
                         {
                             //continue game
@@ -317,11 +331,11 @@ public class simonsays extends ActionBarActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         userInput[usercount] = 3;
-                        yellow.setImageResource(R.drawable.simonyellow);
+                        yellow.setBackgroundResource(R.drawable.simonyellow);
                         break;
                     }
                     case MotionEvent.ACTION_UP: {
-                        yellow.setImageResource(R.drawable.simonyellowoff);
+                        yellow.setBackgroundResource(R.drawable.simonyellowoff);
                         if (checksequence(usercount))
                         {
                             //continue game
@@ -350,11 +364,11 @@ public class simonsays extends ActionBarActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         userInput[usercount] = 4;
-                        red.setImageResource(R.drawable.simonred);
+                        red.setBackgroundResource(R.drawable.simonred);
                         break;
                     }
                     case MotionEvent.ACTION_UP: {
-                        red.setImageResource(R.drawable.simonredoff);
+                        red.setBackgroundResource(R.drawable.simonredoff);
                         if (checksequence(usercount))
                         {
                             //continue game
