@@ -52,7 +52,8 @@
                 android:id="@+id/ticbutton"
                 android:src="@drawable/buttontictactoe"
                 android:layout_gravity="center_horizontal"
-                android:background="@null" />
+                android:background="@null"
+                android:layout_marginTop="10dp"/>
 
             <!--Numbers button-->
             <!--when clicked, it should direct to activity_numbers screen-->
@@ -62,7 +63,8 @@
                 android:id="@+id/numbersbutton"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/buttonnumbers"
-                android:background="@null"/>
+                android:background="@null"
+                android:layout_marginTop="10dp"/>
 
             <!--Matching Pairs button-->
             <!--when clicked, it should direct to activity_numbers screen-->
@@ -73,7 +75,8 @@
                 android:id="@+id/matching"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/buttonmatching"
-                android:background="@null"/>
+                android:background="@null"
+                android:layout_marginTop="10dp"/>
 
             <!--Water Race button-->
             <!--when clicked, it should direct to activity_numbers screen-->
@@ -84,7 +87,8 @@
                 android:id="@+id/waterrace"
                 android:src="@drawable/buttonwaterfun"
                 android:layout_gravity="center_horizontal"
-                android:background="@null"/>
+                android:background="@null"
+                android:layout_marginTop="10dp"/>
 
             <!--Dont Push the button-->
             <!--when clicked, it should direct to activity_dontpush screen-->
@@ -94,7 +98,8 @@
                 android:id="@+id/buttongame"
                 android:layout_gravity="center_horizontal"
                 android:background="@null"
-                android:src="@drawable/buttonpush"/>
+                android:src="@drawable/buttonpush"
+                android:layout_marginTop="10dp"/>
 
             <!--Simon Says-->
             <!--when clicked, it should direct to activity_simonsays screen-->
@@ -104,7 +109,9 @@
                 android:id="@+id/simonsays"
                 android:src="@drawable/buttonsimon"
                 android:layout_gravity="center_horizontal"
-                android:background="@null" />
+                android:background="@null"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
 
         </LinearLayout>
     </ScrollView>
