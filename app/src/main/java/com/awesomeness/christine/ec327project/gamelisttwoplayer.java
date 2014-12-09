@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 public class gamelisttwoplayer extends ActionBarActivity {
 
     ImageButton ticbutton;
+    ImageButton waterrace;
 
     public void configuretictactoe(){
         ticbutton = (ImageButton) findViewById(R.id.ticbutton2);
@@ -26,14 +28,25 @@ public class gamelisttwoplayer extends ActionBarActivity {
     }
 
     public void configurewaterrace(){
-        ticbutton = (ImageButton) findViewById(R.id.waterrace2);
-        ticbutton.setOnClickListener(new View.OnClickListener() {
+        waterrace = (ImageButton) findViewById(R.id.waterrace2);
+        waterrace.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent("waterrace2"));
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        waterrace.setImageResource(R.drawable.buttonwaterfunglow);
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        waterrace.setImageResource(R.drawable.buttonwaterfun);
+                        startActivity(new Intent("waterrace2"));
+                    }
+                }
+                return false;
             }
+
         });
-    }
+        }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
