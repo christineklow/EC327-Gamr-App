@@ -3,6 +3,7 @@ package com.awesomeness.christine.ec327project;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -47,12 +48,16 @@ public class gamelist extends Activity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         ticbutton.setImageResource(R.drawable.buttontictactoeglow);
+
                         break;
                     }
                     case MotionEvent.ACTION_UP: {
                         ticbutton.setImageResource(R.drawable.buttontictactoe);
                         startActivity(new Intent("tictactoe"));
 
+                    }
+                    case MotionEvent.ACTION_CANCEL:{
+                        ticbutton.setImageResource(R.drawable.buttontictactoe);
                     }
                 }
                 return false;
@@ -69,12 +74,16 @@ public class gamelist extends Activity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         numbersbutton.setImageResource(R.drawable.buttonnumbersglow);
+
                         break;
                     }
                     case MotionEvent.ACTION_UP: {
                         numbersbutton.setImageResource(R.drawable.buttonnumbers);
                         startActivity(new Intent("numbers"));
 
+                    }
+                    case MotionEvent.ACTION_CANCEL:{
+                        numbersbutton.setImageResource(R.drawable.buttonnumbers);
                     }
                 }
                 return false;
@@ -91,12 +100,16 @@ public class gamelist extends Activity {
                         switch (event.getAction()) {
                             case MotionEvent.ACTION_DOWN: {
                                 matchpairsbutton.setImageResource(R.drawable.buttonmatchingglow);
+
                                 break;
                             }
                             case MotionEvent.ACTION_UP: {
                                 matchpairsbutton.setImageResource(R.drawable.buttonmatching);
                                 startActivity(new Intent("matchingpairs"));
 
+                            }
+                            case MotionEvent.ACTION_CANCEL:{
+                                matchpairsbutton.setImageResource(R.drawable.buttonmatching);
                             }
                         }
                         return false;
@@ -113,12 +126,16 @@ public class gamelist extends Activity {
                         switch (event.getAction()) {
                             case MotionEvent.ACTION_DOWN: {
                                 watergunbutton.setImageResource(R.drawable.buttonwaterfunglow);
+
                                 break;
                             }
                             case MotionEvent.ACTION_UP: {
                                 watergunbutton.setImageResource(R.drawable.buttonwaterfun);
                                 startActivity(new Intent("watergunrace"));
 
+                            }
+                            case MotionEvent.ACTION_CANCEL:{
+                                watergunbutton.setImageResource(R.drawable.buttonwaterfun);
                             }
                         }
                         return false;
@@ -135,12 +152,16 @@ public class gamelist extends Activity {
                         switch (event.getAction()) {
                             case MotionEvent.ACTION_DOWN: {
                                 dontpush.setImageResource(R.drawable.buttonpushglow);
+
                                 break;
                             }
                             case MotionEvent.ACTION_UP: {
                                 dontpush.setImageResource(R.drawable.buttonpush);
                                 startActivity(new Intent("dontpush"));
 
+                            }
+                            case MotionEvent.ACTION_CANCEL:{
+                                dontpush.setImageResource(R.drawable.buttonpush);
                             }
                         }
                         return false;
@@ -157,12 +178,16 @@ public class gamelist extends Activity {
                         switch (event.getAction()) {
                             case MotionEvent.ACTION_DOWN: {
                                 simonsays.setImageResource(R.drawable.buttonsimonglows);
+
                                 break;
                             }
                             case MotionEvent.ACTION_UP: {
                                 simonsays.setImageResource(R.drawable.buttonsimon);
                                 startActivity(new Intent("simonsays"));
 
+                            }
+                            case MotionEvent.ACTION_CANCEL:{
+                                simonsays.setImageResource(R.drawable.buttonsimon);
                             }
                         }
                         return false;
