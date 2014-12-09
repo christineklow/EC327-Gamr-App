@@ -30,6 +30,7 @@ public class gamelisttwoplayer extends ActionBarActivity {
                     case MotionEvent.ACTION_UP: {
                         ticbutton.setImageResource(R.drawable.buttontictactoe);
                         startActivity(new Intent("tictactoetwoplayer"));
+
                     }
                 }
                 return false;
