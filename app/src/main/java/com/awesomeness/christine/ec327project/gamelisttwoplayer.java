@@ -19,11 +19,22 @@ public class gamelisttwoplayer extends ActionBarActivity {
 
     public void configuretictactoe(){
         ticbutton = (ImageButton) findViewById(R.id.ticbutton2);
-        ticbutton.setOnClickListener(new View.OnClickListener() {
+        ticbutton.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent("tictactoetwoplayer"));
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        waterrace.setImageResource(R.drawable.buttontictactoeglow);
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        waterrace.setImageResource(R.drawable.buttontictactoe);
+                        startActivity(new Intent("tictactoetwoplayer"));
+                    }
+                }
+                return false;
             }
+
         });
     }
 
