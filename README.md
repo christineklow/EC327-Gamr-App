@@ -25,7 +25,7 @@ Github link: https://github.com/christineklow/EC327project
 ===========
 Instructions to run app with .apk file
 ==================
-1. Download intelligence_project.apk to android phone
+1. Download gamr.apk to android phone https://goo.gl/Bh9rXw
 2. Run app
 
 ==============
